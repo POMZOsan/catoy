@@ -64,3 +64,4 @@ README〜ER図作成：8/14〆切
 https://www.figma.com/file/0kEgh0YdCD7u3VnJ7Mcmpn/Catoy?node-id=0%3A1  
 
 ## ER図
+https://drive.google.com/file/d/18-ioA02iYqlv4fGvVUwO3ZK2ExQRgBEU/view?usp=sharing

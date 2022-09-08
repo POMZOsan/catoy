@@ -57,4 +57,10 @@
 README〜ER図作成：8/14〆切  
 メイン機能実装：8/14 - 9/15  
 β版をRUNTEQ内リリース（MVP）：9/15〆切  
-本番リリース：10月初旬
+本番リリース：10月初旬  
+
+
+## 画面遷移図
+https://www.figma.com/file/0kEgh0YdCD7u3VnJ7Mcmpn/Catoy?node-id=0%3A1  
+
+## ER図

@@ -1,0 +1,2 @@
+class Rakuten < ApplicationRecord
+end

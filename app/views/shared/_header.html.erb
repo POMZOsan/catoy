@@ -1,16 +1,24 @@
-<header> 
+<header>
   <div class="navbar bg-base-200">
-    <div class="flex-1">
-      <%= link_to root_path, class: 'btn btn-ghost normal-case text-xl' do %>
-        <%= image_tag 'logo_s.png', width: "50" %>
-      <% end %>
+  <div class="flex-1 px-2 lg:flex-none">
+    <%= link_to root_path, class: 'btn btn-ghost normal-case text-xl' do %>
+      <%= image_tag 'logo_s.png', width: "70" %>
+    <% end %>
+  </div> 
+  <div class="flex justify-end flex-1 px-2">
+    <div class="flex items-stretch">
+      <div class="dropdown dropdown-hover">
+        <label tabindex="0" class="btn btn-ghost">
+          レビュー <i class="fas fa-chevron-down"></i>
+        </label>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+          <li><%= link_to 'レビュー一覧', '#' %></li>
+          <li><%= link_to 'レビュー', '#' %></li>
+        </ul>
+      </div>
+      <%= link_to 'ログイン', '#', class: 'btn btn-ghost' %>
+      <%= link_to '新規登録', '#', class: 'btn btn-ghost' %>
     </div>
-    <div class="flex-none">
-      <ul class="menu menu-horizontal p-0">
-        <li><%= link_to 'レビュー', '#' %></li>
-        <li><%= link_to 'ログイン', '#' %></li>
-        <li><%= link_to '新規登録', '#' %></li>
-      </ul>
-    </div>
+  </div>
   </div>
 </header>

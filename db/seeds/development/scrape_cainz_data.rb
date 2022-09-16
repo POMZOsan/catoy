@@ -11,21 +11,38 @@ cainz_url = [
 
 urls = []
 cainz_url.each do |url|
+  category_url = []
   page = agent.get(url)
   elements = page.search('.m-goodslist_ttl a')
   elements.each do |ele|
-    urls << "https://www.cainz.com" + ele.get_attribute(:href)
+    category_url << "https://www.cainz.com" + ele.get_attribute(:href)
   end
 # 1.5~3秒ごとにアクセス
   sleep rand(1.5..3.0)
+  urls.push category_url
 end
 
-urls.each do |url|
-  page = agent.get(url) 
-  image_src = page.search('.m-productGallery li').at('img').get_attribute(:src)
-  name = page.at('.m-hdg1').inner_text
+mouse_category = Category.find(2) # ねずみ系のカテゴリー
 
-  Cainz.create(name: name, image: image_src, url: url )
-# 1.5~3秒ごとにアクセス
-  sleep rand(1.5..3.0)
+urls.each.with_index(1) do |url, i|
+  if i == 2
+    i = 3
+  elsif i == 3
+    i = 5
+  end
+  
+  category = Category.find(i)
+  url.each do |u|
+    page = agent.get(u) 
+    image_src = page.search('.m-productGallery li').at('img').get_attribute(:src)
+    name = page.at('.m-hdg1').inner_text
+
+    if name.match?(/ねずみ|ネズミ|マウス/)
+      mouse_category.cainzs.create(name: name, image: image_src, url: url )
+    else
+      category.cainzs.create(name: name, image: image_src, url: url )
+    end
+    # 1.5~3秒ごとにアクセス
+    sleep rand(1.5..3.0)
+  end
 end

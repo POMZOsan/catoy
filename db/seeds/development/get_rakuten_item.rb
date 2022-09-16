@@ -24,11 +24,12 @@ items.each.with_index(1) do |item, i|
     item.page(n).all do |it|
       break if count > max
 
-      if it['itemName'].match?(/けりぐるみ|ケリグルミ|ケリぐるみ/)
+      if it['itemName'].match?(/けりぐるみ|ケリグルミ|ケリぐるみ|蹴り/)
         kerigurumi_category.rakutens.create(
           name: it['itemName'],
           image: it['mediumImageUrls'][0],
-          url: it['itemUrl'])
+          url: it['itemUrl']
+        )
       else
         category.rakutens.create(
           name: it['itemName'],
@@ -41,4 +42,5 @@ items.each.with_index(1) do |item, i|
     break if count > max
     sleep 3
   end
+  sleep 3
 end

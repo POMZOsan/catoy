@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       redirect_to login_path
     else
       render :new
+    end
   end
 
   private

@@ -10,8 +10,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= render 'shared/header' %>
+  <body class="bg-neutral">
+    <% if logged_in? %>
+      <%= render 'shared/header' %>
+    <% else %>
+      <%= render 'shared/before_login_header' %>
+    <% end %>
     <%= yield %>
     <%= render 'shared/footer' %>
   </body>

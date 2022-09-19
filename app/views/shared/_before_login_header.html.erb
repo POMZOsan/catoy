@@ -8,25 +8,15 @@
   <div class="flex justify-end flex-1 px-2">
     <div class="flex items-stretch">
       <div class="dropdown dropdown-hover">
-        <label tabindex="0" class="btn btn-ghost mx-5">
+        <label tabindex="0" class="btn btn-ghost">
           レビュー <span class="ml-2"><i class="fas fa-chevron-down"></i></span>
         </label>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
           <li><%= link_to 'レビュー一覧', '#' %></li>
-          <li><%= link_to 'レビュー作成', '#' %></li>
         </ul>
       </div>
-      <div class="dropdown dropdown-hover">
-        <label tabindex="0" class="btn btn-ghost btn-circle avatar ml-5 mr-16">
-          <div class="w-10 rounded-full">
-            <%= image_tag 'sample.jpg' %>
-          </div>
-        </label>
-        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
-          <li><%= link_to 'プロフィール', '#' %></li>
-          <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
-        </ul>
-      </div>
+      <%= link_to 'ログイン', login_path, class: 'btn btn-ghost' %>
+      <%= link_to '新規登録', sign_up_path, class: 'btn btn-ghost' %>
     </div>
   </div>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_17_032832) do
+ActiveRecord::Schema.define(version: 2022_09_19_051323) do
 
   create_table "cainzs", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 2022_09_17_032832) do
     t.index ["category_id"], name: "index_category_blocks_on_category_id"
   end
 
+  create_table "cats", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name", null: false
+    t.integer "sex", default: 0
+    t.integer "character", default: 0
+    t.datetime "birth_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_cats_on_user_id"
+  end
+
   create_table "rakutens", force: :cascade do |t|
     t.string "name"
     t.string "image"
@@ -56,4 +67,5 @@ ActiveRecord::Schema.define(version: 2022_09_17_032832) do
   end
 
   add_foreign_key "category_blocks", "categories"
+  add_foreign_key "cats", "users"
 end

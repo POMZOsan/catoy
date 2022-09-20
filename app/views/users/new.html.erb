@@ -1,7 +1,7 @@
 <div class="flex flex-col items-center justify-center">
   <div class="flex flex-col bg-white shadow-md px-10 py-8 m-4 rounded-3xl w-96">
     <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
-      新規登録
+      <%= t('users.new.title') %>
     </div>
         <div class="mt-5">
           <%= form_with model: @user, local: true do |f| %>
@@ -22,11 +22,11 @@
               <%= f.password_field :password_confirmation, class: "input input-bordered input-sm w-full max-w-xs" %>
             </div>
             <div class="flex justify-center items-center mb-5">
-              <%= f.submit '登録', class: "btn" %>
+              <%= f.submit t('defaults.register'), class: "btn" %>
             </div>
           <% end %>
           <div class="flex justify-center items-center mt-6">
-            <%= link_to 'ログインページ', login_path, class: "link link-hover" %>
+            <%= link_to t('users.new.to_login'), login_path, class: "link link-hover" %>
           </div>
     </div>
   </div>

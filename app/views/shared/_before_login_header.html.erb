@@ -12,11 +12,11 @@
           レビュー <span class="ml-2"><i class="fas fa-chevron-down"></i></span>
         </label>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
-          <li><%= link_to 'レビュー一覧', '#' %></li>
+          <li><%= link_to t('reviews.index.title'), '#' %></li>
         </ul>
       </div>
-      <%= link_to 'ログイン', login_path, class: 'btn btn-ghost' %>
-      <%= link_to '新規登録', sign_up_path, class: 'btn btn-ghost' %>
+      <%= link_to t('user_sessions.new.title'), login_path, class: 'btn btn-ghost' %>
+      <%= link_to t('users.new.title'), sign_up_path, class: 'btn btn-ghost' %>
     </div>
   </div>
   </div>

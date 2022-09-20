@@ -1,0 +1,30 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    logout: 'ログアウト'
+    register: '登録'
+    update: '更新'
+  users:
+    new:
+      title: '新規登録'
+      to_login: 'ログインページへ'
+  user_sessions:
+    new:
+      title: 'ログイン'
+      to_sign_up: '新規登録ページへ'
+      password_forget: 'パスワードをお忘れですか？'
+  reviews:
+    index:
+      title: 'レビュー一覧'
+    new:
+      title: 'レビュー作成'
+  profiles:
+    show:
+      title: 'プロフィール'
+    edit:
+      title: 'プロフィール編集'
+    mycats:
+      show:
+        title: '飼い猫プロフィール'
+      new:
+        title: '飼い猫プロフィール作成'

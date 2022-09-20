@@ -1,7 +1,7 @@
 <div class="flex flex-col items-center justify-center">
   <div class="flex flex-col bg-white shadow-md px-10 py-8 m-4 rounded-3xl w-96">
     <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
-      ログイン
+      <%= t('user_sessions.new.title') %>
     </div>
         <div class="mt-5">
           <%= form_with url: login_path, local: true do |f| %>
@@ -18,11 +18,14 @@
               <%= f.password_field :password_confirmation, class: "input input-bordered input-sm w-full max-w-xs" %>
             </div>
             <div class="flex justify-center items-center mb-5">
-              <%= f.submit 'ログイン', class: "btn" %>
+              <%= f.submit t('defaults.login'), class: "btn" %>
             </div>
           <% end %>
           <div class="flex justify-center items-center mt-6">
-            <%= link_to '新規登録ページ', sign_up_path, class: "link link-hover" %>
+            <%= link_to t('user_sessions.new.to_sign_up'), sign_up_path, class: "link link-hover" %>
+          </div>
+          <div class="flex justify-center items-center mt-6">
+            <%= link_to t('user_sessions.new.password_forget'), '#', class: "link link-hover" %>
           </div>
     </div>
   </div>

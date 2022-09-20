@@ -38,6 +38,6 @@ ja:
       fail: 'プロフィールの更新に失敗しました'
     mycats:
       show:
-        title: '飼い猫プロフィール'
+        title: '猫プロフィール'
       new:
-        title: '飼い猫プロフィール作成'
+        title: '猫プロフィール作成'

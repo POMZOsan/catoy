@@ -33,6 +33,9 @@ ja:
       title: 'プロフィール'
     edit:
       title: 'プロフィール編集'
+    update:
+      success: 'プロフィールを更新しました'
+      fail: 'プロフィールの更新に失敗しました'
     mycats:
       show:
         title: '飼い猫プロフィール'

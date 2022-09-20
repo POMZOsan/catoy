@@ -1,0 +1,5 @@
+<% flash.each do |msg_type, msg| %>
+  <div class="<%= flash_type(msg_type) %> shadow-lg">
+    <span><%= msg %></span>
+  </div>
+<% end %>

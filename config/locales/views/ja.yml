@@ -8,11 +8,19 @@ ja:
     new:
       title: '新規登録'
       to_login: 'ログインページへ'
+    create:
+      success: 'ユーザー登録が完了しました'
+      fail: 'ユーザー登録に失敗しました'
   user_sessions:
     new:
       title: 'ログイン'
       to_sign_up: '新規登録ページへ'
       password_forget: 'パスワードをお忘れですか？'
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
   reviews:
     index:
       title: 'レビュー一覧'

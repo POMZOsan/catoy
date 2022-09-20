@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      cat: '猫'
+      cainz: 'カインズ'
+      rakuten: '楽天'
+      category: 'カテゴリー'
+    attributes:
+      user:
+        name: '名前'
+        email: 'メール'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+        introduction: '自己紹介'
+      cat:
+        name: '名前'
+        sex: '性別'
+        character: '性格'
+        birth_date: '誕生日'
+      cainz:
+        name: '商品名'
+        image: '商品画像'
+        url: '商品URL'
+      rakuten:
+        name: '商品名'
+        image: '商品画像'
+        url: '商品URL'
+      category:
+        name: 'カテゴリー名'
+        

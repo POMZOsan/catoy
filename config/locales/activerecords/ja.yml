@@ -19,7 +19,7 @@ ja:
         sex: '性別'
         character: '性格'
         birth_date: '誕生日'
-        avatars: 'アバター'
+        avatar: 'アバター'
       cainz:
         name: '商品名'
         image: '商品画像'
@@ -30,4 +30,11 @@ ja:
         url: '商品URL'
       category:
         name: 'カテゴリー名'
-        
+  enums:
+    cat:
+      sex:
+        male: 'オス'
+        female: 'メス'
+      character:
+        active: '活発'
+        gentle: 'おとなしい'

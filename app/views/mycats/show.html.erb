@@ -5,8 +5,8 @@
     </div>
     <div class="avatar self-center mb-4">
       <div class="w-24 mask mask-squircle">
-        <% if current_user.avatar.attached? %>
-          <%= image_tag current_user.avatar %>
+        <% if current_user.cat.avatar.attached? %>
+          <%= image_tag current_user.cat.avatar %>
         <% else %>
           <%= image_tag 'sample.jpg' %>
         <% end %>
@@ -15,23 +15,17 @@
     <div>
       <div class="text-center">
         <div class="text-lg font-extrabold mb-4">
-          <%= current_user.name %>
+          <%= current_user.cat.name %>
         </div>
         <div class="text-base-content/70 my-3 text-sm">
-          <% if current_user.introduction.present? %>
-            <%= current_user.introduction %>
-          <% else %>
-            自己紹介文はまだありません
-          <% end %>
+          <%= current_user.cat.sex_i18n %></br>
+          <%= current_user.cat.character_i18n %></br>
+          <%= l current_user.cat.birth_date, format: :short %></br>
         </div>
       </div>
     </div>
-    <div class="flex justify-between mt-4">
-      <%= link_to '猫を登録する', new_profile_mycat_path, class: "btn" %>
-      <%= link_to '編集する', edit_profile_path, class: "btn" %>
-    </div>
     <div class="flex justify-center mt-4">
-      <%= link_to '自分のプロフィールを見る', '#', class: "link link-hover" %>
+      <%= link_to '編集する', edit_profile_mycat_path, class: "btn" %>
     </div>
   </div>
 </div>

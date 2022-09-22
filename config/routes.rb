@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 
   get 'sign_up', to: 'users#new'
   resources :users, only: %i[ create ]
-  resource :profile, only: %i[ show edit update ]
+  resource :profile, only: %i[ show edit update ] do
+    resource :mycat, only: %i[ new create show edit update]
+  end
 end

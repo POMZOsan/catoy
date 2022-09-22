@@ -20,7 +20,7 @@
         <div class="text-base-content/70 my-3 text-sm">
           <%= current_user.cat.sex_i18n %></br>
           <%= current_user.cat.character_i18n %></br>
-          <%= current_user.cat.birth_date %></br>
+          <%= l current_user.cat.birth_date, format: :short %></br>
         </div>
       </div>
     </div>

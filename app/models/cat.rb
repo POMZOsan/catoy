@@ -13,7 +13,7 @@
 #
 class Cat < ApplicationRecord
   belongs_to :user
-  has_many_attached :avatars
+  has_one_attached :avatar
 
   validates :name, presence: true, length: { maximum: 255 }
 

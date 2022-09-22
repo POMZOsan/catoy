@@ -5,16 +5,24 @@
     </div>
     <div class="avatar self-center mb-4">
       <div class="w-24 mask mask-squircle">
-        <%= image_tag 'sample.jpg' %>
+        <% if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar %>
+        <% else %>
+          <%= image_tag 'sample.jpg' %>
+        <% end %>
       </div>
     </div>
     <div>
       <div class="text-center">
         <div class="text-lg font-extrabold mb-4">
-          ユーザー名
-        </div> 
+          <%= current_user.name %>
+        </div>
         <div class="text-base-content/70 my-3 text-sm">
-          自己紹介文
+          <% if current_user.introduction.present? %>
+            <%= current_user.introduction %>
+          <% else %>
+            自己紹介文はまだありません
+          <% end %>
         </div>
       </div>
     </div>

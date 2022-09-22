@@ -30,4 +30,11 @@ ja:
         url: '商品URL'
       category:
         name: 'カテゴリー名'
-        
+  enums:
+    cat:
+      sex:
+        male: 'オス'
+        female: 'メス'
+      character:
+        active: '活発'
+        gentle: 'おとなしい'

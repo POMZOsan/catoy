@@ -14,8 +14,6 @@ gem 'sass-rails', '>= 6'
 gem 'sorcery', '~> 0.16.3'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -27,7 +25,7 @@ gem 'net-smtp'
 gem 'rakuten_web_service'
 gem 'rails-i18n', '~> 6.0'
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -44,6 +42,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'foreman'
+  gem 'htmlbeautifier'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.

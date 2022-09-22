@@ -4,23 +4,27 @@ class MycatsController < ApplicationController
     @cat = Cat.new
   end
 
-  def show
-  end
+  def show; end
 
   def create
-    @cat = current_user.cat.new(cat_params)
+    @cat = current_user.build_cat(cat_params)
     if @cat.save
-      redirect_to :show, success: t('.success')
+      redirect_to profile_mycat_path, success: t('.success')
     else
       flash.now[:error] = t('.fail')
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
+    if @cat.update(cat_params)
+      redirect_to profile_mycat_path, success: t('.success')
+    else
+      flash.now[:error] = t('.fail')
+      render :edit
+    end
   end
 
   private

@@ -18,12 +18,12 @@
       </div>
       <div class="dropdown dropdown-hover">
         <label tabindex="0" class="btn btn-ghost btn-circle avatar ml-5 mr-16">
-          <div class="w-10 rounded-full">
+          <div class="w-10 mask mask-squircle">
             <%= image_tag 'sample.jpg' %>
           </div>
         </label>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
-          <li><%= link_to t('profiles.show.title'), '#' %></li>
+          <li><%= link_to t('profiles.show.title'), profile_path %></li>
           <li><%= link_to t('defaults.logout'), logout_path, method: :delete %></li>
         </ul>
       </div>

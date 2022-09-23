@@ -5,8 +5,8 @@
 #  id         :integer          not null, primary key
 #  user_id    :integer          not null
 #  name       :string           not null
-#  sex        :integer          default(0)
-#  character  :integer          default(0)
+#  sex        :integer          default("male")
+#  character  :integer          default("active")
 #  birth_date :datetime
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: reviews
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer          not null
+#  title      :string           not null
+#  content    :text             not null
+#  rate       :float
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Review < ApplicationRecord
   belongs_to :user, dependent: :destroy
   has_one :review_block

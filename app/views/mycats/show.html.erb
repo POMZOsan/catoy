@@ -5,11 +5,7 @@
     </div>
     <div class="avatar self-center mb-4">
       <div class="w-24 mask mask-squircle">
-        <% if current_user.cat.avatar.attached? %>
-          <%= image_tag current_user.cat.avatar %>
-        <% else %>
-          <%= image_tag 'sample.jpg' %>
-        <% end %>
+        <%= current_user.decorate.cat_has_avatar? %>
       </div>
     </div>
     <div>

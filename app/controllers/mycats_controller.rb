@@ -9,9 +9,9 @@ class MycatsController < ApplicationController
   def create
     @cat = current_user.build_cat(cat_params)
     if @cat.save
-      redirect_to profile_mycat_path, success: t('.success')
+      redirect_to profile_mycat_path, success: t('defaults.message.create', item: Cat.model_name.human)
     else
-      flash.now[:error] = t('.fail')
+      flash.now[:error] = t('defaults.message.fail_create', item: Cat.model_name.human)
       render :new
     end
   end
@@ -20,9 +20,9 @@ class MycatsController < ApplicationController
 
   def update
     if @cat.update(cat_params)
-      redirect_to profile_mycat_path, success: t('.success')
+      redirect_to profile_mycat_path, success: t('defaults.message.update', item: Cat.model_name.human)
     else
-      flash.now[:error] = t('.fail')
+      flash.now[:error] = t('defaults.message.fail_update', item: Cat.model_name.human)
       render :edit
     end
   end

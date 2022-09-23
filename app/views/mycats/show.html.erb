@@ -15,8 +15,8 @@
         </div>
         <div class="text-base-content/70 my-3 text-sm">
           <%= current_user.cat.sex_i18n %></br>
-          <%= current_user.cat.character_i18n %></br>
-          <%= l current_user.cat.birth_date, format: :short %></br>
+          <%= current_user.cat.decorate.character %></br>
+          <%= current_user.cat.decorate.birth_day %>
         </div>
       </div>
     </div>

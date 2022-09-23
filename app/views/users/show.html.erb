@@ -33,8 +33,8 @@
             </div>
             <div>
               <%= @user.cat.sex_i18n %></br>
-              <%= @user.cat.character_i18n%></br>
-              <%= l @user.cat.birth_date, format: :short %></br>
+              <%= @user.cat.decorate.character %></br>
+              <%= @user.cat.decorate.birth_day %></br>
             </div>
           </div>
         </div>

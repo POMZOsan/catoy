@@ -5,6 +5,7 @@
     </div>
     <div class="mt-5">
       <%= form_with model: @cat, url: profile_mycat_path, local: true do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
         <div class="flex flex-col mb-5">
           <%= f.label :avatar %>
           <%= f.file_field :avatar, accept: 'image/*' %>
@@ -18,22 +19,22 @@
           <%= f.radio_button :sex, Cat.sexes.invert[0], class: "radio" %>
           <%= f.label Cat.sexes_i18n['female'] %>
           <%= f.radio_button :sex, Cat.sexes.invert[1], class: "radio" %>
-          </div>
         </div>
-        <div class="flex flex-col mb-5">
-          <%= f.label Cat.characters_i18n['active'] %>
-          <%= f.radio_button :character, Cat.characters.invert[0], class: "radio" %>
-          <%= f.label Cat.characters_i18n['gentle'] %>
-          <%= f.radio_button :character, Cat.characters.invert[1], class: "radio" %>
-        </div>
-        <div class="flex flex-col mb-5">
-          <%= f.label :birth_date %>
-          <%= f.date_field :birth_date, class: "select select-bordered w-full max-w-xs" %>
-        </div>
-        <div class="flex justify-center items-center mb-5">
-          <%= f.submit t('defaults.register'), class: "btn" %>
-        </div>
-      <% end %>
-    </div>
+      </div>
+      <div class="flex flex-col mb-5">
+        <%= f.label Cat.characters_i18n['active'] %>
+        <%= f.radio_button :character, Cat.characters.invert[0], class: "radio" %>
+        <%= f.label Cat.characters_i18n['gentle'] %>
+        <%= f.radio_button :character, Cat.characters.invert[1], class: "radio" %>
+      </div>
+      <div class="flex flex-col mb-5">
+        <%= f.label :birth_date %>
+        <%= f.date_field :birth_date, class: "select select-bordered w-full max-w-xs" %>
+      </div>
+      <div class="flex justify-center items-center mb-5">
+        <%= f.submit t('defaults.register'), class: "btn" %>
+      </div>
+    <% end %>
   </div>
+</div>
 </div>

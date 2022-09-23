@@ -15,6 +15,7 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
   has_one_attached :avatar
   has_one :cat
+  has_many :reviews
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

@@ -11,6 +11,8 @@
 #  updated_at :datetime         not null
 #
 class Review < ApplicationRecord
+  has_one_attached :image
+
   belongs_to :user, dependent: :destroy
   has_one :review_block
   has_one :cainz, through: :review_block, source: :product, source_type: 'Cainz'

@@ -6,6 +6,7 @@ ja:
       cainz: 'カインズ'
       rakuten: '楽天'
       category: 'カテゴリー'
+      review: 'レビュー'
     attributes:
       user:
         name: '名前'
@@ -30,6 +31,11 @@ ja:
         url: '商品URL'
       category:
         name: 'カテゴリー名'
+      review:
+        title: 'タイトル'
+        content: 'レビュー内容'
+        rate: '星'
+        image: 'レビュー画像'
   enums:
     cat:
       sex:

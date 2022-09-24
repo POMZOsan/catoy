@@ -34,6 +34,10 @@ ja:
       title: 'レビュー一覧'
     new:
       title: 'レビュー作成'
+    show:
+      title: 'レビュー'
+    edit:
+      title: 'レビュー編集'
   profiles:
     show:
       title: 'プロフィール'

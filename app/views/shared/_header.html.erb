@@ -19,11 +19,7 @@
       <div class="dropdown dropdown-hover">
         <label tabindex="0" class="btn btn-ghost btn-circle avatar ml-5 mr-16">
           <div class="w-10 mask mask-squircle">
-            <% if current_user.avatar.attached? %>
-              <%= image_tag current_user.avatar %>
-            <% else %>
-              <%= image_tag 'sample.jpg' %>
-            <% end %>
+            <%= current_user.decorate.has_avatar? %>
           </div>
         </label>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">

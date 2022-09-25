@@ -20,4 +20,12 @@ class Review < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :content, presence: true
+
+  def product
+    if review_block.product_type == 'Cainz'
+      cainz
+    elsif review_block.product_type == 'Rakuten'
+      rakuten
+    end
+  end
 end

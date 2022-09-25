@@ -36,6 +36,7 @@ ja:
       title: 'レビュー作成'
     show:
       title: 'レビュー'
+      check_site: '商品サイトを見てみる'
     edit:
       title: 'レビュー編集'
   profiles:

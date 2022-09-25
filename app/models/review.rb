@@ -28,4 +28,14 @@ class Review < ApplicationRecord
       rakuten
     end
   end
+
+  def rating_parcent
+    if rate.present?
+      cal = (rate / 5).to_f * 100
+      parcent = cal.round
+      return parcent
+    else
+      return 0
+    end
+  end
 end

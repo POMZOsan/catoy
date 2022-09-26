@@ -1,10 +1,6 @@
 class ReviewDecorator < Draper::Decorator
   delegate_all
 
-  def has_image?
-    object.image.attached? ? h.image_tag(object.image) : h.image_tag('board_placeholder')
-  end
-
   def star
     "星#{object.rate}つ"
   end

@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ show ]
 
   def index
+    @reviews = Review.all.includes(:user).order(created_at: :desc)
   end
 
   def new

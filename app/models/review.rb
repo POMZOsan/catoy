@@ -6,15 +6,17 @@
 #  user_id    :integer          not null
 #  title      :string           not null
 #  content    :text             not null
-#  rate       :float
+#  rate       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 class Review < ApplicationRecord
+  before_save :default_image
+
   has_one_attached :image
 
-  belongs_to :user, dependent: :destroy
-  has_one :review_block
+  belongs_to :user
+  has_one :review_block, dependent: :destroy
   has_one :cainz, through: :review_block, source: :product, source_type: 'Cainz'
   has_one :rakuten, through: :review_block, source: :product, source_type: 'Rakuten'
 
@@ -31,11 +33,19 @@ class Review < ApplicationRecord
 
   def rating_parcent
     if rate.present?
-      cal = (rate / 5).to_f * 100
+      cal = rate.to_f / 5 * 100
       parcent = cal.round
       return parcent
     else
       return 0
     end
   end
+
+  private
+
+ def default_image
+  unless image.attached?
+    image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'board_placeholder.png')), filename: 'default-image.png', content_type: 'image/png')
+  end
+ end
 end

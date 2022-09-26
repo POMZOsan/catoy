@@ -1,10 +1,7 @@
 <%= stylesheet_link_tag params[:controller] %>
-
 <div class="container px-5 py-24 mx-auto">
-  <div class="lg:w-4/5 mx-auto flex flex-wrap bg-white rounded-3xl">
-    <div class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center">
-      <%= @review.decorate.has_image? %>
-    </div>
+  <div class="lg:w-4/5 mx-auto flex flex-wrap bg-white rounded-2xl">
+    <%= image_tag @review.image, class: "lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded-2xl" %>
     <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
       <div class="flex items-center space-x-2">
         <div class="w-16 mask mask-squircle">

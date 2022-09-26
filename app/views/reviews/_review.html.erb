@@ -1,0 +1,18 @@
+<div class="card lg:card-side bg-base-100 shadow-xl">
+  <figure><%= image_tag review.image, class: "h-80 w-52" %></figure>
+  <div class="card-body">
+    <h2 class="card-title">
+      <%= link_to review.title, review_path(review) %>
+    </h2>
+    <span class="star-rating">
+      <span class="star-rating-front" style="width: <%= review.rating_parcent %>%">★★★★★</span>
+      <span class="star-rating-back">★★★★★</span>
+    </span>
+    <span class="ml-6 mt-3">
+      <%= link_to '#' do %>
+        <i class="far fa-heart"></i>
+      <% end %>
+    </span>
+    <p><%= review.content %></p>
+  </div>
+</div>

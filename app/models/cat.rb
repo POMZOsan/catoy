@@ -12,7 +12,7 @@
 #  updated_at :datetime         not null
 #
 class Cat < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   has_one_attached :avatar
 
   validates :name, presence: true, length: { maximum: 255 }

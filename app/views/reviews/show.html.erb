@@ -5,7 +5,9 @@
     <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
       <div class="flex items-center space-x-2">
         <div class="w-16 mask mask-squircle">
-          <%= @review.user.decorate.has_avatar? %>
+          <%= link_to user_path(@review.user.id) do %>
+            <%= image_tag @review.user.avatar %>
+          <% end %>
         </div>
         <div class="text-sm font-medium"><%= @review.user.name %></div>
       </div>

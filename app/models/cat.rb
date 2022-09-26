@@ -12,6 +12,8 @@
 #  updated_at :datetime         not null
 #
 class Cat < ApplicationRecord
+  before_save :default_avatar
+
   belongs_to :user
   has_one_attached :avatar
 
@@ -19,4 +21,12 @@ class Cat < ApplicationRecord
 
   enum sex: { male: 0, female: 1 }
   enum character: { active: 0, gentle: 1 }
+
+  private
+
+  def default_avatar
+    unless avatar.attached?
+      avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'sample.jpg')), filename: 'default-avatar.jpg', content_type: 'image/jpg')
+    end
+  end
 end

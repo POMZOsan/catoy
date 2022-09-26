@@ -28,7 +28,7 @@
       <div class="text-sm font-medium">reviewed by <%= review.user.name %></div>
       <div class="w-12 mask mask-squircle">
         <%= link_to user_path(review.user.id) do %>
-          <%= review.user.decorate.has_avatar? %>
+          <%= image_tag review.user.avatar %>
         <% end %>
       </div>
     </div>

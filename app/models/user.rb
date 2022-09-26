@@ -13,7 +13,10 @@
 #
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  before_save :default_avatar
+
   has_one_attached :avatar
+
   has_one :cat, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
@@ -23,4 +26,12 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
+
+  private
+
+  def default_avatar
+    unless avatar.attached?
+      avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'sample.jpg')), filename: 'default-avatar.jpg', content_type: 'image/jpg')
+    end
+  end
 end

@@ -4,15 +4,33 @@
     <h2 class="card-title">
       <%= link_to review.title, review_path(review) %>
     </h2>
-    <span class="star-rating">
-      <span class="star-rating-front" style="width: <%= review.rating_parcent %>%">★★★★★</span>
-      <span class="star-rating-back">★★★★★</span>
-    </span>
-    <span class="ml-6 mt-3">
-      <%= link_to '#' do %>
-        <i class="far fa-heart"></i>
-      <% end %>
-    </span>
+    <div>
+      <span class="star-rating">
+        <span class="star-rating-front" style="width: <%= review.rating_parcent %>%">★★★★★</span>
+        <span class="star-rating-back">★★★★★</span>
+      </span>
+      <span class="ml-10">
+        <%= link_to '#' do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+      </span>
+    </div>
+    <div>
+      <i class="far fa-calendar-alt"></i>
+      <%= l review.created_at, format: :long %>
+    </div>
+    <div>
+      <i class="fas fa-store"></i>
+      <%= review.decorate.shop %>
+    </div>
     <p><%= review.content %></p>
+    <div class="flex items-end space-x-2">
+      <div class="text-sm font-medium">reviewed by <%= review.user.name %></div>
+      <div class="w-12 mask mask-squircle">
+        <%= link_to user_path(review.user.id) do %>
+          <%= review.user.decorate.has_avatar? %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

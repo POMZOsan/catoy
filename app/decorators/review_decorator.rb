@@ -1,6 +1,10 @@
 class ReviewDecorator < Draper::Decorator
   delegate_all
 
+  def image
+    object.image || 'board_placeholder.png'
+  end
+
   def star
     "星#{object.rate}つ"
   end

@@ -11,8 +11,6 @@
 #  updated_at :datetime         not null
 #
 class Review < ApplicationRecord
-  before_save :default_image
-
   has_one_attached :image
 
   belongs_to :user
@@ -40,12 +38,4 @@ class Review < ApplicationRecord
       return 0
     end
   end
-
-  private
-
- def default_image
-  unless image.attached?
-    image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'board_placeholder.png')), filename: 'default-image.png', content_type: 'image/png')
-  end
- end
 end

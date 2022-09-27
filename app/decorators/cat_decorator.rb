@@ -16,4 +16,8 @@ class CatDecorator < Draper::Decorator
       "#{object.character_i18n}性格"
     end
   end
+
+  def avatar
+    object.avatar || 'sample.jpg'
+  end
 end

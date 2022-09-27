@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   skip_before_action :require_login, only: %i[ index show ]
-  before_action :set_review, only: %i[ show ]
+  before_action :set_review, only: %i[ edit update destroy ]
 
   def index
     @reviews = Review.all.includes(:user).order(created_at: :desc)
@@ -23,8 +23,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
   end

@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :reviews
   resources :users, only: %i[ create show ]
   resource :profile, only: %i[ show edit update ] do
-    resource :mycat, only: %i[ new create show edit update]
+    resource :mycat, only: %i[ new create show edit update], module: 'profiles'
   end
 end

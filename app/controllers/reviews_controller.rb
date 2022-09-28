@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     if @review.save_with_product(product_id: params.dig(:review, :product_id), product_type: params.dig(:review, :product_type))
       redirect_to review_path(@review), success: t('defaults.message.create', item: Review.model_name.human)
     else
-      flash.now[:error] = t('defaults.message.fail_create')
+      flash.now[:error] = t('defaults.message.fail_create', item: Review.model_name.human)
       render :new
     end
   end
@@ -29,9 +29,9 @@ class ReviewsController < ApplicationController
   def update
     @review.assign_attributes(review_params)
     if @review.save_with_product(product_id: params.dig(:review, :product_id), product_type: params.dig(:review, :product_type))
-      redirect_to review_path(@review), success: t('defaults.message.create', item: Review.model_name.human)
+      redirect_to review_path(@review), success: t('defaults.message.update', item: Review.model_name.human)
     else
-      flash.now[:error] = t('defaults.message.fail_update')
+      flash.now[:error] = t('defaults.message.fail_update', item: Review.model_name.human)
       render :edit
     end
   end

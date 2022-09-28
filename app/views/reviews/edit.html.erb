@@ -1,2 +1,47 @@
-<h1>Reviews#edit</h1>
-<p>Find me in app/views/reviews/edit.html.erb</p>
+<div class="flex flex-col items-center justify-center">
+  <div class="flex flex-col bg-white shadow-md px-10 py-8 m-4 rounded-3xl w-2/4">
+    <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
+      <%= t('.title') %>
+    </div>
+    <div class="mt-5">
+      <%= form_with model: @review, local: true do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="flex flex-col mb-5">
+          <%= f.label Review.human_attribute_name(:title) %>
+          <%= f.text_field :title, class: "input input-bordered input-sm w-full max-w-xs" %>
+        </div>
+        <div class="flex flex-col mb-5">
+          <%= f.label Review.human_attribute_name(:content) %>
+          <%= f.text_area :content, class: "textarea textarea-bordered", rows: "5" %>
+        </div>
+        <div class="flex flex-col mb-5">
+          <%= f.label Review.human_attribute_name(:rate) %>
+          <%= f.number_field :rate, in: 0..5, step: 01, class: "select select-bordered w-full max-w-xs" %>
+        </div>
+        <div class="flex flex-col mb-5">
+          <%= f.label Review.human_attribute_name(:image) %>
+          <%= f.file_field :image, accept: 'image/*' %>
+        </div>
+          お店選択</br>
+          <%= f.label :product_type, 'カインズ' %>
+          <%= f.radio_button :product_type, 'Cainz' %>
+          <%= f.label :product_type, '楽天24' %>
+          <%= f.radio_button :product_type, 'Rakuten' %>
+        <div class="flex flex-col mb-5">
+          商品選択</br>
+          カインズ</br>
+          <div class="select select-bordered w-full">
+            <%= f.collection_select :product_id, Cainz.order(:name), :id, :name, { prompt: "選択してください" } %>
+          </div>
+          楽天24</br>
+          <div class="select select-bordered w-full">
+            <%= f.collection_select :product_id, Rakuten.order(:name), :id, :name, { prompt: "選択してください" } %>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mb-5">
+          <%= f.submit t('defaults.register'), class: "btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

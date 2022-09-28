@@ -10,12 +10,13 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
-  def show; end
+  def show
+    @review = Review.find(params[:id])
+  end
 
   def create
     @review = current_user.reviews.build(review_params)
-    if @review.save
-      which_product(@review) # 商品が登録されていないときのvalidationを追加する必要アリ
+    if @review.save_with_product(which_product)
       redirect_to review_path(@review), success: t('defaults.message.create', item: Review.model_name.human)
     else
       flash.now[:error] = t('defaults.message.fail_create')
@@ -34,22 +35,16 @@ class ReviewsController < ApplicationController
   private
 
   def set_review
-    @review = Review.find(params[:id])
+    @review = current_user.reviews.find(params[:id])
   end
 
-  def set_cainz(id)
-    @cainz = Cainz.find(id)
-  end
-
-  def set_rakuten(id)
-    @rakuten = Rakuten.find(id)
-  end
-
-  def which_product(review)
+  def which_product
     if params[:review][:cainz_id].present?
-      set_cainz(params[:review][:cainz_id]).reviews << review
+      @product = Cainz.find(params[:review][:cainz_id])
     elsif params[:review][:rakuten_id].present?
-      set_rakuten(params[:review][:rakuten_id]).reviews << review
+      @product = Rakuten.find(params[:review][:rakuten_id])
+    else
+      @product = 'no_product'
     end
   end
 

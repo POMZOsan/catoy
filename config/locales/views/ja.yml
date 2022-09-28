@@ -46,10 +46,10 @@ ja:
       title: 'プロフィール'
     edit:
       title: 'プロフィール編集'
-  mycats:
-    show:
-      title: '猫プロフィール'
-    new:
-      title: '猫プロフィール作成'
-    edit:
-      title: '猫プロフィール編集'
+    mycats:
+      show:
+        title: '猫プロフィール'
+      new:
+        title: '猫プロフィール作成'
+      edit:
+        title: '猫プロフィール編集'

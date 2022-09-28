@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_one :cat, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :favourites, dependent: :destroy
+  has_many :favoured_reviews, through: :favourites, source: :reviews
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

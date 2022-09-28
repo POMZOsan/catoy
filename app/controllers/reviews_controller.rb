@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.build(review_params)
-    if @review.save_with_product(which_product)
+    if @review.save_with_product(product_id: params.dig(:review, :product_id), product_type: params.dig(:review, :product_type))
       redirect_to review_path(@review), success: t('defaults.message.create', item: Review.model_name.human)
     else
       flash.now[:error] = t('defaults.message.fail_create')
@@ -27,6 +27,13 @@ class ReviewsController < ApplicationController
   def edit; end
 
   def update
+    @review.assign_attributes(review_params)
+    if @review.save_with_product(product_id: params.dig(:review, :product_id), product_type: params.dig(:review, :product_type))
+      redirect_to review_path(@review), success: t('defaults.message.create', item: Review.model_name.human)
+    else
+      flash.now[:error] = t('defaults.message.fail_update')
+      render :edit
+    end
   end
 
   def destroy
@@ -38,15 +45,15 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.find(params[:id])
   end
 
-  def which_product
-    if params[:review][:cainz_id].present?
-      @product = Cainz.find(params[:review][:cainz_id])
-    elsif params[:review][:rakuten_id].present?
-      @product = Rakuten.find(params[:review][:rakuten_id])
-    else
-      @product = 'no_product'
-    end
-  end
+  # def which_product
+  #   if params[:review][:cainz_id].present?
+  #     @product = Cainz.find(params[:review][:cainz_id])
+  #   elsif params[:review][:rakuten_id].present?
+  #     @product = Rakuten.find(params[:review][:rakuten_id])
+  #   else
+  #     @product = 'no_product'
+  #   end
+  # end
 
   def review_params
     params.require(:review).permit(:title, :content, :rate, :image)

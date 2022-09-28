@@ -12,4 +12,7 @@
 class ReviewBlock < ApplicationRecord
   belongs_to :review
   belongs_to :product, polymorphic: true
+
+  validates :product_type, presence: true
+  validates :product_id, presence: true
 end

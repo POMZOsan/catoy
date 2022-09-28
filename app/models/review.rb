@@ -21,11 +21,11 @@ class Review < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255 }
   validates :content, presence: true
 
-  def save_with_product(product_type)
-    return false if product_type == 'no_product'
+  def save_with_product(product_id:, product_type:)
 
     ActiveRecord::Base.transaction do
-      self.toy(product_type)
+      review_block = self.build_review_block(product_id: product_id, product_type: product_type)
+      return false if review_block.invalid? # Add: review_blockがvalidationに引っかかった時のエラーメッセージ表示
       save!
     end
     true
@@ -34,11 +34,15 @@ class Review < ApplicationRecord
     false
   end
 
-  def toy(product_type)
-    if product_type.class.name == 'Cainz'
-      self.cainz = product_type
-    elsif product_type.class.name == 'Rakuten'
-      self.rakuten = product_type
+  def product_type
+    if review_block.present?
+      review_block.product_type
+    end
+  end
+
+  def product_id
+    if review_block.present?
+      review_block.product_id
     end
   end
 

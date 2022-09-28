@@ -22,15 +22,20 @@
           <%= f.label Review.human_attribute_name(:image) %>
           <%= f.file_field :image, accept: 'image/*' %>
         </div>
+          お店選択</br>
+          <%= f.label :product_type, 'カインズ' %>
+          <%= f.radio_button :product_type, 'Cainz' %>
+          <%= f.label :product_type, '楽天24' %>
+          <%= f.radio_button :product_type, 'Rakuten' %>
         <div class="flex flex-col mb-5">
           商品選択</br>
           カインズ</br>
           <div class="select select-bordered w-full">
-            <%= f.collection_select :cainz_id, Cainz.order(:name), :id, :name, { prompt: "選択してください" } %>
+            <%= f.collection_select :product_id, Cainz.order(:name), :id, :name, { prompt: "選択してください" } %>
           </div>
           楽天24</br>
           <div class="select select-bordered w-full">
-            <%= f.collection_select :rakuten_id, Rakuten.order(:name), :id, :name, { prompt: "選択してください" } %>
+            <%= f.collection_select :product_id, Rakuten.order(:name), :id, :name, { prompt: "選択してください" } %>
           </div>
         </div>
         <div class="flex justify-center items-center mb-5">

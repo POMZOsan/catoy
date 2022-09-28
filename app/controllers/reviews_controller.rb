@@ -37,6 +37,8 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review.destroy!
+    redirect_to reviews_path, success: t('defaults.message.destroy', item: Review.model_name.human)
   end
 
   private
@@ -44,16 +46,6 @@ class ReviewsController < ApplicationController
   def set_review
     @review = current_user.reviews.find(params[:id])
   end
-
-  # def which_product
-  #   if params[:review][:cainz_id].present?
-  #     @product = Cainz.find(params[:review][:cainz_id])
-  #   elsif params[:review][:rakuten_id].present?
-  #     @product = Rakuten.find(params[:review][:rakuten_id])
-  #   else
-  #     @product = 'no_product'
-  #   end
-  # end
 
   def review_params
     params.require(:review).permit(:title, :content, :rate, :image)

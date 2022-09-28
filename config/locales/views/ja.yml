@@ -8,6 +8,7 @@ ja:
       require_login: 'ログインしてください'
       create: "%{item}を作成しました"
       update: "%{item}を更新しました"
+      destroy: "%{item}を削除しました" 
       fail_create: "%{item}の作成に失敗しました"
       fail_update: "%{item}の更新に失敗しました"
   users:

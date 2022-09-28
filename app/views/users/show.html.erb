@@ -5,7 +5,7 @@
     </div>
     <div class="avatar self-center mb-4">
       <div class="w-24 mask mask-squircle">
-        <%= @user.decorate.has_avatar? %>
+        <%= image_tag @user.decorate.avatar %>
       </div>
     </div>
     <div>
@@ -18,28 +18,30 @@
         </div>
       </div>
     </div>
-    <div class="self-center">
-    <div class="dropdown dropdown-hover dropdown-left">
-      <div class="avatar mb-4">
-        <div class="w-24 mask mask-squircle">
-          <%= @user.decorate.cat_has_avatar? %>
-        </div>
-      </div>
-      <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
-        <div class="card-body">
-          <div class="text-center">
-            <div class="text-lg font-extrabold mb-4">
-              <%= @user.cat.name %>
+    <% if @user.cat %>
+      <div class="self-center">
+        <div class="dropdown dropdown-hover dropdown-left">
+          <div class="avatar mb-4">
+            <div class="w-24 mask mask-squircle">
+              <%= image_tag @user.cat.decorate.avatar %>
             </div>
-            <div>
-              <%= @user.cat.sex_i18n %></br>
-              <%= @user.cat.decorate.character %></br>
-              <%= @user.cat.decorate.birth_day %></br>
+          </div>
+          <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
+            <div class="card-body">
+              <div class="text-center">
+                <div class="text-lg font-extrabold mb-4">
+                  <%= @user.cat.name %>
+                </div>
+                <div>
+                  <%= @user.cat.sex_i18n %></br>
+                  <%= @user.cat.decorate.character %></br>
+                  <%= @user.cat.decorate.birth_day %></br>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    </div>
+    <% end %>
   </div>
 </div>

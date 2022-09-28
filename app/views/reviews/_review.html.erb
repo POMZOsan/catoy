@@ -1,0 +1,37 @@
+<div class="card lg:card-side bg-base-100 shadow-xl">
+  <figure><%= image_tag review.decorate.image, class: "h-80 w-52" %></figure>
+  <div class="card-body">
+    <h2 class="card-title">
+      <%= link_to review.title, review_path(review) %>
+    </h2>
+    <div>
+      <span class="star-rating">
+        <span class="star-rating-front" style="width: <%= review.rating_parcent %>%">★★★★★</span>
+        <span class="star-rating-back">★★★★★</span>
+      </span>
+      <span class="ml-10">
+        <%= link_to '#' do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+      </span>
+      <%= render 'crud_menu', review: review if current_user.mine?(review) %>
+    </div>
+    <div>
+      <i class="far fa-calendar-alt"></i>
+      <%= l review.created_at, format: :long %>
+    </div>
+    <div>
+      <i class="fas fa-store"></i>
+      <%= review.decorate.shop %>
+    </div>
+    <p><%= review.content %></p>
+    <div class="flex items-end space-x-2">
+      <div class="text-sm font-medium">reviewed by <%= review.user.name %></div>
+      <div class="w-12 mask mask-squircle">
+        <%= link_to user_path(review.user.id) do %>
+          <%= image_tag review.user.decorate.avatar %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

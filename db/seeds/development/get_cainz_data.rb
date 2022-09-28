@@ -38,9 +38,9 @@ urls.each.with_index(1) do |url, i|
     name = page.at('.m-hdg1').inner_text
 
     if name.match?(/ねずみ|ネズミ|マウス/)
-      mouse_category.cainzs.create(name: name, image: image_src, url: url )
+      mouse_category.cainzs.create(name: name, image: image_src, url: u )
     else
-      category.cainzs.create(name: name, image: image_src, url: url )
+      category.cainzs.create(name: name, image: image_src, url: u )
     end
     # 1.5~3秒ごとにアクセス
     sleep rand(1.5..3.0)

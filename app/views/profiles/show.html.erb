@@ -5,7 +5,7 @@
     </div>
     <div class="avatar self-center mb-4">
       <div class="w-24 mask mask-squircle">
-        <%= current_user.decorate.has_avatar? %>
+        <%= image_tag current_user.decorate.avatar %>
       </div>
     </div>
     <div>
@@ -23,7 +23,7 @@
       <%= link_to '編集する', edit_profile_path, class: "btn" %>
     </div>
     <div class="flex justify-center mt-4">
-      <%= link_to '自分のプロフィールを見る', '#', class: "link link-hover" %>
+      <%= link_to '自分のプロフィールを見る', user_path(current_user.id), class: "link link-hover" %>
     </div>
   </div>
 </div>

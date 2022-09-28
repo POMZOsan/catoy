@@ -12,23 +12,19 @@
           レビュー <span class="ml-2"><i class="fas fa-chevron-down"></i></span>
         </label>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
-          <li><%= link_to t('reviews.index.title'), '#' %></li>
-          <li><%= link_to t('reviews.new.title'), '#' %></li>
+          <li><%= link_to t('reviews.index.title'), reviews_path %></li>
+          <li><%= link_to t('reviews.new.title'), new_review_path %></li>
         </ul>
       </div>
       <div class="dropdown dropdown-hover">
         <label tabindex="0" class="btn btn-ghost btn-circle avatar ml-5 mr-16">
           <div class="w-10 mask mask-squircle">
-            <% if current_user.avatar.attached? %>
-              <%= image_tag current_user.avatar %>
-            <% else %>
-              <%= image_tag 'sample.jpg' %>
-            <% end %>
+            <%= image_tag current_user.decorate.avatar %>
           </div>
         </label>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
           <li><%= link_to t('profiles.show.title'), profile_path %></li>
-          <li><%= link_to t('mycats.show.title'), profile_mycat_path %></li>
+          <li><%= link_to t('mycats.show.title'), profile_mycat_path if current_user.cat %></li>
           <li><%= link_to t('defaults.logout'), logout_path, method: :delete %></li>
         </ul>
       </div>

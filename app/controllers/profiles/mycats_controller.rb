@@ -1,4 +1,4 @@
-class MycatsController < ApplicationController
+class Profiles::MycatsController < ApplicationController
   before_action :set_cat, only: %i[ show edit update ]
   def new
     @cat = Cat.new

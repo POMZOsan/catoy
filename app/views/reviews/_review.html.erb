@@ -14,6 +14,7 @@
           <i class="far fa-heart"></i>
         <% end %>
       </span>
+      <%= render 'crud_menu', review: review if current_user.mine?(review) %>
     </div>
     <div>
       <i class="far fa-calendar-alt"></i>

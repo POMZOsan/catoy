@@ -11,6 +11,7 @@ ja:
       destroy: "%{item}を削除しました" 
       fail_create: "%{item}の作成に失敗しました"
       fail_update: "%{item}の更新に失敗しました"
+      delete_confirm: "削除しますか？"
   users:
     new:
       title: '新規登録'

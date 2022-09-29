@@ -34,4 +34,12 @@ class User < ApplicationRecord
   def favoured?(review)
     favoured_reviews.include?(review)
   end
+
+  def favoured(review)
+    favoured_reviews << review
+  end
+
+  def remove_favourite(review)
+    favoured_reviews.destroy(review)
+  end
 end

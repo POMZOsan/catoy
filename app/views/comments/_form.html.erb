@@ -3,7 +3,7 @@
     <div class="mt-6">
       <%= form_with do |f| %>
         <div class="flex justify-center">
-          <%= f.text_area :content, class: "w-96 textarea", placeholder: t('.placeholder') %>
+          <%= f.text_area :content, class: "w-96 textarea", id: "js-new-comment-content", placeholder: t('.placeholder') %>
         </div>
         <div class="flex justify-center mt-2">
           <%= f.submit t('defaults.post'), class: "btn btn-primary" %>

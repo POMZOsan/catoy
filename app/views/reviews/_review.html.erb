@@ -9,13 +9,12 @@
         <span class="star-rating-front" style="width: <%= review.rating_parcent %>%">★★★★★</span>
         <span class="star-rating-back">★★★★★</span>
       </span>
-      <% unless current_user.mine?(review) %>
-        <span class="ml-10">
-          <%= render 'favourite_button', review: review %>
-        </span>
-      <% else %>
-        <%= render 'crud_menu', review: review %>
-      <% end %>
+      <span class="ml-10">
+        <%= link_to '#' do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+      </span>
+      <%= render 'crud_menu', review: review if current_user.mine?(review) %>
     </div>
     <div>
       <i class="far fa-calendar-alt"></i>

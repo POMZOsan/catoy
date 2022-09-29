@@ -17,8 +17,6 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_one :cat, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  has_many :favourites, dependent: :destroy
-  has_many :favoured_reviews, through: :favourites, source: :review
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -29,17 +27,5 @@ class User < ApplicationRecord
 
   def mine?(object)
     id == object.user_id
-  end
-
-  def favoured?(review)
-    favoured_reviews.include?(review)
-  end
-
-  def favoured(review)
-    favoured_reviews << review
-  end
-
-  def remove_favourite(review)
-    favoured_reviews.destroy(review)
   end
 end

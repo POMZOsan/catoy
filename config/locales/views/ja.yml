@@ -34,6 +34,7 @@ ja:
   reviews:
     index:
       title: 'レビュー一覧'
+      no_reviews: 'レビューがありません'
     new:
       title: 'レビュー作成'
     show:
@@ -41,6 +42,9 @@ ja:
       check_site: '商品サイトを見てみる'
     edit:
       title: 'レビュー編集'
+    favourites:
+      title: 'お気に入り'
+      no_favorites: 'お気に入りにしたレビューはありません'
   profiles:
     show:
       title: 'プロフィール'

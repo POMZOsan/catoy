@@ -6,6 +6,9 @@ class ReviewsController < ApplicationController
     @reviews = Review.all.includes(:user).order(created_at: :desc)
   end
 
+  def favourite
+  end
+
   def new
     @review = Review.new
   end

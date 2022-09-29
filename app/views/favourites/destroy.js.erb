@@ -1,0 +1,1 @@
+document.getElementById("js-favourite-review-<%= @review.id %>").innerHTML= "<%= j(render(partial: 'reviews/favour', locals: {review: @review})) %>"

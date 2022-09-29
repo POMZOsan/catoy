@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'sign_up', to: 'users#new'
   resources :reviews do
     get 'favourites', on: :collection
+    resources :comments, only: %i[ create destroy ], shallow: true
   end
   resources :favourites, only: %i[ create destroy ]
   resources :users, only: %i[ create show ]

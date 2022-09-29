@@ -3,10 +3,11 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ edit update destroy ]
 
   def index
-    @reviews = Review.all.includes(:user).order(created_at: :desc)
+    @reviews = Review.all.includes(:user, :favourites).order(created_at: :desc)
   end
 
-  def favourite
+  def favourites
+    @favoured_reviews = current_user.favoured_reviews.includes(:user).order(created_at: :desc)
   end
 
   def new

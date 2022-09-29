@@ -1,0 +1,9 @@
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <% if @favoured_reviews.present? %>
+      <%= render partial: 'review', collection: @favoured_reviews %>
+    <% else %>
+      <%= t('reviews.favourites.no_favorites') %>
+    <% end %>
+  </div>
+</div>

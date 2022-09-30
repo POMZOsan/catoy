@@ -49,6 +49,6 @@
       </div>
     </div>
   </div>
-  <%= render 'comments/form' %>
-  <%= render 'comments/comments' %>
+  <%= render partial: 'comments/form', locals: { review: @review, comment: @comment } %>
+  <%= render partial: 'comments/comments', locals: { comments: @comments } %>
 </div>

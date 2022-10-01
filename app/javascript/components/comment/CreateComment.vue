@@ -1,0 +1,26 @@
+<template>
+  <div class="flex justify-center">
+    <div class="flex flex-col">
+      <div class="mt-6" id="comment-form">
+        <%= form_with model: [review, comment], id: "new-comment", local: false
+        do |f| %>
+        <div class="flex justify-center">
+          <%= f.text_area :content, class: "w-96 textarea", id:
+          "js-new-comment-content", placeholder: t('.placeholder') %>
+        </div>
+        <div class="flex justify-center mt-2">
+          <%= f.submit t('defaults.post'), class: "btn btn-primary" %>
+        </div>
+        <% end %>
+      </div>
+      <div class="text-3xl font-black self-center mt-5 mb-3">
+        <%= t('.title') %>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: "CreateComment"
+};
+</script>

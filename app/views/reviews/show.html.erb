@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag params[:controller] %>
+<%= javascript_pack_tag 'main' %>
 <div class="container px-5 py-20 mx-auto">
   <div class="lg:w-4/5 mx-auto flex flex-wrap bg-white rounded-2xl">
     <%= image_tag @review.decorate.image, class: "lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded-2xl" %>
@@ -49,6 +50,7 @@
       </div>
     </div>
   </div>
-  <%= render partial: 'comments/form', locals: { review: @review, comment: @comment } %>
-  <%= render partial: 'comments/comments', locals: { comments: @comments } %>
+  <div id='comment'>
+    <Comment></Comment>
+  </div>
 </div>

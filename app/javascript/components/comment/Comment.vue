@@ -24,7 +24,11 @@
               </td>
               <td class="w-5">
                 <div class="flex items-center">
-                  <i class="fas fa-trash-alt ml-2"></i>
+                  <template v-if="comment.user.id === currentUserId">
+                    <button @click="deleteComment(comment.id)">
+                      <i class="fas fa-trash-alt ml-2" />
+                    </button>
+                  </template>
                 </div>
               </td>
             </tr>
@@ -42,7 +46,7 @@ export default {
   components: {
     CreateComment
   },
-  props: ["reviewId"],
+  props: ["reviewId", "currentUserId"],
   data() {
     return {
       comments: []
@@ -60,6 +64,10 @@ export default {
     createComment(comment) {
       this.axios.post("/api/comments/", { comment, review_id: this.reviewId })
       .then(res => this.comments.unshift(res.data))
+    },
+    deleteComment(id) {
+      this.axios.delete(`/api/comments/${id}`)
+      .then(res => this.comments = this.comments.filter(comment => comment.id !== res.data.id))
     }
   }
 };

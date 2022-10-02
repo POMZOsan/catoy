@@ -11,7 +11,7 @@
                 <div class="flex items-center">
                   <div class="avatar">
                     <div class="mask mask-squircle w-12 h-12">
-                      image_tag comment.user.decorate.avatar
+                      <img :src="comment.user.avatar_url" />
                     </div>
                   </div>
                 </div>

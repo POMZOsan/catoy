@@ -9,8 +9,6 @@ export default VueAxiosPlugin.install = function (Vue, { axios, csrfToken }) {
     axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
   }
 
-  axios.defaults.baseURL = 'api'
-
   Vue.axios = axios
 
   Object.defineProperties(Vue.prototype, {

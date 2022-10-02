@@ -34,7 +34,7 @@
 
 import Vue from 'vue/dist/vue.esm'
 import axios from 'axios'
-import { csrfToken } from 'rails-ujs'
+import { csrfToken } from '@rails/ujs'
 import VueAxiosPlugin from '../plugins/vue-axios'
 import Comment from '../components/comment/Comment.vue'
 

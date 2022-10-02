@@ -46,10 +46,6 @@ ja:
     favourites:
       title: 'お気に入り'
       no_favorites: 'お気に入りにしたレビューはありません'
-  comments:
-    form:
-      title: 'comments'
-      placeholder: 'コメントを書く'
   profiles:
     show:
       title: 'プロフィール'

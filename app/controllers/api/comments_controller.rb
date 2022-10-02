@@ -3,7 +3,7 @@ class Api::CommentsController < ApplicationController
 
   def index
     @comments = @review.comments.all.includes(:user).order(created_at: :desc)
-    render json: @comments
+    render json: @comments, each_serializer: CommentSerializer
   end
 
   def create

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CreateComment />
+    <CreateComment @create-comment="createComment" />
     <div class="flex justify-center">
       <div class="overflow-x-auto w-2/5">
         <table class="table w-full" >
@@ -56,6 +56,10 @@ export default {
       this.axios.get(`/api/comments/?review_id=${this.reviewId}`)
       .then(res => this.comments = res.data)
       .catch(err => console.log(err.status))
+    },
+    createComment(comment) {
+      this.axios.post("/api/comments/", { comment, review_id: this.reviewId })
+      .then(res => this.comments.unshift(res.data))
     }
   }
 };

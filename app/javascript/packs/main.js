@@ -37,16 +37,20 @@ import axios from 'axios'
 import { csrfToken } from '@rails/ujs'
 import VueAxiosPlugin from '../plugins/vue-axios'
 import Comment from '../components/comment/Comment.vue'
+import Review from '../components/review/Form.vue'
 
 Vue.use(VueAxiosPlugin, { axios: axios, csrfToken: csrfToken })
 
 document.addEventListener('DOMContentLoaded', () => {
   new Vue({
-    el: '#comment',
+    el: '#main',
     // data: {
     //   message: "Can you say hello?"
     // },
-    components: { Comment }
+    components: { 
+      Comment,
+      Review
+    }
   })
 })
 

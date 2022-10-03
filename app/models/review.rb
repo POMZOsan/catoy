@@ -18,6 +18,7 @@ class Review < ApplicationRecord
   has_one :cainz, through: :review_block, source: :product, source_type: 'Cainz'
   has_one :rakuten, through: :review_block, source: :product, source_type: 'Rakuten'
   has_many :favourites, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :content, presence: true

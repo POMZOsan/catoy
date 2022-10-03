@@ -12,6 +12,8 @@
 #  updated_at       :datetime         not null
 #
 class User < ApplicationRecord
+  include Rails.application.routes.url_helpers
+
   authenticates_with_sorcery!
 
   has_one_attached :avatar
@@ -19,6 +21,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :favourites, dependent: :destroy
   has_many :favoured_reviews, through: :favourites, source: :review
+  has_many :comments, dependent: :destroy
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -41,5 +44,9 @@ class User < ApplicationRecord
 
   def remove_favourite(review)
     favoured_reviews.destroy(review)
+  end
+
+  def avatar_url
+    avatar.attached? ? url_for(avatar) : url_for('/assets/sample.jpg')
   end
 end

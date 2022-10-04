@@ -29,7 +29,8 @@
             <label class="label">
               <span class="label-text">レビュー画像</span>
             </label>
-            <input type="file" id="image" name="image" accept="image/*" />
+            <input type="file" ref="preview" id="image" name="image" accept="image/*" @change="setImage"/>
+            <img :src="prevImage" v-if="prevImage" class="w-52" />
           </div>
           <div class="flex flex-col mb-5">
             <label class="label">
@@ -90,7 +91,8 @@ export default {
       rakutens: [],
       showCainzModal: false,
       showRakutenModal: false,
-      selectedToy: {}
+      selectedToy: {},
+      prevImage: null
     }
   },
   created() {
@@ -128,6 +130,15 @@ export default {
       } else if (this.review.product_type == "Rakuten") {
         this.selectedToy = this.rakutens.find(rakuten => rakuten.id == this.review.product_id)
       }
+    },
+    setImage(e) {
+      if(this.prevImage) {
+        URL.revokeObjectURL(this.prevImage)
+        this.prevImage = null
+      }
+      e.preventDefault()
+      this.review.image = e.target.files[0]
+      this.prevImage = URL.createObjectURL(this.$refs.preview.files[0])
     }
   }
 }

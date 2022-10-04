@@ -60,7 +60,7 @@
     <CainzModal v-if="showCainzModal" :cainzs="cainzs" @set-product="setProduct" @close-modal="closeCainzModal" />
   </transition>
   <transition name="fade">
-    <RakutenModal v-if="showRakutenModal" :rakutens="rakutens" />
+    <RakutenModal v-if="showRakutenModal" :rakutens="rakutens" @set-product="setProduct" @close-modal="closeRakutenModal"/>
   </transition>
 </div>
 </template>
@@ -123,7 +123,11 @@ export default {
     },
     setProduct(id) {
       this.review.product_id = id
-      this.selectedToy = this.cainzs.find(cainz => cainz.id == this.review.product_id)
+      if (this.review.product_type == "Cainz") {
+        this.selectedToy = this.cainzs.find(cainz => cainz.id == this.review.product_id)
+      } else if (this.review.product_type == "Rakuten") {
+        this.selectedToy = this.rakutens.find(rakuten => rakuten.id == this.review.product_id)
+      }
     }
   }
 }

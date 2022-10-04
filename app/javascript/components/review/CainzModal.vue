@@ -1,12 +1,14 @@
 <template>
   <div id="cainz-modal" class="modal" @click.self="closeCainzModal">
-    <div class="modal-box relative">
-      <button
-        class="btn btn-sm btn-circle absolute right-2 top-2"
-        @click="closeCainzModal"
-      >
-        x
-      </button>
+    <div class="modal-box">
+      <div class="flex justify-end">
+        <button
+          class="btn btn-circle"
+          @click="closeCainzModal"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
       <ul>
         <div
           :id="cainz.id"

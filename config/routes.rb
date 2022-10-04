@@ -17,5 +17,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :comments, only: %i[ index create destroy ]
+    get 'cainz', to: 'cainz#index'
+    get 'rakuten', to: 'rakuten#index'
   end
 end

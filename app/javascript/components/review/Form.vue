@@ -23,7 +23,7 @@
             <label class="label">
               <span class="label-text">星評価</span>
             </label>
-            <star-rating v-model="review.rate" :increment="1" :max-rating="5" rounded-corners=true star-size=30></star-rating>
+            <star-rating v-model="review.rate" :increment="1" :max-rating="5" :rounded-corners="true" :star-size="30"></star-rating>
           </div>
           <div class="flex flex-col mb-5">
             <label class="label">

@@ -10,22 +10,10 @@ class ReviewsController < ApplicationController
     @favoured_reviews = current_user.favoured_reviews.includes(:user).order(created_at: :desc)
   end
 
-  def new
-    @review = Review.new
-  end
+  def new; end
 
   def show
     @review = Review.find(params[:id])
-  end
-
-  def create
-    @review = current_user.reviews.build(review_params)
-    if @review.save_with_product(product_id: params.dig(:review, :product_id), product_type: params.dig(:review, :product_type))
-      redirect_to review_path(@review), success: t('defaults.message.create', item: Review.model_name.human)
-    else
-      flash.now[:error] = t('defaults.message.fail_create', item: Review.model_name.human)
-      render :new
-    end
   end
 
   def edit; end
@@ -51,7 +39,7 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.find(params[:id])
   end
 
-  def review_params
-    params.require(:review).permit(:title, :content, :rate, :image)
-  end
+  # def review_params
+  #   params.permit(:title, :content, :rate, :image)
+  # end
 end

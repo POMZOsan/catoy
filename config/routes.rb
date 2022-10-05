@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
+    resources :reviews, only: %i[ create update ]
     resources :comments, only: %i[ index create destroy ]
     get 'cainz', to: 'cainz#index'
     get 'rakuten', to: 'rakuten#index'

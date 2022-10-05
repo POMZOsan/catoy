@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   get 'sign_up', to: 'users#new'
-  resources :reviews do
+  resources :reviews, only: %i[ index new show edit destroy ] do
     get 'favourites', on: :collection
   end
   resources :favourites, only: %i[ create destroy ]
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :reviews, only: %i[ create update ]
+    resources :reviews, only: %i[ edit create update ]
     resources :comments, only: %i[ index create destroy ]
     get 'cainz', to: 'cainz#index'
     get 'rakuten', to: 'rakuten#index'

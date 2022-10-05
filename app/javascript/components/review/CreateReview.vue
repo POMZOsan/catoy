@@ -123,7 +123,7 @@ import CainzModal from "./CainzModal.vue";
 import RakutenModal from "./RakutenModal.vue";
 
 export default {
-  name: "Review",
+  name: "CreateReview",
   components: {
     StarRating,
     CainzModal,

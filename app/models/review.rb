@@ -11,6 +11,8 @@
 #  updated_at :datetime         not null
 #
 class Review < ApplicationRecord
+  include Rails.application.routes.url_helpers
+
   has_one_attached :image
 
   belongs_to :user
@@ -64,5 +66,9 @@ class Review < ApplicationRecord
     else
       return 0
     end
+  end
+
+  def image_url
+    image.attached? ? url_for(image) : url_for('/assets/board_placeholder.png')
   end
 end

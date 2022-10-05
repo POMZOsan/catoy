@@ -57,9 +57,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* overflow-y: hidden; */
-  /* overscroll-behavior: contain */
 }
 .modal-box {
   z-index: 2;

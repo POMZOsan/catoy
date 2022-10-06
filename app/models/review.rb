@@ -11,6 +11,8 @@
 #  updated_at :datetime         not null
 #
 class Review < ApplicationRecord
+  include Rails.application.routes.url_helpers
+
   has_one_attached :image
 
   belongs_to :user
@@ -22,12 +24,13 @@ class Review < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :content, presence: true
+  validate :need_product_id
+  validate :need_product_type
 
   def save_with_product(product_id:, product_type:)
 
     ActiveRecord::Base.transaction do
       review_block = self.build_review_block(product_id: product_id, product_type: product_type)
-      return false if review_block.invalid? # Add: review_blockがvalidationに引っかかった時のエラーメッセージ表示
       save!
     end
     true
@@ -63,6 +66,24 @@ class Review < ApplicationRecord
       return parcent
     else
       return 0
+    end
+  end
+
+  def image_url
+    image.attached? ? url_for(image) : url_for('/assets/board_placeholder.png')
+  end
+
+  private
+
+  def need_product_type
+    if review_block.product_type.blank?
+      errors.add(:product_type, 'を選択してください')
+    end
+  end
+
+  def need_product_id
+    if review_block.product_id.blank?
+      errors.add(:product_id, 'を選択してください')
     end
   end
 end

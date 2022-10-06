@@ -36,6 +36,8 @@ ja:
         content: 'レビュー内容'
         rate: '星'
         image: 'レビュー画像'
+        product_type: 'ショップ'
+        product_id: 'おもちゃ'
   enums:
     cat:
       sex:

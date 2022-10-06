@@ -44,9 +44,6 @@ Vue.use(VueAxiosPlugin, { axios: axios, csrfToken: csrfToken })
 document.addEventListener('DOMContentLoaded', () => {
   new Vue({
     el: '#main',
-    // data: {
-    //   message: "Can you say hello?"
-    // },
     components: { 
       Comment,
       Review

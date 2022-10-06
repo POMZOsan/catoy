@@ -18,6 +18,11 @@
         </div>
         <div class="mt-5">
           <div name="review" class="form-control">
+            <div id="error-messages" v-if="errors">
+              <ul>
+                <li class="text-red-600" v-for="error in errors" :key="error.id">{{ error[0] }}</li>
+              </ul>
+            </div>
             <div class="flex flex-col mb-5">
               <label class="label">
                 <span class="label-text">タイトル</span>
@@ -151,7 +156,8 @@ export default {
       prevImage: null,
       config: {
         headers: {}
-      }
+      },
+      errors: {}
     };
   },
   created() {
@@ -229,9 +235,13 @@ export default {
       this.axios
         .patch(`/api/reviews/${this.reviewId}`, this.review, this.config)
         .then((res) => {
-          window.location = `/reviews/${res.data.id}`
+          window.location = res.data.location
           })
-        .catch((err) => console.log(err.status));
+        .catch((err) => { 
+          if (err.response.data && err.response.data.errors) {
+            this.errors = err.response.data.errors
+          }
+          });
     }
   },
 };

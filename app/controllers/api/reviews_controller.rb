@@ -8,20 +8,18 @@ class Api::ReviewsController < ApplicationController
   def create
     @review = current_user.reviews.build(review_params)
     if @review.save_with_product(product_id: params[:product_id], product_type: params[:product_type])
-      render json: @review
+      render json: { location: review_path(@review) }, status: :ok
     else
-      flash.now[:error] = t('defaults.message.fail_create', item: Review.model_name.human)
-      render :new
+      render json: { errors: @review.errors.attribute_names.index_with {|key| @review.errors.full_messages_for(key)} }, status: :bad_request
     end
   end
 
   def update
     @review.assign_attributes(review_params)
     if @review.save_with_product(product_id: params[:product_id], product_type: params[:product_type])
-      render json: @review
+      render json: { location: review_path(@review) }, status: :ok
     else
-      flash.now[:error] = t('defaults.message.fail_update', item: Review.model_name.human)
-      render :edit
+      render json: { errors: @review.errors.attribute_names.index_with {|key| @review.errors.full_messages_for(key)} }, status: :bad_request
     end
   end
 

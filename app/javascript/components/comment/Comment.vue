@@ -1,6 +1,11 @@
 <template>
   <div>
-    <CreateComment @create-comment="createComment" />
+    <CreateComment @create-comment="createComment" v-if="currentUserId" />
+    <div class="flex flex-col mt-5 mb-3">
+      <div class="flex justify-center text-3xl font-black">
+        Comments
+      </div>
+    </div>
     <div class="flex justify-center">
       <div class="overflow-x-auto w-2/5">
         <table class="table w-full" >
@@ -23,7 +28,7 @@
                 </div>
               </td>
               <td class="w-5">
-                <div class="flex items-center">
+                <div class="flex items-center" v-if="currentUserId">
                   <template v-if="comment.user.id === currentUserId">
                     <button @click="deleteComment(comment.id)">
                       <i class="fas fa-trash-alt ml-2" />
@@ -68,6 +73,7 @@ export default {
     deleteComment(id) {
       this.axios.delete(`/api/comments/${id}`)
       .then(res => this.comments = this.comments.filter(comment => comment.id !== res.data.id))
+      .catch(err => console.log(err))
     }
   }
 };

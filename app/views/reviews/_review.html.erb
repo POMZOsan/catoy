@@ -9,12 +9,14 @@
         <span class="star-rating-front" style="width: <%= review.rating_parcent %>%">★★★★★</span>
         <span class="star-rating-back">★★★★★</span>
       </span>
-      <% unless current_user.mine?(review) %>
-        <span class="ml-10">
-          <%= render 'favourite_button', review: review %>
-        </span>
-      <% else %>
-        <%= render 'crud_menu', review: review %>
+      <% if logged_in? %>
+        <% unless current_user.mine?(review) %>
+          <span class="ml-10">
+            <%= render 'favourite_button', review: review %>
+          </span>
+        <% else %>
+          <%= render 'crud_menu', review: review %>
+        <% end %>
       <% end %>
     </div>
     <div>

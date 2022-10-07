@@ -20,12 +20,14 @@
             <span class="star-rating-back">★★★★★</span>
           </span>
           <span class="ml-3 mt-3"><%= @review.decorate.star %></span>
-          <% unless current_user.mine?(@review) %>
-            <span class="ml-6 mt-3">
-              <%= render 'favourite_button', review: @review %>
-            </span>
-          <% else %>
-            <%= render 'crud_menu', review: @review %>
+          <% if logged_in? %>
+            <% unless current_user.mine?(@review) %>
+              <span class="ml-6 mt-3">
+                <%= render 'favourite_button', review: @review %>
+              </span>
+            <% else %>
+              <%= render 'crud_menu', review: @review %>
+            <% end %>
           <% end %>
         </span>
       </div>
@@ -51,6 +53,10 @@
     </div>
   </div>
   <div id="main">
-    <Comment :review-id="<%= @review.id %>" :current-user-id="<%= current_user.id %>" />
+    <% if logged_in? %>
+      <Comment :review-id="<%= @review.id %>" :current-user-id="<%= current_user.id %>" />
+    <% else %>
+      <Comment :review-id="<%= @review.id %>" />
+    <% end %>
   </div>
 </div>

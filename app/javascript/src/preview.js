@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', ()=> {
   const element = document.getElementById('select-image')
+  if (!element) { return }
 
   element.addEventListener('change', (e)=> {
     const target = e.target;

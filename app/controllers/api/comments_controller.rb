@@ -1,4 +1,5 @@
 class Api::CommentsController < ApplicationController
+  skip_before_action :require_login, only: %i[ index ]
   before_action :set_review, only: %i[ index ]
 
   def index

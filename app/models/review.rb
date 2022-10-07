@@ -27,6 +27,13 @@ class Review < ApplicationRecord
   validate :need_product_id
   validate :need_product_type
 
+  scope :title_contain, -> (word) { where('title LIKE ?', "%#{word}%")}
+  scope :content_contain, -> (word) { where('content LIKE ?', "%#{word}%")}
+  scope :cainz_category, -> (category) { joins(cainz: :category).where(category: {name: category}) }
+  scope :rakuten_category, -> (category) { joins(rakuten: :category).where(category: {name: category}) }
+  scope :rakuten_products, -> (word) { joins(:rakuten).where('name LIKE ?', "%#{word}%")}
+  scope :cainz_products, -> (word) { joins(:cainz).where('name LIKE ?', "%#{word}%")}
+
   def save_with_product(product_id:, product_type:)
 
     ActiveRecord::Base.transaction do

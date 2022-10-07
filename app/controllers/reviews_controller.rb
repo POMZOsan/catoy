@@ -6,6 +6,10 @@ class ReviewsController < ApplicationController
     @reviews = Review.all.includes(:user, :favourites).order(created_at: :desc)
   end
 
+  def search
+    @reviews = @search_review.search.includes(:user, :favourites).order(created_at: :desc)
+  end
+
   def favourites
     @favoured_reviews = current_user.favoured_reviews.includes(:user).order(created_at: :desc)
   end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'sign_up', to: 'users#new'
   resources :reviews, only: %i[ index new show edit destroy ] do
     get 'favourites', on: :collection
+    get 'search', on: :collection
   end
   resources :favourites, only: %i[ create destroy ]
   resources :users, only: %i[ create show ]

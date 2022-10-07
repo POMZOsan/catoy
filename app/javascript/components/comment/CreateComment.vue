@@ -7,9 +7,6 @@
           <button class="btn btn-primary" @click="createComment">投稿</button>
         </div>
       </div>
-      <div class="text-3xl font-black self-center mt-5 mb-3">
-        Comments
-      </div>
     </div>
   </div>
 </template>

@@ -1,38 +1,4 @@
 <%= stylesheet_link_tag params[:controller] %>
-
-<div class="grid grid-cols-6">
-  <div class="h-32 mt-2 bg-white col-start-2 col-span-4 rounded">
-    <div class="grid grid-cols-3 justify-items-center bg-base-200 rounded">
-      <div>カテゴリー</div>
-      <div>星の数</div>
-      <div>お店</div>
-    </div>
-    <div class="grid grid-cols-6">
-      <div class="justify-self-center">
-        じゃらし系</br>
-        ねずみ系</br>
-        ケリぐるみ系</br>
-      </div>
-      <div class="justify-self-center">
-        トンネル系</br>
-        その他</br>
-      </div>
-      <div class="justify-self-center">
-        星5つ</br>
-        星4つ</br>
-        星3つ</br>
-      </div>
-      <div class="justify-self-center">
-        星2つ</br>
-        星1つ</br>
-      </div>
-      <div class="col-span-2 justify-self-center">
-        カインズホーム</br>
-        楽天24
-      </div>
-    </div>
-  </div>
-</div>
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
     <% if @reviews.present? %>

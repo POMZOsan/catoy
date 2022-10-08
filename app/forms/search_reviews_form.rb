@@ -1,16 +1,35 @@
-class SearchReviewForm
+class SearchReviewsForm
   include ActiveModel::Model
   include ActiveModel::Attributes
 
-  attribute :title_or_content, :string
-  attribute :product_name, :string
+  attribute :keyword, :string
   attribute :category_name, :string
 
   def search
-    scope = Review.distinct
-    scope = scope.title_contain(title_or_content).or(scope.content_contain(title_or_content)) if title_or_content.present?
-    scope = scope.cainz_products(product_name).or(scope.rakuten_products(product_name)) if product_name.present?
-    scope = scope.cainz_category(category_name).or(scope.rakuten_category(category_name)) if category_name.present?
-    scope
+    scope = Review.distinct.order(created_at: :desc)
+    # カテゴリー、キーワード両方で検索
+    if keyword.present? && category_name.present?
+      # カテゴリー検索
+      category_reviews_ids = scope.category_reviews_ids(category_name)
+      # 商品名検索
+      product_reviews_ids = scope.product_reviews_ids(keyword)
+
+      result_ids = category_reviews_ids && product_reviews_ids
+      result = scope.find(result_ids)
+
+      return result
+
+    elsif category_name.present?
+      category_reviews_ids = scope.category_reviews_ids(category_name)
+      category_result = scope.find(category_reviews_ids)
+
+      return category_result
+
+    elsif keyword.present?
+      product_reviews_ids = scope.product_reviews_ids(keyword)
+      product_result = scope.find(product_reviews_ids)
+
+      return product_result
+    end
   end
 end

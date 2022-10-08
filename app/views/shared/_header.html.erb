@@ -8,19 +8,7 @@
       </div>
     </div>
     <div class="navbar-center">
-      <div class="form-control">
-        <div class="input-group">
-          <select class="select select-bordered">
-            <option disabled selected>すべて</option>
-            <option>T-shirts</option>
-            <option>Mugs</option>
-          </select>
-          <input type="text" placeholder="Search…" class="input input-bordered w-64" />
-          <button class="btn btn-square">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
+      <%= render 'shared/search_form', search_review: @search_review %>
     </div>
     <div class="navbar-end">
       <div class="px-2">

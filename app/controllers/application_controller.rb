@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
   end
 
   def set_search_review_form
-    @search_review = SearchReviewForm.new(search_review_params)
+    @search_review = SearchReviewsForm.new(search_review_params)
   end
 
   def search_review_params
-    params.fetch(:q, {}).permit(:title_or_content, :product_name, :category_name)
+    params.fetch(:q, {}).permit(:keyword, :category_name)
   end
 end

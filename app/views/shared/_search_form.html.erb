@@ -1,0 +1,9 @@
+<%= form_with model: search_review, url: search_reviews_path, scope: :q, class: "form-control", method: :get, local: true do |f| %>
+  <div class="input-group">
+    <%= f.select :category_name, Category.pluck(:name), { include_blank: 'すべて' }, { class: 'select select-bordered' } %>
+    <%= f.search_field :keyword, class: 'input input-bordered', id: 'search-keyword', placeholder: '商品名' %>
+    <%= button_tag type: 'submit', class: 'btn btn-square' do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+  </div>
+<% end %>

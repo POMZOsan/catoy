@@ -27,8 +27,19 @@ class Review < ApplicationRecord
   validate :need_product_id
   validate :need_product_type
 
-  def save_with_product(product_id:, product_type:)
+  def self.category_reviews_ids(category)
+    cainz = joins(cainz: :category).where(category: {name: category}).ids
+    rakuten = joins(rakuten: :category).where(category: {name: category}).ids
+    cainz.concat(rakuten)
+  end
 
+  def self.product_reviews_ids(product_name)
+    cainz = joins(:cainz).where('name LIKE ?', "%#{product_name}%").ids
+    rakuten = joins(:rakuten).where('name LIKE ?', "%#{product_name}%").ids
+    cainz.concat(rakuten)
+  end
+
+  def save_with_product(product_id:, product_type:)
     ActiveRecord::Base.transaction do
       review_block = self.build_review_block(product_id: product_id, product_type: product_type)
       save!

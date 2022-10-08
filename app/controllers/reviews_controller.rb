@@ -1,9 +1,13 @@
 class ReviewsController < ApplicationController
-  skip_before_action :require_login, only: %i[ index show ]
+  skip_before_action :require_login, only: %i[ index show search ]
   before_action :set_review, only: %i[ edit destroy ]
 
   def index
     @reviews = Review.all.includes(:user, :favourites).order(created_at: :desc)
+  end
+
+  def search
+    @reviews = @search_review.search
   end
 
   def favourites

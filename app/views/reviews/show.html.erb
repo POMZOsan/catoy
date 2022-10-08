@@ -47,7 +47,12 @@
             <i class="fas fa-store"></i>
             <%= @review.decorate.shop %>
           </span>
-          <%= link_to t('.check_site'), @review.product.url, target: :_blank, rel: "noopener noreferrer", class: "mt-3 btn" %>
+          <span>
+            <%= @review.product.name %>
+          </span>
+          <span>
+            <%= link_to t('.check_site'), @review.product.url, target: :_blank, rel: "noopener noreferrer", class: "mt-3 btn" %>
+          </span>
         </div>
       </div>
     </div>

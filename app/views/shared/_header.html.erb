@@ -1,35 +1,42 @@
 <header>
   <div class="navbar bg-base-200">
-  <div class="flex-1 px-2 lg:flex-none">
-    <%= link_to root_path, class: 'btn btn-ghost normal-case text-xl' do %>
-      <%= image_tag 'logo_s.png', width: "70" %>
-    <% end %>
-  </div> 
-  <div class="flex justify-end flex-1 px-2">
-    <div class="flex items-stretch">
-      <div class="dropdown dropdown-hover">
-        <label tabindex="0" class="btn btn-ghost mx-5">
-          レビュー <span class="ml-2"><i class="fas fa-chevron-down"></i></span>
-        </label>
-        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
-          <li><%= link_to t('reviews.index.title'), reviews_path %></li>
-          <li><%= link_to t('reviews.new.title'), new_review_path %></li>
-          <li><%= link_to t('reviews.favourites.title'), favourites_reviews_path %></li>
-        </ul>
-      </div>
-      <div class="dropdown dropdown-hover">
-        <label tabindex="0" class="btn btn-ghost btn-circle avatar ml-5 mr-16">
-          <div class="w-10 mask mask-squircle">
-            <%= image_tag current_user.decorate.avatar %>
-          </div>
-        </label>
-        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
-          <li><%= link_to t('profiles.show.title'), profile_path %></li>
-          <li><%= link_to t('mycats.show.title'), profile_mycat_path if current_user.cat %></li>
-          <li><%= link_to t('defaults.logout'), logout_path, method: :delete %></li>
-        </ul>
+    <div class="navbar-start">
+      <div class="px-2 lg:flex-none">
+        <%= link_to root_path, class: 'btn btn-ghost normal-case text-xl' do %>
+          <%= image_tag 'logo_s.png', width: "70" %>
+        <% end %>
       </div>
     </div>
-  </div>
+    <div class="navbar-center">
+      <%= render 'shared/search_form', search_review: @search_review %>
+    </div>
+    <div class="navbar-end">
+      <div class="px-2">
+        <div class="flex items-stretch">
+          <div class="dropdown dropdown-hover">
+            <label tabindex="0" class="btn btn-ghost mx-5">
+              レビュー <span class="ml-2"><i class="fas fa-chevron-down"></i></span>
+            </label>
+            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
+              <li><%= link_to t('reviews.index.title'), reviews_path %></li>
+              <li><%= link_to t('reviews.new.title'), new_review_path %></li>
+              <li><%= link_to t('reviews.favourites.title'), favourites_reviews_path %></li>
+            </ul>
+          </div>
+          <div class="dropdown dropdown-hover">
+            <label tabindex="0" class="btn btn-ghost btn-circle avatar ml-5 mr-16">
+              <div class="w-10 mask mask-squircle">
+                <%= image_tag current_user.decorate.avatar %>
+              </div>
+            </label>
+            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
+              <li><%= link_to t('profiles.show.title'), profile_path %></li>
+              <li><%= link_to t('mycats.show.title'), profile_mycat_path if current_user.cat %></li>
+              <li><%= link_to t('defaults.logout'), logout_path, method: :delete %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </header>

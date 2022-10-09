@@ -10,16 +10,16 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
-      render json: @comment
+      render json: @comment, status: :ok
     else
-      render json: @comment.errors, status: :bad_request
+      render json: { error: @comment.errors.full_messages }, status: :bad_request
     end
   end
 
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment.destroy!
-    render json: @comment
+    render json: @comment, status: :ok
   end
 
   private

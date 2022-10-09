@@ -10,3 +10,6 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 body {
   background-color: #8cbad4;
 }
+.container {
+  min-height: calc(100vh - 130px)
+}

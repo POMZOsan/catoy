@@ -52,9 +52,10 @@ ja:
     edit:
       title: 'プロフィール編集'
     mycats:
+      title: 'My Cat'
       show:
-        title: '猫プロフィール'
+        title: 'My Catプロフィール'
       new:
-        title: '猫プロフィール作成'
+        title: 'My Catプロフィール作成'
       edit:
-        title: '猫プロフィール編集'
+        title: 'My Catプロフィール編集'

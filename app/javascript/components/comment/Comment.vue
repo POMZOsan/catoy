@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CreateComment @create-comment="createComment" v-if="currentUserId" />
+    <CreateComment @create-comment="createComment" v-if="currentUserId" :error="error"/>
     <div class="flex flex-col mt-5 mb-3">
       <div class="flex justify-center text-3xl font-black">
         Comments
@@ -8,10 +8,10 @@
     </div>
     <div class="flex justify-center">
       <div class="overflow-x-auto w-2/5">
-        <table class="table w-full" >
+        <table class="table w-full">
           <tbody id="js-comments-table">
             <!-- row1 -->
-            <tr :id="'comment-'+comment.id" v-for="comment in comments" :key="comment.id" >
+            <tr :id="'comment-'+comment.id" v-for="comment in comments" :key="comment.id">
               <td class="w-10">
                 <div class="flex items-center">
                   <div class="avatar">
@@ -54,7 +54,8 @@ export default {
   props: ["reviewId", "currentUserId"],
   data() {
     return {
-      comments: []
+      comments: [],
+      error: {}
     }
   },
   created() {
@@ -68,7 +69,15 @@ export default {
     },
     createComment(comment) {
       this.axios.post("/api/comments/", { comment, review_id: this.reviewId })
-      .then(res => this.comments.unshift(res.data))
+      .then(res => {
+        this.error = {}
+        this.comments.unshift(res.data)
+        })
+      .catch(err => {
+        if (err.response.data && err.response.data.error) {
+            this.error = err.response.data.error
+          }
+        })
     },
     deleteComment(id) {
       this.axios.delete(`/api/comments/${id}`)

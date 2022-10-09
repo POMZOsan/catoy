@@ -31,7 +31,7 @@
             </label>
             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
               <li><%= link_to t('profiles.show.title'), profile_path %></li>
-              <li><%= link_to t('mycats.show.title'), profile_mycat_path if current_user.cat %></li>
+              <li><%= link_to t('profiles.mycats.title'), profile_mycat_path if current_user.cat %></li>
               <li><%= link_to t('defaults.logout'), logout_path, method: :delete %></li>
             </ul>
           </div>

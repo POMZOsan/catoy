@@ -1,9 +1,6 @@
 <template>
   <div>
-    <!-- <div class="alert alert-error shadow-lg" v-if="message">
-      <span>{{ message }}</span>
-    </div> -->
-    <div class="container mx-auto">
+    <div class="container mx-auto px-5 py-10">
       <div class="flex flex-col items-center justify-center">
         <div
           class="
@@ -12,7 +9,6 @@
             shadow-md
             px-10
             py-8
-            m-4
             rounded-3xl
             w-2/4
           "

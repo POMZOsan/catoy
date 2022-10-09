@@ -8,18 +8,21 @@
   .top-inner-text {
     position: absolute;
     top: 50%;
-    left: 30%;
+    left: 27%;
     transform: translate(-50%, -50%);
     width: 100%;
     text-align: center;
-    font-size: 3rem;
-    color: white;
+    font-size: 1.5rem;;
+    color: #FAFAF9;
   
-    .word {
-    font-size: 20px;
-    }
     @media screen and (max-width: 767px) {
-      font-size: 2.0rem;
+      font-size: 0.875rem;
     }
+  }
+  .top-logo {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 150px;
   }
 }

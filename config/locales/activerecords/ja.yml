@@ -7,6 +7,7 @@ ja:
       rakuten: '楽天'
       category: 'カテゴリー'
       review: 'レビュー'
+      comment: 'コメント'
     attributes:
       user:
         name: '名前'
@@ -38,6 +39,8 @@ ja:
         image: 'レビュー画像'
         product_type: 'ショップ'
         product_id: 'おもちゃ'
+      comment:
+        content: 'コメント内容'
   enums:
     cat:
       sex:

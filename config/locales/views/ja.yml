@@ -5,6 +5,7 @@ ja:
     register: '登録'
     update: '更新'
     post: '投稿'
+    edit: '編集する'
     message:
       require_login: 'ログインしてください'
       create: "%{item}を作成しました"
@@ -49,6 +50,8 @@ ja:
   profiles:
     show:
       title: 'プロフィール'
+      register_mycat: '猫ちゃんを登録する'
+      look_my_profile: '自分のプロフィールを見る'
     edit:
       title: 'プロフィール編集'
     mycats:

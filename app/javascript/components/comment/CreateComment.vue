@@ -7,7 +7,7 @@
         </div>
         <textarea class="w-96 textarea" placeholder="コメントを書く" id="comment-content" v-model="comment.content"></textarea>
         <div class="flex justify-center mt-2">
-          <button class="btn btn-primary" @click="createComment">投稿</button>
+          <button class="btn" @click="createComment">投稿</button>
         </div>
       </div>
     </div>

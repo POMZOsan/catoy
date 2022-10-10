@@ -33,7 +33,8 @@ gem 'draper'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.5.2'
+  # gem 'sqlite3', '~> 1.5.2'
+  gem 'sqlite3', '~> 1.5', '>= 1.5.2'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
   gem 'rubocop', require: false

@@ -43,7 +43,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style>
 .modal {
   z-index: 1;
   position: fixed;

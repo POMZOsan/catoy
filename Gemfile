@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'mechanize', '~> 2.8'
 gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
 gem 'rakuten_web_service'
 gem 'rails-i18n', '~> 6.0'
 # Use Active Storage variant

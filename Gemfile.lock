@@ -181,6 +181,10 @@ GEM
     net-http-digest_auth (1.4.1)
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
+    net-imap (0.3.1)
+      net-protocol
+    net-pop (0.1.2)
+      net-protocol
     net-protocol (0.1.2)
       io-wait
       timeout
@@ -359,6 +363,8 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mechanize (~> 2.8)
+  net-imap
+  net-pop
   net-smtp
   pg
   pry-byebug

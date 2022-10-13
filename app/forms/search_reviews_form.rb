@@ -6,7 +6,7 @@ class SearchReviewsForm
   attribute :category_name, :string
 
   def search
-    scope = Review.order(created_at: :desc).distinct
+    scope = Review.distinct
     # カテゴリー、キーワード両方で検索
     if keyword.present? && category_name.present?
       # カテゴリー検索
@@ -21,7 +21,7 @@ class SearchReviewsForm
 
     elsif category_name.present?
       category_reviews_ids = scope.category_reviews_ids(category_name)
-      category_result = scope.find(category_reviews_ids)
+      category_result = scope.order(created_at: :desc).find(category_reviews_ids)
 
       return category_result
 

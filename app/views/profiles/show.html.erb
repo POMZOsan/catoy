@@ -15,7 +15,7 @@
             <%= current_user.name %>
           </div>
           <div class="text-base-content/70 my-3 text-sm">
-            <%= current_user.decorate.has_introduction? %>
+            <%= simple_format(current_user.decorate.has_introduction?) %>
           </div>
         </div>
       </div>

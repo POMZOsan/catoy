@@ -35,7 +35,7 @@
         <%= l @review.created_at, format: :long %>
       </div>
       <p>
-        <%= @review.content %>
+        <%= simple_format(@review.content) %>
       </p>
       <div class="flex mt-6 pb-5 pt-3 border-t-2 border-gray-800 mb-5">
         <div class="flex">

@@ -158,7 +158,8 @@ export default {
     };
   },
   created() {
-    this.fetchCainzData(), this.fetchRakutenData();
+    this.fetchCainzData(),
+    this.fetchRakutenData()
   },
   methods: {
     openModal() {
@@ -211,18 +212,18 @@ export default {
     },
     createPost() {
       if (this.review.image) {
-        this.config.headers = { "content-type": "multipart/form-data" }
+        this.config.headers = { "content-type": "multipart/form-data" };
       } else {
-        this.config.headers = { "content-type": "application/json" }
+        this.config.headers = { "content-type": "application/json" };
       }
       this.axios
         .post("/api/reviews", this.review, this.config)
         .then((res) => {
-          window.location = res.data.location
+          window.location = res.data.location;
           })
         .catch((err) => {
           if (err.response.data && err.response.data.errors) {
-            this.errors = err.response.data.errors
+            this.errors = err.response.data.errors;
           }
         })
     }

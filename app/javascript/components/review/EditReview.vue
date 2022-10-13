@@ -2,15 +2,7 @@
   <div class="container mx-auto px-5 py-10">
     <div class="flex flex-col items-center justify-center">
       <div
-        class="
-          flex flex-col
-          bg-white
-          shadow-md
-          px-10
-          py-8
-          rounded-3xl
-          w-2/4
-        "
+        class="flex flex-col bg-white shadow-md px-10 py-8 rounded-3xl w-2/4"
       >
         <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
           レビュー編集
@@ -19,7 +11,13 @@
           <div name="review" class="form-control">
             <div id="error-messages" v-if="errors">
               <ul>
-                <li class="text-red-600" v-for="error in errors" :key="error.id">{{ error[0] }}</li>
+                <li
+                  class="text-red-600"
+                  v-for="error in errors"
+                  :key="error.id"
+                >
+                  {{ error[0] }}
+                </li>
               </ul>
             </div>
             <div class="flex flex-col mb-5">
@@ -70,7 +68,7 @@
                 @change="setImage"
               />
               <!-- @reviewのimage -->
-              <img :src="review.image_url" v-if="showImage" class="w-52"/>
+              <img :src="review.image_url" v-if="showImage" class="w-52" />
               <!-- 画像プレビュー -->
               <img :src="prevImage" v-if="prevImage" class="w-52" />
             </div>
@@ -142,27 +140,28 @@ export default {
         title: "",
         content: "",
         rate: 0,
-        image: null,
+        image_url: null,
         product_type: "",
-        product_id: ""
+        product_id: "",
+      },
+      selectedToy: {
+        name: "",
+        image: null,
       },
       cainzs: [],
       rakutens: [],
       showCainzModal: false,
       showRakutenModal: false,
       showImage: true,
-      selectedToy: {},
       prevImage: null,
       config: {
-        headers: {}
+        headers: {},
       },
-      errors: {}
+      errors: {},
     };
   },
   created() {
-    this.fetchReview(),
-    this.fetchCainzData(),
-    this.fetchRakutenData()
+    this.fetchCainzData(), this.fetchRakutenData(), this.fetchReview();
   },
   methods: {
     openModal() {
@@ -179,12 +178,19 @@ export default {
       this.showRakutenModal = false;
     },
     fetchReview() {
-      this.axios.get(`/api/reviews/${this.reviewId}/edit`)
-      .then(res => {
-        this.review = res.data;
-        this.whichProduct();
-    })
-      .catch(err => console.log(err.status));
+      this.axios
+        .get(`/api/reviews/${this.reviewId}/edit`)
+        .then((res) => {
+          this.review.title = res.data.title;
+          this.review.content = res.data.content;
+          this.review.rate = res.data.rate;
+          this.review.image_url = res.data.image_url;
+          this.review.product_id = res.data.product_id;
+          this.review.product_type = res.data.product_type;
+          this.selectedToy.name = res.data.product.name;
+          this.selectedToy.image = res.data.product.image;
+        })
+        .catch((err) => console.log(err.status));
     },
     fetchCainzData() {
       this.axios
@@ -198,7 +204,8 @@ export default {
         .then((res) => (this.rakutens = res.data))
         .catch((err) => console.log(err.status));
     },
-    whichProduct() {
+    setProduct(id) {
+      this.review.product_id = id;
       if (this.review.product_type == "Cainz") {
         this.selectedToy = this.cainzs.find(
           (cainz) => cainz.id == this.review.product_id
@@ -209,17 +216,13 @@ export default {
         );
       }
     },
-    setProduct(id) {
-      this.review.product_id = id;
-      this.whichProduct();
-    },
     setImage(e) {
       if (this.prevImage) {
         URL.revokeObjectURL(this.prevImage);
         this.prevImage = null;
       }
       e.preventDefault();
-      if(e.target.files) {
+      if (e.target.files) {
         this.showImage = false;
         this.review.image = e.target.files[0];
         this.prevImage = URL.createObjectURL(this.$refs.preview.files[0]);
@@ -234,14 +237,14 @@ export default {
       this.axios
         .patch(`/api/reviews/${this.reviewId}`, this.review, this.config)
         .then((res) => {
-          window.location = res.data.location
-          })
-        .catch((err) => { 
+          window.location = res.data.location;
+        })
+        .catch((err) => {
           if (err.response.data && err.response.data.errors) {
-            this.errors = err.response.data.errors
+            this.errors = err.response.data.errors;
           }
-          });
-    }
+        });
+    },
   },
 };
 </script>

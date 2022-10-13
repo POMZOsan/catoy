@@ -24,9 +24,9 @@ export default {
   mounted() {
     let action_name = window.location.pathname.split("/").pop();
     if ( action_name == "new") {
-      this.showCreateReview = true
+      this.showCreateReview = true;
     } else if ( action_name == "edit" ) {
-      this.showEditReview = true
+      this.showEditReview = true;
     }
   }
 }

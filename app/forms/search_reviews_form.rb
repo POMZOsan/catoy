@@ -15,7 +15,7 @@ class SearchReviewsForm
       product_reviews_ids = scope.product_reviews_ids(keyword)
 
       result_ids = category_reviews_ids && product_reviews_ids
-      result = scope.find(result_ids)
+      result = scope.order(created_at: :desc).find(result_ids)
 
       return result
 
@@ -27,7 +27,7 @@ class SearchReviewsForm
 
     elsif keyword.present?
       product_reviews_ids = scope.product_reviews_ids(keyword)
-      product_result = scope.find(product_reviews_ids)
+      product_result = scope.order(created_at: :desc).find(product_reviews_ids)
 
       return product_result
     end

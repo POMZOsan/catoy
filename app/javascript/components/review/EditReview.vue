@@ -68,7 +68,7 @@
                 @change="setImage"
               />
               <!-- @reviewのimage -->
-              <img :src="review.image_url" v-if="showImage" class="w-52" />
+              <img :src="review.image" v-if="showImage" class="w-52" />
               <!-- 画像プレビュー -->
               <img :src="prevImage" v-if="prevImage" class="w-52" />
             </div>
@@ -140,7 +140,7 @@ export default {
         title: "",
         content: "",
         rate: 0,
-        image_url: null,
+        image: null,
         product_type: "",
         product_id: "",
       },
@@ -184,7 +184,11 @@ export default {
           this.review.title = res.data.title;
           this.review.content = res.data.content;
           this.review.rate = res.data.rate;
-          this.review.image_url = res.data.image_url;
+          if (res.data.image_url) {
+            this.review.image = res.data.image_url;
+          } else {
+            this.review.image = require("../../../assets/images/board_placeholder.png")
+          }
           this.review.product_id = res.data.product_id;
           this.review.product_type = res.data.product_type;
           this.selectedToy.name = res.data.product.name;

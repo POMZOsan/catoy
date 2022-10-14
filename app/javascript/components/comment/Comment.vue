@@ -15,8 +15,11 @@
               <td class="w-10">
                 <div class="flex items-center">
                   <div class="avatar">
-                    <div class="mask mask-squircle w-12 h-12">
+                    <div class="mask mask-squircle w-12 h-12" v-if="comment.user.avatar_url">
                       <img :src="comment.user.avatar_url" />
+                    </div>
+                    <div class="mask mask-squircle w-12 h-12" v-else>
+                      <img :src="require('../../../assets/images/sample.jpg')" />
                     </div>
                   </div>
                 </div>

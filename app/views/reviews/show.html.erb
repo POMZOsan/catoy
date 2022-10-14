@@ -1,5 +1,8 @@
+<% content_for(:title, @review.title) %>
+
 <%= stylesheet_pack_tag 'main' %>
 <%= javascript_pack_tag 'main' %>
+
 <div class="container px-5 py-10 mx-auto">
   <div class="lg:w-4/5 mx-auto flex flex-wrap bg-white rounded-2xl">
     <%= image_tag @review.decorate.image, class: "lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded-2xl" %>

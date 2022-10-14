@@ -47,6 +47,9 @@ ja:
     favourites:
       title: 'お気に入り'
       no_favorites: 'お気に入りにしたレビューはありません'
+    search:
+      title: '検索結果'
+      no_reviews: 'レビューがありません'
   profiles:
     show:
       title: 'プロフィール'

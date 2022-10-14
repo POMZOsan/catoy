@@ -7,7 +7,7 @@
         </div>
         <textarea class="w-96 textarea" placeholder="コメントを書く" id="comment-content" v-model="comment.content"></textarea>
         <div class="flex justify-center mt-2">
-          <button class="btn" @click="createComment">投稿</button>
+          <button class="btn btn-primary" @click="createComment">投稿</button>
         </div>
       </div>
     </div>
@@ -32,3 +32,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+/* .btn-primary {
+  bg-primary: hsl(var(--p));
+} */
+</style>

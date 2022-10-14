@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
   end
 
   def search
-    @reviews = @search_review.search
+    @reviews = @search_review.search.includes(:user, :favourites).order(created_at: :desc).page(params[:page])
   end
 
   def favourites

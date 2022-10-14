@@ -48,6 +48,6 @@ class User < ApplicationRecord
   end
 
   def avatar_url
-    avatar.attached? ? url_for(avatar) : url_for('/assets/sample.jpg')
+    avatar.attached? ? url_for(avatar) : nil
   end
 end

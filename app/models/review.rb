@@ -81,7 +81,7 @@ class Review < ApplicationRecord
   end
 
   def image_url
-    image.attached? ? url_for(image) : url_for('/assets/board_placeholder.png')
+    image.attached? ? url_for(image) : nil
   end
 
   private

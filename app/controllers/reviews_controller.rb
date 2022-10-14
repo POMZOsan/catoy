@@ -3,15 +3,15 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ edit destroy ]
 
   def index
-    @reviews = Review.all.includes(:user, :favourites).order(created_at: :desc)
+    @reviews = Review.all.includes(:user, :favourites).order(created_at: :desc).page(params[:page])
   end
 
   def search
-    @reviews = @search_review.search
+    @reviews = @search_review.search.includes(:user, :favourites).order(created_at: :desc).page(params[:page])
   end
 
   def favourites
-    @favoured_reviews = current_user.favoured_reviews.includes(:user).order(created_at: :desc)
+    @favoured_reviews = current_user.favoured_reviews.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new; end

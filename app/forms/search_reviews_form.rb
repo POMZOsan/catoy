@@ -15,19 +15,19 @@ class SearchReviewsForm
       product_reviews_ids = scope.product_reviews_ids(keyword)
 
       result_ids = category_reviews_ids && product_reviews_ids
-      result = scope.order(created_at: :desc).find(result_ids)
+      result = scope.where(id: result_ids)
 
       return result
 
     elsif category_name.present?
       category_reviews_ids = scope.category_reviews_ids(category_name)
-      category_result = scope.order(created_at: :desc).find(category_reviews_ids)
+      category_result = scope.where(id: category_reviews_ids)
 
       return category_result
 
     elsif keyword.present?
       product_reviews_ids = scope.product_reviews_ids(keyword)
-      product_result = scope.order(created_at: :desc).find(product_reviews_ids)
+      product_result = scope.where(id: product_reviews_ids)
 
       return product_result
     end

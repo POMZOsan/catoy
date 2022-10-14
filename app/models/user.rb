@@ -29,6 +29,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
+  validates :introduction, length: { maximum: 65535 }
 
   def mine?(object)
     id == object.user_id

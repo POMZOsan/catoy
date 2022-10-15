@@ -34,9 +34,13 @@ class Api::ReviewsController < ApplicationController
   end
 
   def review_params_for_update
-    image_path = url_for(@review.image)
-    if image_path == params[:image]
-      params.permit(:title, :content, :rate)
+    if @review.image.attached?
+        image_path = url_for(@review.image)
+      if image_path == params[:image]
+        params.permit(:title, :content, :rate)
+      else
+        params.permit(:title, :content, :rate, :image)
+      end
     else
       params.permit(:title, :content, :rate, :image)
     end

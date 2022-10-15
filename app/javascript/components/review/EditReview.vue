@@ -67,8 +67,6 @@
                 accept="image/*"
                 @change="setImage"
               />
-              <!-- @reviewのimage -->
-              <!-- <img :src="review.image" v-if="showImage" class="w-52" /> -->
               <!-- 画像プレビュー -->
               <img :src="prevImage" v-if="prevImage" class="w-52" />
             </div>
@@ -152,7 +150,6 @@ export default {
       rakutens: [],
       showCainzModal: false,
       showRakutenModal: false,
-      // showImage: true,
       prevImage: null,
       config: {
         headers: {},
@@ -228,7 +225,6 @@ export default {
       }
       e.preventDefault();
       if (e.target.files) {
-        // this.showImage = false;
         this.review.image = e.target.files[0];
         this.prevImage = URL.createObjectURL(this.$refs.preview.files[0]);
       }

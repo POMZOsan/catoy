@@ -15,7 +15,7 @@ class Api::ReviewsController < ApplicationController
   end
 
   def update
-    @review.assign_attributes(review_params)
+    @review.assign_attributes(review_params_for_update)
     if @review.save_with_product(product_id: params[:product_id], product_type: params[:product_type])
       render json: { location: review_path(@review) }, status: :ok
     else
@@ -31,5 +31,14 @@ class Api::ReviewsController < ApplicationController
 
   def review_params
     params.permit(:title, :content, :rate, :image)
+  end
+
+  def review_params_for_update
+    image_path = url_for(@review.image)
+    if image_path == params[:image]
+      params.permit(:title, :content, :rate)
+    else
+      params.permit(:title, :content, :rate, :image)
+    end
   end
 end

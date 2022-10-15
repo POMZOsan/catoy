@@ -14,7 +14,9 @@
           <% end %>
         </div>
         <div class="text-sm font-medium"><%= @review.user.name %></div>
-        <div class="ml-6"><span class="<%= cat_type(@review.user.cat.character) %> ml-6 mt-3"><%= @review.user.cat.decorate.character %></span></div>
+        <% if @review.user.cat.present? %>
+          <div class="ml-6"><span class="<%= cat_type(@review.user.cat.character) %> ml-6 mt-3"><%= @review.user.cat.decorate.character %></span></div>
+        <% end %>
       </div>
       <h1 class="text-3xl title-font font-extrabold mb-1"><%= @review.title %></h1>
       <div class="flex mb-4">

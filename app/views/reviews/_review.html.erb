@@ -4,7 +4,9 @@
     <h2 class="card-title">
       <%= link_to review.title, review_path(review) %>
     </h2>
-    <div class="<%= cat_type(review.user.cat.character) %>"><%= review.user.cat.decorate.character %></div>
+    <% if review.user.cat.present? %>
+      <div class="<%= cat_type(review.user.cat.character) %>"><%= review.user.cat.decorate.character %></div>
+    <% end %>
     <div>
       <span class="star-rating">
         <span class="star-rating-front" style="width: <%= review.rating_parcent %>%">★★★★★</span>

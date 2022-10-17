@@ -88,8 +88,8 @@
               <label class="label">
                 <span class="label-text">選択したおもちゃ</span>
               </label>
-              <p class="font-bold">{{ selectedToy.name }}</p>
-              <img :src="selectedToy.image" class="w-20 rounded-xl" />
+              <p class="font-bold" v-if="selectedToy">{{ selectedToy.name }}</p>
+              <img :src="selectedToy.image" class="w-20 rounded-xl" v-if="selectedToy" />
             </div>
             <div class="flex justify-center items-center mb-5">
               <button type="submit" class="btn" @click="updatePost()">

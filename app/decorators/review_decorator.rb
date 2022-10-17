@@ -10,10 +10,14 @@ class ReviewDecorator < Draper::Decorator
   end
 
   def shop
-    if object.review_block.product_type == 'Cainz'
-      "カインズホーム"
-    elsif object.review_block.product_type == 'Rakuten'
-      "楽天24"
+    if object.review_block.blank?
+      "該当するショップがありません"
+    else
+      if object.review_block.product_type == 'Cainz'
+        "カインズホーム"
+      elsif object.review_block.product_type == 'Rakuten'
+        "楽天24"
+      end
     end
   end
 end

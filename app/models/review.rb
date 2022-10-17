@@ -63,10 +63,12 @@ class Review < ApplicationRecord
   end
 
   def product
-    if review_block.product_type == 'Cainz'
-      cainz
-    elsif review_block.product_type == 'Rakuten'
-      rakuten
+    if review_block.present?
+      if review_block.product_type == 'Cainz'
+        cainz
+      elsif review_block.product_type == 'Rakuten'
+        rakuten
+      end
     end
   end
 

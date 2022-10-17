@@ -42,6 +42,7 @@ ja:
     show:
       title: 'レビュー'
       check_site: '商品サイトを見てみる'
+      no_product: '該当する商品がありません'
     edit:
       title: 'レビュー編集'
     favourites:

@@ -2,7 +2,11 @@ class CatDecorator < Draper::Decorator
   delegate_all
 
   def birth_day
-    "#{object.birth_date.strftime("%-m月%-d日")}生まれ #{age}才"
+    if object.birth_date.present?
+      "#{object.birth_date.strftime("%-m月%-d日")}生まれ #{age}才"
+    else
+      "生年月日不明"
+    end
   end
 
   def age

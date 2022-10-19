@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Review, type: :model do
   describe 'validation' do
     let!(:user) { create :user, name: 'user_1'}
 

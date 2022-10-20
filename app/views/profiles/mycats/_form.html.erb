@@ -14,13 +14,13 @@
       <%= f.label :name %>
       <%= f.text_field :name, class: "input input-bordered input-sm w-full max-w-xs" %>
     </div>
-    <div class="flex flex-col mb-5">
+    <div class="flex flex-col mb-5" id="choose-sex">
       <%= f.label Cat.sexes_i18n['male'] %>
       <%= f.radio_button :sex, Cat.sexes.invert[0], class: "radio" %>
       <%= f.label Cat.sexes_i18n['female'] %>
       <%= f.radio_button :sex, Cat.sexes.invert[1], class: "radio" %>
     </div>
-    <div class="flex flex-col mb-5">
+    <div class="flex flex-col mb-5" id="choose-character">
       <%= f.label Cat.characters_i18n['active'] %>
       <%= f.radio_button :character, Cat.characters.invert[0], class: "radio" %>
       <%= f.label Cat.characters_i18n['gentle'] %>

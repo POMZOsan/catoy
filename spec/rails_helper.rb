@@ -63,4 +63,9 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include ApplicationHelper
   config.include LoginMacros
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+    load Rails.root.join('db/seeds/test/set_category.rb')
+  end
 end

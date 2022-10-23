@@ -4,6 +4,7 @@
       <div class="flex justify-end">
         <button
           class="btn btn-circle"
+          id="close-button"
           @click="closeRakutenModal"
         >
           <i class="fas fa-times"></i>
@@ -11,7 +12,7 @@
       </div>
       <ul>
         <div
-          :id="rakuten.id"
+          :id="'rakuten-' + rakuten.id"
           v-for="rakuten in rakutens"
           :key="rakuten.id"
           class="flex flex-col"

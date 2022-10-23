@@ -256,7 +256,7 @@ RSpec.describe 'Users', type: :system do
       end
     end
 
-    describe 'watch profile' do
+    describe 'look profile' do
       before do
         visit edit_profile_path
         attach_file 'user[avatar]', "#{Rails.root}/spec/fixtures/images/test_avatar.png"
@@ -268,13 +268,13 @@ RSpec.describe 'Users', type: :system do
         expect(current_path).to eq profile_path
       end
 
-      context 'watch my profile' do
+      context 'look my profile' do
         it 'shows only my profile' do
           click_link '自分のプロフィールを見る'
           expect(current_path).to eq '/users/1'
           expect(page).to have_content 'test'
           expect(page).to have_content 'introduction'
-          expect(page).to have_selector 'img#avatar'
+          expect(page).to have_selector "img[src$='test_avatar.png']"
         end
 
         it 'shows me and my cat profile', js: true do
@@ -292,8 +292,8 @@ RSpec.describe 'Users', type: :system do
           expect(current_path).to eq '/users/1'
           expect(page).to have_content 'test'
           expect(page).to have_content 'introduction'
-          expect(page).to have_selector 'img#avatar'
-          expect(page).to have_selector 'img#cat-avatar'
+          expect(page).to have_selector "img[src$='test_avatar.png']"
+          expect(page).to have_selector "img[src$='test_cat_avatar.png']"
           find('#cat-avatar').hover
           expect(page).to have_content 'my cat'
           expect(page).to have_content 'メス'
@@ -302,7 +302,7 @@ RSpec.describe 'Users', type: :system do
         end
       end
 
-      context 'watch others profile' do
+      context 'look others profile' do
         it 'shows others and their cat profile' do
           other_user = create(:user, name: 'other', introduction: 'test')
           others_cat = create(:cat, name: 'others', birth_date: DateTime.new(2017, 5, 1), sex: 1, character: 1, user: other_user)

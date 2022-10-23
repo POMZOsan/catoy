@@ -33,7 +33,7 @@
               <td class="w-5">
                 <div class="flex justify-center" v-if="currentUserId">
                   <template v-if="comment.user.id === currentUserId">
-                    <button @click="deleteComment(comment.id)">
+                    <button :id="'js-comment-' + comment.id" @click="deleteComment(comment.id)">
                       <i class="fas fa-trash-alt ml-2" />
                     </button>
                   </template>

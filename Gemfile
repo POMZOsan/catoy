@@ -64,6 +64,7 @@ end
 group :test do
   gem 'webdrivers'
   gem 'capybara'
+  gem 'database_cleaner-active_record'
 end
 
 group :production do

@@ -4,7 +4,7 @@
 <%= javascript_pack_tag 'main' %>
 
 <div class="container px-5 py-10 mx-auto">
-  <div class="lg:w-4/5 mx-auto flex flex-wrap bg-white rounded-2xl">
+  <div class="lg:w-4/5 mx-auto flex flex-wrap bg-white rounded-2xl" id="review-<%= @review.id %>">
     <%= image_tag @review.decorate.image, class: "lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded-2xl" %>
     <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
       <div class="flex items-center space-x-2">
@@ -46,7 +46,9 @@
       </p>
       <div class="flex mt-6 pb-5 pt-3 border-t-2 border-gray-800 mb-5">
         <div class="flex">
-          <%= image_tag @review.product.image, class: "w-20 rounded-xl"  if @review.review_block.present? %>
+          <% if @review.product.image.present? %>
+            <%= image_tag @review.product.image, class: "w-20 rounded-xl"  if @review.review_block.present? %>
+          <% end %>
         </div>
         <div class="flex flex-col ml-3">
           <span>

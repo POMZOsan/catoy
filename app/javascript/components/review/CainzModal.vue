@@ -3,6 +3,7 @@
     <div class="modal-box">
       <div class="flex justify-end">
         <button
+          id="close-button"
           class="btn btn-circle"
           @click="closeCainzModal"
         >
@@ -11,7 +12,7 @@
       </div>
       <ul>
         <div
-          :id="cainz.id"
+          :id="'cainz-' + cainz.id"
           v-for="cainz in cainzs"
           :key="cainz.id"
           class="flex flex-col"

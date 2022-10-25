@@ -15,7 +15,7 @@ class Cat < ApplicationRecord
   belongs_to :user
   has_one_attached :avatar
 
-  validates :name, presence: true, length: { maximum: 255 }
+  validates :name, presence: true, length: { maximum: 15 }
 
   enum sex: { male: 0, female: 1 }
   enum character: { active: 0, gentle: 1 }

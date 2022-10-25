@@ -79,6 +79,7 @@
                 </label>
                 <select
                   class="select select-bordered"
+                  name="select-shop"
                   v-model="review.product_type"
                   @change="openModal"
                 >

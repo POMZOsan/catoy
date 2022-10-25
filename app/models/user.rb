@@ -27,9 +27,9 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
-  validates :name, presence: true, length: { maximum: 255 }
+  validates :name, presence: true, length: { maximum: 15 }
   validates :email, presence: true, uniqueness: true
-  validates :introduction, length: { maximum: 65535 }
+  validates :introduction, length: { maximum: 200 }
 
   def mine?(object)
     id == object.user_id

@@ -22,7 +22,7 @@ class Review < ApplicationRecord
   has_many :favourites, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  validates :title, presence: true, length: { maximum: 255 }
+  validates :title, presence: true, length: { maximum: 20 }
   validates :content, presence: true, length: { maximum: 65535 }
   validate :need_product_id
   validate :need_product_type

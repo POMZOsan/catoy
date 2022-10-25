@@ -1,6 +1,9 @@
 {
   "name": "catoy",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@fullhuman/postcss-purgecss": "4",

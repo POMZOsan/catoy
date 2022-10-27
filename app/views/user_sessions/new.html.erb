@@ -15,10 +15,6 @@
             <%= f.label User.human_attribute_name(:password) %>
             <%= f.password_field :password, class: "input input-bordered input-sm w-full max-w-xs" %>
           </div>
-          <div class="flex flex-col mb-5">
-            <%= f.label User.human_attribute_name(:password_confirmation) %>
-            <%= f.password_field :password_confirmation, class: "input input-bordered input-sm w-full max-w-xs" %>
-          </div>
           <div class="flex justify-center items-center mb-5">
             <%= f.submit t('defaults.login'), class: "btn" %>
           </div>

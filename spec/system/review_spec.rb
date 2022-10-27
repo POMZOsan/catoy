@@ -5,6 +5,10 @@ RSpec.describe 'Reviews', type: :system do
   let(:cainzs) { create_list :cainz, 5 }
   let(:rakutens) { create_list :rakuten, 5 }
   let(:reviews_with_cainz_nekojarashi) { create_list :review, 3, :cainz_nekojarashi, user: user }
+  let(:reviews_with_cainz_nezumi) { create_list :review, 3, :cainz_nezumi, user: user }
+  let(:reviews_with_rakuten_kerigurumi) { create_list :review, 3, :rakuten_tonnel, user: user }
+  let(:reviews_with_rakuten_tonnel) { create_list :review, 3, :rakuten_tonnel, user: user }
+  let(:reviews_with_rakuten_other) { create_list :review, 3, :rakuten_other, user: user }
 
   describe 'before login' do
     describe 'user can look reviews' do
@@ -67,6 +71,33 @@ RSpec.describe 'Reviews', type: :system do
             end
             find('#search-button').click
             expect(page).to have_content reviews_with_cainz_nekojarashi[0].title
+          end
+        end
+
+        context 'search with all categories and no keyword' do
+          it 'shows all reviews' do
+            reviews_with_cainz_nekojarashi
+            reviews_with_cainz_nezumi
+            reviews_with_rakuten_kerigurumi
+            reviews_with_rakuten_tonnel
+            reviews_with_rakuten_other
+            visit root_path
+            find('#search-button').click
+            expect(page).to have_content reviews_with_cainz_nekojarashi[0].title
+            expect(page).to have_content reviews_with_cainz_nekojarashi[1].title
+            expect(page).to have_content reviews_with_cainz_nekojarashi[2].title
+            expect(page).to have_content reviews_with_cainz_nezumi[0].title
+            expect(page).to have_content reviews_with_cainz_nezumi[1].title
+            expect(page).to have_content reviews_with_cainz_nezumi[2].title
+            expect(page).to have_content reviews_with_rakuten_kerigurumi[0].title
+            expect(page).to have_content reviews_with_rakuten_kerigurumi[1].title
+            expect(page).to have_content reviews_with_rakuten_kerigurumi[2].title
+            expect(page).to have_content reviews_with_rakuten_tonnel[0].title
+            expect(page).to have_content reviews_with_rakuten_tonnel[1].title
+            expect(page).to have_content reviews_with_rakuten_tonnel[2].title
+            expect(page).to have_content reviews_with_rakuten_other[0].title
+            expect(page).to have_content reviews_with_rakuten_other[1].title
+            expect(page).to have_content reviews_with_rakuten_other[2].title
           end
         end
       end

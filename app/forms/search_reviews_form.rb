@@ -30,6 +30,8 @@ class SearchReviewsForm
       product_result = scope.where(id: product_reviews_ids)
 
       return product_result
+    else
+      return scope
     end
   end
 end

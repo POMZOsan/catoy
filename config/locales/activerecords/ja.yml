@@ -16,6 +16,7 @@ ja:
         password_confirmation: 'パスワード確認'
         introduction: '自己紹介'
         avatar: 'アバター'
+        role: '権限'
       cat:
         name: '名前'
         sex: '性別'
@@ -42,6 +43,10 @@ ja:
       comment:
         content: 'コメント内容'
   enums:
+    user:
+      role:
+        general: '一般'
+        admin: '管理者'
     cat:
       sex:
         male: 'オス'

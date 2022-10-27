@@ -14,7 +14,7 @@ ja:
       fail_create: "%{item}の作成に失敗しました"
       fail_update: "%{item}の更新に失敗しました"
       delete_confirm: "削除しますか？"
-      not_authorized: '権限がありません'
+      not_authorized: '管理画面へのログイン権限がありません'
   users:
     new:
       title: '新規登録'
@@ -67,3 +67,10 @@ ja:
         title: 'My Catプロフィール作成'
       edit:
         title: 'My Catプロフィール編集'
+  admin:
+    user_sessions:
+      create:
+        success: 'ログインしました'
+        fail: 'ログインに失敗しました'
+      destroy:
+        success: 'ログアウトしました'

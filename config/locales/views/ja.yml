@@ -68,7 +68,12 @@ ja:
       edit:
         title: 'My Catプロフィール編集'
   admin:
+    dashboards:
+      index:
+        title: 'ダッシュボード'
     user_sessions:
+      new:
+        title: 'ログイン'
       create:
         success: 'ログインしました'
         fail: 'ログインに失敗しました'

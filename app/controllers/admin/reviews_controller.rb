@@ -1,6 +1,8 @@
 class Admin::ReviewsController < Admin::BaseController
+  before_action :set_search_form, only: %i[ index ]
+
   def index
-    @reviews = Review.all.includes(:user).order(created_at: :desc).page(params[:page])
+    @reviews = @search_review.admin_search.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def show; end
@@ -12,5 +14,15 @@ class Admin::ReviewsController < Admin::BaseController
   end
 
   def detroy
+  end
+
+  private
+
+  def set_search_form
+    @search_review = SearchReviewsForm.new(search_params)
+  end
+
+  def search_params
+    params.fetch(:q, {}).permit(:title_or_content, :rate, :created_at_gteq, :created_at_lteq, :shop)
   end
 end

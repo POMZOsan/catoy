@@ -4,6 +4,11 @@ class SearchReviewsForm
 
   attribute :keyword, :string
   attribute :category_name, :string
+  attribute :title_or_content, :string
+  attribute :rate, :integer
+  attribute :created_at_gteq, :datetime
+  attribute :created_at_lteq, :datetime
+  attribute :shop, :string
 
   def search
     scope = Review.distinct
@@ -33,5 +38,15 @@ class SearchReviewsForm
     else
       return scope
     end
+  end
+
+  def admin_search
+    scope = Review.distinct
+    scope = scope.title_contain(title_or_content).or(scope.content_contain(title_or_content)) if title_or_content.present?
+    scope = scope.rate_contain(rate) if rate.present?
+    scope = scope.created_after(created_at_gteq) if created_at_gteq.present?
+    scope = scope.created_before(created_at_lteq) if created_at_lteq.present?
+    scope = scope.shop_contain(shop) if shop.present?
+    return scope
   end
 end

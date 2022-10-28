@@ -9,7 +9,16 @@
     <%= javascript_pack_tag 'admin' %>
   </head>
   <body>
-    <%= render 'shared/flash_message' %>
-    <%= yield %>
+    <main class="bg-gray-100 dark:bg-gray-800 rounded-2xl h-screen overflow-hidden relative">
+      <div class="flex items-start justify-between">
+        <%= render 'admin/shared/sidebar' %>
+        <div class="flex flex-col w-full pl-0 md:p-4 md:space-y-4">
+          <%= render 'admin/shared/header' %>
+          <%= render 'shared/flash_message' %>
+          <%= yield %>
+          <%= render 'admin/shared/footer' %>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

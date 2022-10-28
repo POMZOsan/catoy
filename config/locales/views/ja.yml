@@ -79,3 +79,10 @@ ja:
         fail: 'ログインに失敗しました'
       destroy:
         success: 'ログアウトしました'
+    reviews:
+      index:
+        title: 'レビュー一覧'
+      show:
+        title: 'レビュー詳細'
+      edit:
+        title: 'レビュー編集'

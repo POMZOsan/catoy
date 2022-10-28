@@ -34,6 +34,9 @@ ja:
       category:
         name: 'カテゴリー名'
       review:
+        id: 'ID'
+        created_at: '作成日時'
+        user: '作成者'
         title: 'タイトル'
         content: 'レビュー内容'
         rate: '星'

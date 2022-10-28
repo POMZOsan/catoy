@@ -84,5 +84,7 @@ ja:
         title: 'レビュー一覧'
       show:
         title: 'レビュー詳細'
+      show:
+        title: 'レビュー詳細'
       edit:
         title: 'レビュー編集'

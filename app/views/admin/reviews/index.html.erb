@@ -1,5 +1,5 @@
 <% content_for(:title, t('.title')) %>
-<div class="container mx-auto p-6 font-mono">
+<div class="container mx-auto p-6 font-mono relative">
   <%= render 'search', search_review: @search_review %>
   <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
     <div class="w-full overflow-x-auto">
@@ -18,5 +18,8 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="absolute flex justify-center inset-x-0 bottom-0">
+    <%= paginate @reviews %>
   </div>
 </div>

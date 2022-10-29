@@ -33,6 +33,9 @@ class User < ApplicationRecord
 
   enum role: { general: 0, admin: 1 }
 
+  scope :name_contain, ->(word) { where('name LIKE ?', "%#{word}%")}
+  scope :role_contain, ->(number) { where(role: number)}
+
   def mine?(object)
     id == object.user_id
   end

@@ -1,6 +1,6 @@
 <%= form_with model: search_user, url: admin_users_path, scope: :q, class: "flex justigy-between", method: :get, local: true do |f| %>
-  <%= f.search_field :name_content, class: "input input-bordered input-md max-w-xs mr-3", placeholder: User.human_attribute_name(:name) %>
-  <%= f.select :role, User.roles_i18n.invert.map{|key, value| [key, User.roles[value]]}, { include_blank: User.human_attribute_name(:role) }, { class: "input input-bordered w-full max-w-xs mb-5" } %> 
+  <%= f.search_field :name, class: "input input-bordered input-md max-w-xs mr-3", placeholder: User.human_attribute_name(:name) %>
+  <%= f.select :role, User.roles_i18n.invert.map{|key, value| [key, User.roles[value]]}, { include_blank: User.human_attribute_name(:role) }, { class: "input input-bordered max-w-xs mr-3" } %> 
   <%= button_tag type: 'submit', class: 'btn', id: 'search-button' do %>
       <i class="fas fa-search"></i>
   <% end %>

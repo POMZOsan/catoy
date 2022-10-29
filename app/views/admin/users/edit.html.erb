@@ -20,14 +20,18 @@
           </div>
           <div class="flex flex-col">
             <div><%= f.label :role %></div>
-            <div><%= f.select :role, User.roles_i18n.invert.map{|key, value| [key, User.roles[value]]}, { include_blank: '' }, { class: "input input-bordered w-full max-w-xs mb-5" } %></div>
+            <div><%= f.select :role, User.roles_i18n.invert.map{|key, value| [key, value]}, {}, { class: "input input-bordered max-w-xs mb-5" } %></div>
           </div>
           <div class="flex flex-col">
             <div><%= f.label :avatar %></div>
             <div><%= f.file_field :avatar, id: 'select-image', accept: 'image/*', class: "mb-5" %></div>
           </div>
           <div class="flex flex-col">
-            <%= image_tag f.object.decorate.avatar, class: "w-60 object-cover object-center rounded-2xl mb-5", id: 'preview' %>
+            <div class="avatar mt-4 mb-4">
+              <div class="w-60 mask mask-squircle">
+                <%= image_tag f.object.decorate.avatar, class: "object-cover object-center rounded-2xl mb-5", id: 'preview' %>
+              </div>
+            </div>
           </div>
           <div class="flex flex-col">
             <%= f.submit class: "btn btn w-20 mb-3" %>

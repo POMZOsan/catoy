@@ -19,7 +19,9 @@ class Admin::ReviewsController < Admin::BaseController
     end
   end
 
-  def detroy
+  def destroy
+    @review.destroy!
+    redirect_to admin_reviews_path, success: t('defaults.message.destroy', item: Review.model_name.human)
   end
 
   private

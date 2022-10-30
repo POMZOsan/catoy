@@ -91,7 +91,14 @@ ja:
         title: 'レビュー一覧'
       show:
         title: 'レビュー詳細'
-      show:
-        title: 'レビュー詳細'
       edit:
         title: 'レビュー編集'
+    toys:
+      index:
+        title: 'おもちゃ一覧'
+      new:
+        title: 'おもちゃ新規登録'
+      show:
+        title: 'おもちゃ詳細'
+      edit:
+        title: 'おもちゃ編集'

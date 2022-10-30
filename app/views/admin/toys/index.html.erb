@@ -1,0 +1,28 @@
+<% content_for(:title, t('.title')) %>
+<div class="container mx-auto p-6 font-mono relative">
+  <div class="flex justify-between">
+    <%= render 'search', search_toy: @search_toy %>
+    <%= link_to 'おもちゃ新規登録', new_admin_toy_path, class: "btn mr-5"  %>
+  </div>
+  <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+    <div class="w-full overflow-x-auto">
+      <table class="w-full">
+        <thead>
+          <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-gray-600">
+            <th class="px-4 py-3">ID</th>
+            <th class="px-4 py-3">SHOP</th>
+            <th class="px-4 py-3">NAME</th>
+            <th class="px-4 py-3">URL</th>
+            <th class="px-4 py-3"></th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          <%= render partial: 'toy', collection: @toys %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="absolute flex justify-center inset-x-0 bottom-0">
+
+  </div>
+</div>

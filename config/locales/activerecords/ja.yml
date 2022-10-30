@@ -45,6 +45,7 @@ ja:
         image: 'レビュー画像'
         product_type: 'ショップ'
         product_id: 'おもちゃ'
+        product_url: 'おもちゃURL'
       comment:
         content: 'コメント内容'
   enums:

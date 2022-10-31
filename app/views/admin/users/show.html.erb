@@ -1,0 +1,60 @@
+<% content_for(:title, t('.title')) %>
+<div class="container mx-auto p-6 font-mono">
+  <div class="flex justify-between">
+    <h1 class="ml-32 mb-10"><%= t('.title') %></h1>
+    <div class="mr-40">
+      <%= link_to '編集', edit_admin_user_path(@user), class: "btn btn-warning", id: "user-edit-#{@user.id}" %>
+      <%= link_to '削除', admin_user_path(@user), class: "btn btn-error", id: "user-delete-#{@user.id}", method: :delete, data: {confirm: t('defaults.message.delete_confirm')} %>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <div class="w-3/4 mb-8 overflow-hidden rounded-lg shadow-lg">
+      <div class="w-full overflow-x-auto">
+        <table class="w-full">
+          <tbody class="bg-white">
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= User.human_attribute_name(:id) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= @user.id %>
+              </td>
+            </tr>
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= User.human_attribute_name(:name) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= @user.name %>
+              </td>
+            </tr>
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= User.human_attribute_name(:introduction) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= @user.introduction %>
+              </td>
+            </tr>
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= User.human_attribute_name(:role) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= @user.role_i18n %>
+              </td>
+            </tr>
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= User.human_attribute_name(:created_at) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= l @user.created_at, format: :long %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

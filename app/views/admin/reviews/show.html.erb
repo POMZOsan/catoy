@@ -1,0 +1,84 @@
+<% content_for(:title, t('.title')) %>
+<div class="container mx-auto p-6 font-mono">
+  <div class="flex justify-between">
+    <h1 class="ml-32 mb-10"><%= t('.title') %></h1>
+    <div class="mr-40">
+      <%= link_to '編集', edit_admin_review_path(@review), class: "btn btn-warning", id: "review-edit-#{@review.id}" %>
+      <%= link_to '削除', admin_review_path(@review), class: "btn btn-error", id: "review-delete-#{@review.id}", method: :delete, data: {confirm: t('defaults.message.delete_confirm')} %>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <div class="w-3/4 mb-8 overflow-hidden rounded-lg shadow-lg">
+      <div class="w-full overflow-x-auto">
+        <table class="w-full">
+          <tbody class="bg-white">
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= Review.human_attribute_name(:id) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= @review.id %>
+              </td>
+            </tr>
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= Review.human_attribute_name(:title) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= @review.title %>
+              </td>
+            </tr>
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= Review.human_attribute_name(:content) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= @review.content %>
+              </td>
+            </tr>
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= Review.human_attribute_name(:rate) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= @review.rate %>
+              </td>
+            </tr>
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= Review.human_attribute_name(:user) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= @review.user.name %>
+              </td>
+            </tr>
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= Review.human_attribute_name(:product_type) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= @review.product_type %>
+              </td>
+            </tr>
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= Review.human_attribute_name(:product_id) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= @review.product.name %>
+              </td>
+            </tr>
+            <tr class="text-gray-700">
+              <td class="w-40 px-4 py-3 border text-center">
+                <%= Review.human_attribute_name(:created_at) %>
+              </td>
+              <td class="px-4 py-3 border">
+                <%= l @review.created_at, format: :long %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

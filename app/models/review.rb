@@ -27,6 +27,13 @@ class Review < ApplicationRecord
   validate :need_product_id
   validate :need_product_type
 
+  scope :title_contain, ->(word) { where('title LIKE ?', "%#{word}%") }
+  scope :content_contain, ->(word) { where('content LIKE ?', "%#{word}%") }
+  scope :rate_contain, ->(number) { where(rate: number) }
+  scope :created_after, ->(date) { where('created_at >= ?', date.beginning_of_day) }
+  scope :created_before, ->(date) { where('created_at <= ?', date.end_of_day) }
+  scope :shop_contain, ->(shop) { joins(:review_block).where(review_block: {product_type: shop}) }
+
   def self.category_reviews_ids(category)
     cainz = joins(cainz: :category).where(category: {name: category}).ids
     rakuten = joins(rakuten: :category).where(category: {name: category}).ids

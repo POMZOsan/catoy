@@ -22,4 +22,14 @@ Rails.application.routes.draw do
     get 'cainz', to: 'cainz#index'
     get 'rakuten', to: 'rakuten#index'
   end
+
+  namespace :admin do
+    root to: 'dashboards#index'
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
+    resources :reviews, only: %i[ index show edit update destroy ]
+    resources :users, only: %i[ index show edit update destroy ]
+    resources :toys
+  end
 end

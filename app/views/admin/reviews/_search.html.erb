@@ -1,0 +1,11 @@
+<%= form_with model: search_review, url: admin_reviews_path, scope: :q, class: "flex justigy-between", method: :get, local: true do |f| %>
+  <%= f.search_field :title_or_content, class: "input input-bordered input-md max-w-xs mr-3", placeholder: Review.human_attribute_name(:title)+'/'+Review.human_attribute_name(:content) %>
+  <%= f.number_field :rate, in: 0..5, class: "input input-bordered input-md max-w-xs w-28 mr-3", placeholder: Review.human_attribute_name(:rate)+'評価' %>
+  <%= f.date_field :created_at_gteq, class: "input input-bordered input-md max-w-xs mr-3"%>
+  <span class="flex items-center">〜</span>
+  <%= f.date_field :created_at_lteq, class: "input input-bordered input-md max-w-xs ml-3 mr-3"%>
+  <%= f.select :shop, [[Cainz.model_name.human, 'Cainz'],[Rakuten.model_name.human, 'Rakuten']], { include_blank: Review.human_attribute_name(:product_type) }, { class: "input input-bordered input-md max-w-xs mr-3" } %>
+  <%= button_tag type: 'submit', class: 'btn', id: 'search-button' do %>
+      <i class="fas fa-search"></i>
+  <% end %>
+<% end %>

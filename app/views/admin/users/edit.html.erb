@@ -1,0 +1,43 @@
+<% content_for(:title, t('.title')) %>
+<div class="container mx-auto p-6 font-mono">
+  <h1 class="ml-32 mb-8"><%= t('.title') %></h1>
+  <div class="flex justify-center">
+    <div class="w-3/4 mb-8 overflow-hidden rounded-lg shadow-lg">
+      <div class="flex justify-center w-full overflow-x-auto">
+        <%= form_with model: @user, url: admin_user_path(@user), class: "w-full px-3", local: true do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <div class="flex flex-col">
+            <div><%= f.label :name %></div>
+            <div><%= f.text_field :name, class: "input input-bordered w-full max-w-xs mb-5" %></div>
+          </div>
+          <div class="flex flex-col">
+            <div><%= f.label :email %></div>
+            <div><%= f.text_field :email, class: "input input-bordered w-full max-w-xs mb-5" %></div>
+          </div>
+          <div class="flex flex-col">
+            <div><%= f.label :introduction %></div>
+            <div><%= f.text_area :introduction, class: "textarea textarea-bordered w-full mb-5", rows: "5" %></div>
+          </div>
+          <div class="flex flex-col">
+            <div><%= f.label :role %></div>
+            <div><%= f.select :role, User.roles_i18n.invert.map{|key, value| [key, value]}, {}, { class: "input input-bordered max-w-xs mb-5" } %></div>
+          </div>
+          <div class="flex flex-col">
+            <div><%= f.label :avatar %></div>
+            <div><%= f.file_field :avatar, id: 'select-image', accept: 'image/*', class: "mb-5" %></div>
+          </div>
+          <div class="flex flex-col">
+            <div class="avatar mt-4 mb-4">
+              <div class="w-60 mask mask-squircle">
+                <%= image_tag f.object.decorate.avatar, class: "object-cover object-center rounded-2xl mb-5", id: 'preview' %>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <%= f.submit class: "btn btn w-20 mb-3" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

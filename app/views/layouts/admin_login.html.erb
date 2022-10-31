@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>管理画面ログイン</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'admin' %>
+    <%= javascript_pack_tag 'admin' %>
+  </head>
+  <body class="bg-green-100">
+    <%= render 'shared/flash_message' %>
+    <%= yield %>
+  </body>
+</html>

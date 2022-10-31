@@ -1,0 +1,19 @@
+<tr class="text-gray-700">
+  <td class="px-4 py-3 border text-center">
+    <%= toy.id %>
+  </td>
+  <td class="px-4 py-3 border">
+    <%= toy.model_name.name %>
+  </td>
+  <td class="px-4 py-3 border">
+    <%= toy.name %>
+  </td>
+  <td class="px-4 py-3 border">
+    <%= link_to toy.url, toy.url, target: :_blank, rel: "noopener noreferrer", class: "link link-accent" %>
+  </td>
+  <td class="px-4 py-3 border flex justify-center">
+    <%= link_to '詳細', admin_toy_path(toy, shop: toy.model_name.name), class: "btn btn-primary ml-3" %>
+    <%= link_to '編集', edit_admin_toy_path(toy, shop: toy.model_name.name), class: "btn btn-warning mx-3", id: "toy-edit-#{toy.id}" %>
+    <%= link_to '削除', admin_toy_path(toy, shop: toy.model_name.name), class: "btn btn-error mr-3", method: :delete, data: {confirm: t('defaults.message.delete_confirm')}, id: "toy-delete-#{toy.id}" %>
+  </td>
+</tr>

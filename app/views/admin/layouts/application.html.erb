@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page_title(yield(:title), admin: true ) %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'admin' %>
+    <%= javascript_pack_tag 'admin' %>
+  </head>
+  <body>
+    <main class="bg-gray-100 dark:bg-gray-800 rounded-2xl overflow-hidden relative">
+      <div class="flex items-start justify-between">
+        <%= render 'admin/shared/sidebar' %>
+        <div class="flex flex-col w-full pl-0 md:p-4 md:space-y-4">
+          <%= render 'admin/shared/header' %>
+          <%= render 'shared/flash_message' %>
+          <%= yield %>
+          <%= render 'admin/shared/footer' %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -14,6 +14,7 @@ ja:
       fail_create: "%{item}の作成に失敗しました"
       fail_update: "%{item}の更新に失敗しました"
       delete_confirm: "削除しますか？"
+      not_authorized: '管理画面へのログイン権限がありません'
   users:
     new:
       title: '新規登録'
@@ -66,3 +67,38 @@ ja:
         title: 'My Catプロフィール作成'
       edit:
         title: 'My Catプロフィール編集'
+  admin:
+    dashboards:
+      index:
+        title: 'ダッシュボード'
+    user_sessions:
+      new:
+        title: 'ログイン'
+      create:
+        success: 'ログインしました'
+        fail: 'ログインに失敗しました'
+      destroy:
+        success: 'ログアウトしました'
+    users:
+      index:
+        title: 'ユーザー一覧'
+      show:
+        title: 'ユーザー詳細'
+      edit:
+        title: 'ユーザー編集'
+    reviews:
+      index:
+        title: 'レビュー一覧'
+      show:
+        title: 'レビュー詳細'
+      edit:
+        title: 'レビュー編集'
+    toys:
+      index:
+        title: 'おもちゃ一覧'
+      new:
+        title: 'おもちゃ新規登録'
+      show:
+        title: 'おもちゃ詳細'
+      edit:
+        title: 'おもちゃ編集'

@@ -1,0 +1,4 @@
+twitter_callback_url: 'https://www.catoy.site/oauth/callback?provider=twitter'
+default_url_options:
+  protocol: 'https'
+  host: 'www.catoy.site'

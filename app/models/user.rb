@@ -12,6 +12,7 @@
 #  updated_at       :datetime         not null
 #
 class User < ApplicationRecord
+  require 'open-uri'
   include Rails.application.routes.url_helpers
 
   authenticates_with_sorcery!
@@ -22,6 +23,8 @@ class User < ApplicationRecord
   has_many :favourites, dependent: :destroy
   has_many :favoured_reviews, through: :favourites, source: :review
   has_many :comments, dependent: :destroy
+  has_many :authentications, :dependent => :destroy
+  accepts_nested_attributes_for :authentications
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -54,5 +57,16 @@ class User < ApplicationRecord
 
   def avatar_url
     avatar.attached? ? url_for(avatar) : nil
+  end
+
+  def download_and_attach_avatar(profile_image)
+    return unless profile_image
+
+    profile_image = profile_image.gsub(/_normal/, '')
+    file = URI.open(profile_image)
+    avatar.attach(io: file,
+                  filename: "twitter_profile_image.#{file.content_type_parse.first.split('/').last}",
+                  content_type: file.content_type_parse.first
+                  )
   end
 end

@@ -24,11 +24,12 @@
             <%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation, class: "input input-bordered input-sm w-full max-w-xs" %>
           </div>
-          <div class="flex justify-center items-center mb-5">
+          <div class="flex justify-center items-center">
             <%= f.submit t('defaults.register'), class: "btn" %>
           </div>
         <% end %>
-        <div class="flex justify-center items-center mt-6">
+        <%= render 'shared/twitter_login' %>
+        <div class="flex justify-center items-center mt-3">
           <%= link_to t('users.new.to_login'), login_path, class: "link link-hover" %>
         </div>
       </div>

@@ -1,0 +1,9 @@
+<span class="flex justify-center">or</span>
+<div class="border-dotted border-b-4 border-gray-500">
+  <div class="flex justify-center items-center mt-2">
+    <%= link_to auth_at_provider_path(provider: :twitter), class: "btn btn-accent mb-5" do %>
+      <i class="fab fa-twitter mr-2"></i>
+      <%= t('defaults.twitter_login') %>
+    <% end %>
+  </div>
+</div>

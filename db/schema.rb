@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_29_042129) do
+ActiveRecord::Schema.define(version: 2022_11_01_052352) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,10 +40,19 @@ ActiveRecord::Schema.define(version: 2022_09_29_042129) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "authentications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+  end
+
   create_table "cainzs", force: :cascade do |t|
-    t.string "name"
-    t.string "image"
-    t.string "url"
+    t.string "name", null: false
+    t.string "image", null: false
+    t.string "url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -96,9 +105,9 @@ ActiveRecord::Schema.define(version: 2022_09_29_042129) do
   end
 
   create_table "rakutens", force: :cascade do |t|
-    t.string "name"
-    t.string "image"
-    t.string "url"
+    t.string "name", null: false
+    t.string "image", null: false
+    t.string "url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -131,6 +140,8 @@ ActiveRecord::Schema.define(version: 2022_09_29_042129) do
     t.string "salt"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role", default: 0, null: false
+    t.string "profile_image"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

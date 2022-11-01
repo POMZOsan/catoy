@@ -6,6 +6,7 @@ ja:
     update: '更新'
     post: '投稿'
     edit: '編集する'
+    twitter_login: 'Twitterでログイン'
     message:
       require_login: 'ログインしてください'
       create: "%{item}を作成しました"

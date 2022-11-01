@@ -32,6 +32,7 @@ gem 'enum_help'
 gem 'active_model_serializers'
 gem 'draper'
 gem 'kaminari'
+gem 'config'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

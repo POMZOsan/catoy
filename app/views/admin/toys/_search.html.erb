@@ -1,0 +1,7 @@
+<%= form_with model: search_toy, url: admin_toys_path, scope: :q, class: "flex justigy-between", method: :get, local: true do |f| %>
+  <%= f.select :shop_name, [['all', 'all'],[Cainz.model_name.human, 'Cainz'],[Rakuten.model_name.human, 'Rakuten']], { include_blank: 'ショップ選択'}, { class: "input input-bordered input-md max-w-xs mr-3" } %>
+  <%= f.search_field :toy_name, class: "input input-bordered input-md max-w-xs mr-3", placeholder: '商品名'  %> 
+  <%= button_tag type: 'submit', class: 'btn', id: 'search-button' do %>
+      <i class="fas fa-search"></i>
+  <% end %>
+<% end %>

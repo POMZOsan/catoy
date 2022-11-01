@@ -10,12 +10,15 @@ ja:
       comment: 'コメント'
     attributes:
       user:
+        id: 'ID'
+        created_at: '作成日時'
         name: '名前'
         email: 'メール'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         introduction: '自己紹介'
         avatar: 'アバター'
+        role: '権限'
       cat:
         name: '名前'
         sex: '性別'
@@ -33,15 +36,23 @@ ja:
       category:
         name: 'カテゴリー名'
       review:
+        id: 'ID'
+        created_at: '作成日時'
+        user: '作成者'
         title: 'タイトル'
         content: 'レビュー内容'
         rate: '星'
         image: 'レビュー画像'
         product_type: 'ショップ'
         product_id: 'おもちゃ'
+        product_url: 'おもちゃURL'
       comment:
         content: 'コメント内容'
   enums:
+    user:
+      role:
+        general: '一般'
+        admin: '管理者'
     cat:
       sex:
         male: 'オス'

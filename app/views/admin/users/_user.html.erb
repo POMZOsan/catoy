@@ -1,0 +1,19 @@
+<tr class="text-gray-700" id="user-<%= user.id %>">
+  <td class="px-4 py-3 border text-center">
+    <%= user.id %>
+  </td>
+  <td class="px-4 py-3 border">
+    <%= user.name %>
+  </td>
+  <td class="px-4 py-3 border">
+    <%= user.role %>
+  </td>
+  <td class="px-4 py-3 border">
+    <%= l user.created_at, format: :long %>
+  </td>
+  <td class="px-4 py-3 border flex justify-center">
+    <%= link_to '詳細', admin_user_path(user), class: "btn btn-primary" %>
+    <%= link_to '編集', edit_admin_user_path(user), class: "btn btn-warning mx-3", id: "user-edit-#{user.id}" %>
+    <%= link_to '削除', admin_user_path(user), class: "btn btn-error", method: :delete, data: {confirm: t('defaults.message.delete_confirm')}, id: "user-delete-#{user.id}" %>
+  </td>
+</tr>

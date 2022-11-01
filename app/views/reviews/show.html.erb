@@ -46,7 +46,7 @@
       </p>
       <div class="flex mt-6 pb-5 pt-3 border-t-2 border-gray-800 mb-5">
         <div class="flex">
-          <% if @review.product.image.present? %>
+          <% unless Rails.env.test? %>
             <%= image_tag @review.product.image, class: "w-20 rounded-xl"  if @review.review_block.present? %>
           <% end %>
         </div>

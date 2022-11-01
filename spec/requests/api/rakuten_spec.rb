@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Rakuten', type: :request do
   let(:user) { create :user, name: 'user_1'}
-  let!(:rakutens) { create_list :rakuten, 5, :with_image }
+  let!(:rakutens) { create_list :rakuten, 5 }
 
   before do
     session_params = { email: user.email, password: 'password' }

@@ -1,0 +1,35 @@
+<% content_for(:title, t('.title')) %>
+<div class="container mx-auto p-6 font-mono">
+  <h1 class="ml-32 mb-8"><%= t('.title') %></h1>
+  <div class="flex justify-center">
+    <div class="w-3/4 mb-8 overflow-hidden rounded-lg shadow-lg">
+      <div class="flex justify-center w-full overflow-x-auto">
+        <%= form_with url: admin_toys_path, class: "w-full px-3", local: true do |f| %>
+          <div class="flex flex-col">
+            <div class="flex flex-col">
+              <div>カテゴリー</div>
+              <div><%= f.select :category, Category.pluck(:name), { include_blank: 'カテゴリー選択' }, { class: "input input-bordered max-w-xs mb-5" } %></div>
+            </div>
+            <div>ショップ名</div>
+            <div><%= f.select :shop,  [[Cainz.model_name.human, 'Cainz'], [Rakuten.model_name.human, 'Rakuten']], { include_blank: 'ショップ選択' }, { class: "input input-bordered max-w-xs mb-5" } %></div>
+          </div>
+          <div class="flex flex-col">
+            <div>商品名</div>
+            <div><%= f.text_field :name, class: "input input-bordered w-full max-w-xs mb-5" %></div>
+          </div>
+          <div class="flex flex-col">
+            <div>商品URL</div>
+            <div><%= f.text_field :url, class: "input input-bordered w-full max-w-xs mb-5" %></div>
+          </div>
+          <div class="flex flex-col">
+            <div>商品画像URL</div>
+            <div><%= f.text_field :image, class: "input input-bordered w-full max-w-xs mb-5" %></div>
+          </div>
+          <div class="flex flex-col">
+            <%= f.submit t('defaults.register') ,class: "btn btn w-20 mb-3" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<% content_for(:title, t('.title')) %>
+<div class="container mx-auto p-6 font-mono">
+  <h1 class="ml-32 mb-8"><%= t('.title') %></h1>
+  <div class="flex justify-center">
+    <div class="w-3/4 mb-8 overflow-hidden rounded-lg shadow-lg">
+      <div class="flex justify-center w-full overflow-x-auto">
+        <%= form_with model: @review, url: admin_review_path(@review), class: "w-full px-3", local: true do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <div class="flex flex-col">
+            <div><%= f.label :title %></div>
+            <div><%= f.text_field :title, class: "input input-bordered w-full max-w-xs mb-5" %></div>
+          </div>
+          <div class="flex flex-col">
+            <div><%= f.label :content %></div>
+            <div><%= f.text_area :content, class: "textarea textarea-bordered w-full mb-5", rows: "5" %></div>
+          </div>
+          <div class="flex flex-col">
+            <div><%= f.label :rate %></div>
+            <div><%= f.number_field :rate, in: 0..5, class: "input input-bordered w-full max-w-xs mb-5" %></div>
+          </div>
+          <div class="flex flex-col">
+            <div><%= f.label :image %></div>
+            <div><%= f.file_field :image, id: 'select-image', accept: 'image/*', class: "mb-5" %></div>
+          </div>
+          <div class="flex flex-col">
+            <%= image_tag f.object.decorate.image, class: "w-60 object-cover object-center rounded-2xl mb-5", id: 'preview' %>
+          </div>
+          <div class="flex flex-col">
+            <%= f.submit class: "btn btn w-20 mb-3" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

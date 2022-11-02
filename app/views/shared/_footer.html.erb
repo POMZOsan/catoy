@@ -1,5 +1,21 @@
-<footer class="footer footer-center p-4 bg-base-200 text-base-content">
+<footer class="footer footer-center p-4 bg-base-200 text-primary-content">
   <div>
-    <p>Copyright © 2022 - All right reserved by catoy</p>
+    <%= image_tag 'logo_s.png', class: "w-28" %>
+    <div class="grid grid-flow-col gap-4">
+      <%= link_to '利用規約', '#', class: "link link-hover" %>
+      <%= link_to 'プライバシーポリシー', '#', class: "link link-hover" %>
+      <%= link_to 'お問合せ', '#', class: "link link-hover" %>
+    </div>
+    <p class="font-bold">Copyright © 2022 - All right reserved by catoy</p>
+  </div>
+  <div>
+    <div class="grid grid-flow-col gap-4">
+      <%= link_to 'https://twitter.com/POMZOsan' do %>
+        <i class="fab fa-twitter mr-2 fa-2x"></i>
+      <% end %>
+      <%= link_to 'https://github.com/POMZOsan/catoy' do %>
+        <i class="fab fa-github fa-2x"></i>
+      <% end %>
+    </div>
   </div>
 </footer>

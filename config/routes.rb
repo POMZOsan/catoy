@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: 'homes#top'
+  get 'privacy_policy', to: 'homes#privacy_policy'
+  get 'kiyaku', to: 'homes#kiyaku'
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'

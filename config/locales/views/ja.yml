@@ -18,6 +18,13 @@ ja:
       fail_update: "%{item}の更新に失敗しました"
       delete_confirm: "削除しますか？"
       not_authorized: '管理画面へのログイン権限がありません'
+  homes:
+    kiyaku:
+      title: '利用規約'
+    privacy_policy:
+      title: 'プライバシーポリシー'
+    top:
+      title: 'トップ'
   users:
     new:
       title: '新規登録'

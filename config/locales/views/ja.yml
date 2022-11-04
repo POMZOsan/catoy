@@ -5,8 +5,10 @@ ja:
     register: '登録'
     update: '更新'
     post: '投稿'
+    submit: '送信'
     edit: '編集する'
     twitter_login: 'Twitterでログイン'
+    password_reset: 'パスワード再設定のご依頼を受け付けました'
     message:
       require_login: 'ログインしてください'
       create: "%{item}を作成しました"
@@ -16,6 +18,13 @@ ja:
       fail_update: "%{item}の更新に失敗しました"
       delete_confirm: "削除しますか？"
       not_authorized: '管理画面へのログイン権限がありません'
+  homes:
+    kiyaku:
+      title: '利用規約'
+    privacy_policy:
+      title: 'プライバシーポリシー'
+    top:
+      title: 'トップ'
   users:
     new:
       title: '新規登録'
@@ -68,6 +77,16 @@ ja:
         title: 'My Catプロフィール作成'
       edit:
         title: 'My Catプロフィール編集'
+  password_resets:
+    new:
+      title: 'パスワードを忘れた方'
+    edit:
+      title: 'パスワード再設定'
+    create:
+      success: 'パスワード再設定手順を送信しました'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワード変更に失敗しました'
   admin:
     dashboards:
       index:

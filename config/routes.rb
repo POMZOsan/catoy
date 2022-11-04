@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
   root to: 'homes#top'
   get 'privacy_policy', to: 'homes#privacy_policy'
   get 'kiyaku', to: 'homes#kiyaku'
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   get 'sign_up', to: 'users#new'
+
   resources :reviews, only: %i[ index new show edit destroy ] do
     get 'favourites', on: :collection
     get 'search', on: :collection
@@ -39,4 +42,5 @@ Rails.application.routes.draw do
   get 'oauth/callback', to: 'oauths#callback'
   get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
   
+  resources :password_resets, only: %i[ new create edit update ]
 end

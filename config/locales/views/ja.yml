@@ -8,6 +8,7 @@ ja:
     submit: '送信'
     edit: '編集する'
     twitter_login: 'Twitterでログイン'
+    twitter_share: 'Twitterシェア'
     password_reset: 'パスワード再設定のご依頼を受け付けました'
     message:
       require_login: 'ログインしてください'
@@ -23,8 +24,6 @@ ja:
       title: '利用規約'
     privacy_policy:
       title: 'プライバシーポリシー'
-    top:
-      title: 'トップ'
   users:
     new:
       title: '新規登録'

@@ -30,13 +30,13 @@
             <% unless current_user.mine?(@review) %>
               <span class="ml-6 mt-3">
                 <%= render 'favourite_button', review: @review %>
-                <%= link_to twitter_share(@review), class: "btn btn-outline btn-sm ml-6", target: '_blank', rel: 'noopener noreferrer' do %>
+                <%= link_to twitter_share(@review, request.url), class: "btn btn-outline btn-sm ml-6", target: '_blank', rel: 'noopener noreferrer' do %>
                   <i class="fab fa-twitter mr-1"></i><%= t('defaults.twitter_share') %>
                 <% end %>
               </span>
             <% else %>
               <%= render 'crud_menu', review: @review %>
-              <%= link_to twitter_share(@review), class: "btn btn-outline btn-sm ml-6", target: '_blank', rel: 'noopener noreferrer' do %>
+              <%= link_to twitter_share(@review, request.url), class: "btn btn-outline btn-sm ml-6", target: '_blank', rel: 'noopener noreferrer' do %>
                 <i class="fab fa-twitter mr-1"></i><%= t('defaults.twitter_share') %>
               <% end %>
             <% end %>

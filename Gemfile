@@ -33,6 +33,7 @@ gem 'active_model_serializers'
 gem 'draper'
 gem 'kaminari'
 gem 'config'
+gem 'meta-tags'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -44,7 +45,6 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rspec-rails', '~> 6.0.0'
   gem 'factory_bot_rails'
-
 end
 
 group :development do

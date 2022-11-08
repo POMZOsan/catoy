@@ -17,10 +17,12 @@ class ReviewBlock < ApplicationRecord
   validates :product_id, presence: true
 
   def self.toys_ranking(character:)
-    joins(review: {user: :cat}).
-    where(cat: {character: character}).
-    group(:product_type, :product_id, 'reviews.rate').
-    order('reviews.rate desc', 'count(product_id) desc').
-    limit(5)
+    scoped_ids = joins(review: {user: :cat}).
+                 where(cat: {character: character}).
+                 group(:product_type, :product_id, 'reviews.rate').
+                 order('count(product_id) desc').
+                 limit(5).
+                 pluck(:id)
+    joins(:review).where(id: scoped_ids).order('reviews.rate desc')
   end
 end

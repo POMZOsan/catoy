@@ -61,6 +61,9 @@ ja:
     search:
       title: '検索結果'
       no_reviews: 'レビューがありません'
+  rankings:
+    index:
+      title: 'ランキング'
   profiles:
     show:
       title: 'プロフィール'

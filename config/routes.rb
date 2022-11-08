@@ -21,11 +21,15 @@ Rails.application.routes.draw do
     resource :mycat, only: %i[ new create show edit update], module: 'profiles'
   end
 
+  get 'ranking', to: 'rankings#index'
+
   namespace :api do
     resources :reviews, only: %i[ edit create update ]
     resources :comments, only: %i[ index create destroy ]
     get 'cainz', to: 'cainz#index'
     get 'rakuten', to: 'rakuten#index'
+    get 'active_cat_ranking', to: 'ranking#active'
+    get 'gentle_cat_ranking', to: 'ranking#gentle'
   end
 
   namespace :admin do

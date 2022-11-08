@@ -38,6 +38,7 @@ import { csrfToken } from '@rails/ujs'
 import VueAxiosPlugin from '../plugins/vue-axios'
 import Comment from '../components/comment/Comment.vue'
 import Review from '../components/review/Review.vue'
+import Ranking from '../components/ranking/Ranking.vue'
 
 Vue.use(VueAxiosPlugin, { axios: axios, csrfToken: csrfToken })
 
@@ -46,7 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
     el: '#main',
     components: { 
       Comment,
-      Review
+      Review,
+      Ranking
     }
   })
 })

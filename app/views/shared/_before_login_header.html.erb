@@ -13,6 +13,7 @@
     <div class="navbar-end">
       <div class="px-2">
         <div class="flex items-stretch">
+          <%= link_to t('rankings.index.title'), ranking_path,  class: 'btn btn-ghost' %>
           <div class="dropdown dropdown-hover">
             <label tabindex="0" class="btn btn-ghost">
               <%= Review.model_name.human %> <span class="ml-2"><i class="fas fa-chevron-down"></i></span>

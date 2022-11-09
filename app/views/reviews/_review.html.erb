@@ -1,5 +1,5 @@
 <div class="card lg:card-side bg-base-100 shadow-xl" id="review-<%= review.id %>">
-  <figure><%= image_tag review.decorate.image, class: "h-80 w-52 object-cover" %></figure>
+  <figure><%= image_tag review.decorate.image, class: "h-full w-52 object-cover" %></figure>
   <div class="card-body">
     <h2 class="card-title">
       <%= link_to review.title, review_path(review) %>

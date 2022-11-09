@@ -19,17 +19,4 @@
 }
 .fa-heart {
   color: palevioletred;
-  // font-size: 2em;
-}
-.card-side {
-  flex-direction: row;
-  align-items: stretch;
-}
-.card-side figure>*{
-  max-width:unset
-}
-:where(.card-side figure>*){
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }

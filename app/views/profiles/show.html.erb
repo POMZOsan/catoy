@@ -34,5 +34,9 @@
         <%= link_to t('.look_my_profile'), user_path(current_user.id), class: "link link-hover" %>
       </div>
     </div>
+    <%= link_to profile_path, class: "btn btn-outline btn-error", method: :delete, data: {confirm: t('.delete_confirm')} do  %>
+      <i class="fas fa-exclamation-triangle fa-lg mr-1"></i>
+      <%= t('.delete_acount') %>
+    <% end %>
   </div>
 </div>

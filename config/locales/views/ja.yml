@@ -69,8 +69,12 @@ ja:
       title: 'プロフィール'
       register_mycat: '猫ちゃんを登録する'
       look_my_profile: '自分のプロフィールを見る'
+      delete_acount: 'アカウントを削除する'
+      delete_confirm: "本当にアカウントを削除しますか？\nアカウント削除後は作成したレビュー等も削除されます。"
     edit:
       title: 'プロフィール編集'
+    destroy:
+      destroy_acount: 'アカウントを削除しました。またのご利用をお持ちしております。'
     mycats:
       title: 'My Cat'
       show:

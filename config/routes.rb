@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
   resources :favourites, only: %i[ create destroy ]
   resources :users, only: %i[ create show ]
-  resource :profile, only: %i[ show edit update ] do
+  resource :profile, only: %i[ show edit update destroy ] do
     resource :mycat, only: %i[ new create show edit update], module: 'profiles'
   end
 

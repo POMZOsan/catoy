@@ -20,9 +20,10 @@ class ReviewBlock < ApplicationRecord
     scoped_ids = joins(review: {user: :cat}).
                  where(cat: {character: character}).
                  group(:product_type, :product_id, 'reviews.rate').
-                 order('count(product_id) desc').
+                 order('reviews.rate desc', 'count(product_id) desc').
                  limit(5).
-                 pluck(:id)
-    joins(:review).where(id: scoped_ids).order('reviews.rate desc')
+                 maximum(:id).
+                 values
+    find(scoped_ids)
   end
 end

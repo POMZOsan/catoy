@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_user, only: %i[ edit update ]
+  before_action :set_user, only: %i[ edit update destroy ]
 
   def show; end
 
@@ -12,6 +12,11 @@ class ProfilesController < ApplicationController
       flash.now[:error] = t('defaults.message.fail_update', item: User.model_name.human)
       render :edit
     end
+  end
+
+  def destroy
+    @user.destroy!
+    redirect_to root_path, info: t('.destroy_acount')
   end
 
   private

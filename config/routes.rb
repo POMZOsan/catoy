@@ -47,4 +47,6 @@ Rails.application.routes.draw do
   get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
   
   resources :password_resets, only: %i[ new create edit update ]
+
+  get '/sitemap', to: redirect("https://s3-#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/#{Rails.application.credentials.dig(:aws, :bucket)}/sitemaps/sitemap.xml.gz")
 end

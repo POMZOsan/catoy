@@ -12,6 +12,6 @@ SitemapGenerator::Sitemap.create do
   add reviews_path
   add ranking_path
   Review.find_each do |review|
-    add review_path(review), lastmod: :review.updated_at
+    add review_path(review), lastmod: review.updated_at
   end
 end

@@ -48,5 +48,5 @@ Rails.application.routes.draw do
   
   resources :password_resets, only: %i[ new create edit update ]
 
-  get '/sitemap', to: redirect("https://#{Rails.application.credentials.dig(:aws, :sitemap_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com"/sitemap.xml.gz")
+  get '/sitemap', to: redirect("https://#{Rails.application.credentials.dig(:aws, :sitemap_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/sitemap.xml.gz")
 end

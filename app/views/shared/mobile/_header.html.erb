@@ -1,0 +1,64 @@
+<div class="mobile-menu">
+  <div class="navbar bg-base-200">
+    <div class="navbar-start w-40">
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost btn-circle">
+          <i class="fas fa-bars fa-lg"></i>
+        </label>
+        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 py-2 shadow bg-base-100 rounded-box w-48">
+          <li>
+            <%= link_to root_path, class: 'btn btn-ghost' do %>
+              <span><i class="fas fa-home"></i></span>
+              <span><%= t('homes.top.title') %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to profile_path, class: 'btn btn-ghost' do %>
+              <span>
+                <%= image_tag current_user.decorate.avatar, class: "mask mask-squircle w-7", id: "avatar" %>
+              </span>
+              <%= t('profiles.show.title') %>
+            <% end %>
+          </li>
+          <% if current_user.cat %>
+            <li>
+              <%= link_to profile_mycat_path, class: 'btn btn-ghost' do %>
+                <span>
+                  <%= image_tag current_user.cat.decorate.avatar, class: "mask mask-squircle w-7" %>
+                </span>
+                <%= t('profiles.mycats.title') %>
+              <% end %>
+            </li>
+          <% end %>
+          <li>
+            <%= link_to new_review_path, class: 'btn btn-ghost' do %>
+              <span><i class="fas fa-pen-nib"></i></span>
+              <%= t('reviews.new.title') %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to favourites_reviews_path, class: 'btn btn-ghost' do %>
+              <span><i class="fas fa-heart" style="color: black;"></i></span>
+              <%= t('reviews.favourites.title') %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to ranking_path, class: 'btn btn-ghost' do %>
+              <span><i class="fas fa-crown"></i></span>
+              <span><%= t('rankings.index.mobile') %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to logout_path, class: 'btn btn-ghost', method: :delete do %>
+              <span><i class="fas fa-sign-out-alt"></i></span>
+              <span><%= t('defaults.logout') %></span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <%= render 'shared/mobile/mobile_search', search_review: @search_review %>
+    </div>
+  </div>
+</div>

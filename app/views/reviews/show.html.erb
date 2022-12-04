@@ -5,10 +5,10 @@
 
 <div class="container px-5 py-10 mx-auto">
   <div class="lg:w-4/5 mx-auto flex flex-wrap bg-white rounded-2xl" id="review-<%= @review.id %>">
-    <%= image_tag @review.decorate.image, class: "lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded-2xl" %>
-    <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+    <%= image_tag @review.decorate.image, class: "sm:w-1/2 w-full h-auto object-cover object-center rounded-2xl" %>
+    <div class="sm:w-1/2 w-full pl-5 sm:pl-10 sm:py-6 mt-6 sm:mt-0">
       <div class="flex items-center space-x-2">
-        <div class="w-16 mask mask-squircle">
+        <div class="w-10 sm:w-16 mask mask-squircle">
           <%= link_to user_path(@review.user.id) do %>
             <%= image_tag @review.user.decorate.avatar %>
           <% end %>
@@ -18,27 +18,34 @@
           <div class="ml-6"><span class="<%= cat_type(@review.user.cat.character) %> ml-6 mt-3"><%= @review.user.cat.decorate.character %></span></div>
         <% end %>
       </div>
-      <h1 class="text-3xl title-font font-extrabold mb-1"><%= @review.title %></h1>
+      <h1 class="text-3xl title-font font-extrabold mt-3 mb-1"><%= @review.title %></h1>
       <div class="flex mb-4">
-        <span class="flex items-center">
-          <span class="star-rating">
-            <span class="star-rating-front" style="width: <%= @review.rating_parcent %>%">★★★★★</span>
-            <span class="star-rating-back">★★★★★</span>
-          </span>
-          <span class="ml-3 mt-3"><%= @review.decorate.star %></span>
+        <span class="flex flex-col sm:flex-row sm:items-center">
+          <span>
+            <span class="star-rating">
+              <span class="star-rating-front" style="width: <%= @review.rating_parcent %>%">★★★★★</span>
+              <span class="star-rating-back">★★★★★</span>
+            </span>
+            <span class="ml-3 mt-3"><%= @review.decorate.star %></span>
           <% if logged_in? %>
             <% unless current_user.mine?(@review) %>
-              <span class="ml-6 mt-3">
+              <span class="sm:ml-6 sm:mt-3">
                 <%= render 'favourite_button', review: @review %>
-                <%= link_to twitter_share(@review, request.url), class: "btn btn-outline btn-sm ml-6", target: '_blank', rel: 'noopener noreferrer' do %>
-                  <i class="fab fa-twitter mr-1"></i><%= t('defaults.twitter_share') %>
+              </span>
+              </span>
+              <span>
+                <%= link_to twitter_share(@review, request.url), class: "btn btn-outline btn-xs sm:btn-sms ml-0 sm:ml-6 mt-2 sm:mt-0", target: '_blank', rel: 'noopener noreferrer' do %>
+                  <i class="fab fa-twitter sm:mr-1"></i><%= t('defaults.twitter_share') %>
                 <% end %>
               </span>
             <% else %>
               <%= render 'crud_menu', review: @review %>
-              <%= link_to twitter_share(@review, request.url), class: "btn btn-outline btn-sm ml-6", target: '_blank', rel: 'noopener noreferrer' do %>
-                <i class="fab fa-twitter mr-1"></i><%= t('defaults.twitter_share') %>
+              </span>
+              <span>
+              <%= link_to twitter_share(@review, request.url), class: "btn btn-outline btn-xs sm:btn-sm ml-0 sm:ml-6 mt-2 sm:mt-0", target: '_blank', rel: 'noopener noreferrer' do %>
+                <i class="fab fa-twitter sm:mr-1"></i><%= t('defaults.twitter_share') %>
               <% end %>
+              </span>
             <% end %>
           <% end %>
         </span>
@@ -63,14 +70,14 @@
           </span>
           <span>
             <% if @review.review_block.present? %>
-              <%= @review.product.name %>
+              <%= truncate(@review.product.name, length: 25) %>
             <% else %>
               <%= t('.no_product') %>
             <% end %>
           </span>
           <span>
             <% if @review.review_block.present? %>
-              <%= link_to t('.check_site'), @review.product.url, target: :_blank, rel: "noopener noreferrer", class: "mt-3 btn" %>
+              <%= link_to t('.check_site'), @review.product.url, target: :_blank, rel: "noopener noreferrer", class: "mt-3 btn btn-sm sm:btn" %>
             <% else %>
               <button class= "mt-3 btn" disabled="disabled"><%= t('.check_site') %></button>
             <% end %>

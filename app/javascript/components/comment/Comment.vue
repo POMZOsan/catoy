@@ -153,4 +153,9 @@ export default {
   .textarea-bordered {
     --tw-border-opacity: 0.2;
 }
+@media screen and (max-width: 640px){
+  .wide {
+    width: 100%;
+  }
+}
 </style>

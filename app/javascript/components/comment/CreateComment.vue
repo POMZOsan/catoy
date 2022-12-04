@@ -33,7 +33,9 @@ export default {
 }
 </script>
 <style scoped>
-/* .btn-primary {
-  bg-primary: hsl(var(--p));
-} */
+@media screen and (max-width: 640px){
+  .w-96 {
+    width: 100%;
+  }
+}
 </style>

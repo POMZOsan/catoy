@@ -13,3 +13,13 @@ body {
 .container {
   min-height: calc(100vh - 130px)
 }
+@media screen and (min-width: 641px){
+  .mobile-menu{
+    display: none;
+  }
+}
+@media screen and (max-width: 640px){
+  .pc-header {
+    display: none;
+  }
+}

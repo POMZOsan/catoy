@@ -27,7 +27,7 @@
               <input
                 type="text"
                 name="title"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered input-md w-full max-w-xs"
                 v-model="review.title"
               />
             </div>
@@ -75,7 +75,7 @@
                 <span class="label-text">ショップ選択</span>
               </label>
               <select
-                class="select select-bordered"
+                class="select select-bordered select-md"
                 name="select-shop"
                 v-model="review.product_type"
                 @change="openModal"
@@ -258,5 +258,25 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+@media screen and (max-width: 640px){
+  .w-2\/4 {
+  width: 100%;
+  }
+  .input-md {
+    height: 2rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: .875rem;
+    line-height: 2rem;
+  }
+  .select-md {
+    height: 2rem;
+    padding-left: 0.75rem;
+    padding-right: 2rem;
+    font-size: .875rem;
+    line-height: 2rem;
+    min-height: 2rem;
+  }
 }
 </style>

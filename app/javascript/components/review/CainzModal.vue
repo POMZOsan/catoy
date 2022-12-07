@@ -22,7 +22,7 @@
           </li>
           <li class="flex justify-center">
             <img :src="cainz.image" class="w-52"/>
-            <button class="btn" @click="setProduct(cainz.id)">選択</button>
+            <button class="btn btn-md" @click="setProduct(cainz.id)">選択</button>
           </li>
         </div>
       </ul>
@@ -80,5 +80,14 @@ export default {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   overflow-y: auto;
   overscroll-behavior: contain
+}
+@media screen and (max-width: 640px){
+  .btn-md {
+    height: 2rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    min-height: 2rem;
+    font-size: .875rem;
+  }
 }
 </style>

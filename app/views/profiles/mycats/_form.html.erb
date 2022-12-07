@@ -14,21 +14,29 @@
       <%= f.label :name %>
       <%= f.text_field :name, class: "input input-bordered input-sm w-full max-w-xs" %>
     </div>
-    <div class="flex flex-col mb-5" id="choose-sex">
-      <%= f.label Cat.sexes_i18n['male'] %>
-      <%= f.radio_button :sex, Cat.sexes.invert[0], class: "radio" %>
-      <%= f.label Cat.sexes_i18n['female'] %>
-      <%= f.radio_button :sex, Cat.sexes.invert[1], class: "radio" %>
+    <div class="flex flex-row mb-5" id="choose-sex">
+      <div class="flex flex-col items-center mr-16">
+        <%= f.label Cat.sexes_i18n['male'] %>
+        <%= f.radio_button :sex, Cat.sexes.invert[0], class: "radio" %>
+      </div>
+      <div class="flex flex-col items-center">
+        <%= f.label Cat.sexes_i18n['female'] %>
+        <%= f.radio_button :sex, Cat.sexes.invert[1], class: "radio" %>
+      </div>
     </div>
-    <div class="flex flex-col mb-5" id="choose-character">
-      <%= f.label Cat.characters_i18n['active'] %>
-      <%= f.radio_button :character, Cat.characters.invert[0], class: "radio" %>
-      <%= f.label Cat.characters_i18n['gentle'] %>
-      <%= f.radio_button :character, Cat.characters.invert[1], class: "radio" %>
+    <div class="flex flex-row mb-5" id="choose-character">
+      <div class="flex flex-col items-center mr-10">
+        <%= f.label Cat.characters_i18n['active'] %>
+        <%= f.radio_button :character, Cat.characters.invert[0], class: "radio" %>
+      </div>
+      <div class="flex flex-col items-center">
+        <%= f.label Cat.characters_i18n['gentle'] %>
+        <%= f.radio_button :character, Cat.characters.invert[1], class: "radio" %>
+      </div>
     </div>
     <div class="flex flex-col mb-5">
       <%= f.label :birth_date %>
-      <%= f.date_field :birth_date, class: "select select-bordered w-full max-w-xs" %>
+      <%= f.date_field :birth_date, class: "select select-bordered select-sm w-full max-w-xs" %>
     </div>
     <div class="flex justify-center items-center mb-5">
       <%= f.submit class: "btn" %>

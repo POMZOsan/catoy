@@ -3,7 +3,7 @@
     <template v-if="toys.length">
       <div v-for="(toy, index) in toys" :key="toy.index">
         <div class="hero h-full bg-base-100 pt-8 px-10">
-          <div class="hero-content lg:flex-row w-full">
+          <div class="hero-content flex-row w-full">
             <img :src="toy.image" class="max-w-sm rounded-lg shadow-2xl" />
             <div class="w-full ml-5">
               <h1 class="text-xl font-bold">第{{ rank(index) }}位</h1>
@@ -21,16 +21,14 @@
                 <span class="ml-3">星{{ toy.rate }}つ</span>
                 <span class="ml-10">レビュー数{{ toy.count }}件</span>
               </span>
-              <span class="flex flex-row items-center mb-5">
+              <span class="items-center">
                 <i class="fas fa-store mr-2"></i>{{ toy.shop }}
               </span>
-              <a
-                :href="toy.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary my-5"
-                >商品サイトを見てみる</a
-              >
+              <div class="my-5">
+                <a :href="toy.url" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                  商品サイトを見てみる
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -66,6 +64,10 @@ export default {
 .mt-8 {
   margin-top: 2rem;
 }
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 .w-full {
   width: 100%;
 }
@@ -77,5 +79,38 @@ img {
   --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+@media screen and (max-width: 640px){
+  img {
+    width: 12rem;
+    height: 12rem;
+  }
+  .flex-row {
+    flex-direction: column;
+  }
+  .mt-8 {
+    margin-top: 0rem;
+  }
+  .text-xl {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .text-2xl {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .ml-3 {
+    margin-left: 0px;
+  }
+  .ml-10 {
+    margin-left: 0px;
+  }
+  .my-5 {
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .mb-5 {
+    margin-bottom: 0.75rem;
+  }
 }
 </style>

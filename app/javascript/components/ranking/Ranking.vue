@@ -5,13 +5,13 @@
         class="tab tab-lg tab-lifted pr-3"
         :class="{ 'tab-active': isActive }"
         @click="handleShowActiveCatRanking"
-        >活発な性格の猫ちゃん</a
+        >活発な性格</a
       >
       <a
         class="tab tab-lg tab-lifted pr-3"
         :class="{ 'tab-active': isGentle }"
         @click="handleShowGentleCatRanking"
-        >おとなしい性格の猫ちゃん</a
+        >おとなしい性格</a
       >
     </div>
     <ActiveCatRanking v-if="showActiveCatRanking" :toys="activeCatToys" />
@@ -196,5 +196,13 @@ export default {
 }
 .tab-lifted.tab-active + .tab-lifted.tab-active:before {
   background: none;
+}
+@media screen and (max-width: 640px){
+  .tab-lg {
+    height: 1.5rem;
+    --tab-padding: .75rem;
+    font-size: .875rem;
+    line-height: .75rem;
+  }
 }
 </style>

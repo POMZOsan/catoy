@@ -81,6 +81,9 @@ export default {
   overflow-y: auto;
   overscroll-behavior: contain
 }
+.w-52 {
+  width: 13rem;
+}
 @media screen and (max-width: 640px){
   .btn-md {
     height: 2rem;

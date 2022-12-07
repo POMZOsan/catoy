@@ -71,7 +71,7 @@
                   @change="setImage"
                 />
                 <!-- 画像プレビュー -->
-                <img :src="prevImage" v-if="prevImage" class="w-52" />
+                <img :src="prevImage" v-if="prevImage" class="w-52"/>
               </div>
               <div class="flex flex-col mb-5">
                 <label class="label">
@@ -239,6 +239,15 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+.w-2\/4 {
+  width: 50%;
+  }
+.w-52 {
+  width: 13rem;
+}
+.w-20 {
+  width: 5rem;
 }
 @media screen and (max-width: 640px){
   .w-2\/4 {

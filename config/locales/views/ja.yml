@@ -22,8 +22,8 @@ ja:
   placeholder:
     search:
       mobile:
-        category: 'カテゴリー選択'
-        keyword: 'レビューを商品名で探す'
+        category: 'カテゴリー'
+        keyword: '商品名で探す'
   homes:
     top:
       title: 'トップ'

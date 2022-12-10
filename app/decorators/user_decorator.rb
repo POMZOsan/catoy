@@ -2,7 +2,7 @@ class UserDecorator < Draper::Decorator
   delegate_all
 
   def avatar
-    object.avatar.attached? ? object.avatar : 'sample.jpg'
+    object.avatar.attached? ? object.avatar : 'defaults/sample.jpg'
   end
 
   def has_introduction?

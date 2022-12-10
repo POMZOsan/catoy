@@ -186,7 +186,7 @@ export default {
             this.review.image = res.data.image_url;
             this.prevImage = res.data.image_url;
           } else {
-            this.prevImage = require("../../../assets/images/board_placeholder.png")
+            this.prevImage = require("../../../assets/images/defaults/board_placeholder.png")
           }
           this.review.product_id = res.data.product_id;
           this.review.product_type = res.data.product_type;

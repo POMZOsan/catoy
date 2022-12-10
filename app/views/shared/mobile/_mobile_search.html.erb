@@ -1,8 +1,8 @@
 <%= form_with model: search_review, url: search_reviews_path, scope: :q, method: :get, local: true do |f| %>
   <div class="form-control">
     <div class="input-group" id="search-form">
-      <%= f.select :category_name, Category.pluck(:name), { include_blank: t('placeholder.search.mobile.category') }, { class: 'select select-bordered select-sm w-5' } %>
-      <%= f.text_field :keyword, class: "input input-bordered input-sm", id: 'search-keyword', placeholder: t('placeholder.search.mobile.keyword') %>
+      <%= f.select :category_name, Category.pluck(:name), { include_blank: t('placeholder.search.mobile.category') }, { class: 'select select-bordered select-sm w-32' } %>
+      <%= f.text_field :keyword, class: "input input-bordered input-sm w-36", id: 'search-keyword', placeholder: t('placeholder.search.mobile.keyword') %>
       <button class="btn btn-square btn-sm">
         <i class="fas fa-search"></i>
         <%= f.submit '' %>

@@ -22,11 +22,11 @@
       </div>
       <% if current_user.cat.present? %>
         <div class="flex justify-center mt-4">
-          <%= link_to t('defaults.edit'), edit_profile_path, class: "btn" %>
+          <%= link_to t('defaults.edit'), edit_profile_path, class: "btn btn-sm sm:btn-md" %>
         </div>
       <% else %>
         <div class="flex justify-between mt-4">
-          <%= link_to t('.register_mycat'), new_profile_mycat_path, class: "btn" %>
+          <%= link_to t('.register_mycat'), new_profile_mycat_path, class: "btn btn-sm sm:btn-md" %>
           <%= link_to t('defaults.edit'), edit_profile_path, class: "btn btn-sm sm:btn-md" %>
         </div>
       <% end %>

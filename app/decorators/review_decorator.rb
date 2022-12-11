@@ -2,7 +2,7 @@ class ReviewDecorator < Draper::Decorator
   delegate_all
 
   def image
-    object.image.attached? ? object.image : 'board_placeholder.png'
+    object.image.attached? ? object.image : 'defaults/board_placeholder.png'
   end
 
   def star

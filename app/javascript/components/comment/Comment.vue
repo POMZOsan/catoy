@@ -19,7 +19,7 @@
                       <img :src="comment.user.avatar_url" />
                     </div>
                     <div class="mask mask-squircle w-12 h-12" v-else>
-                      <img :src="require('../../../assets/images/sample.jpg')" />
+                      <img :src="require('../../../assets/images/defaults/sample.jpg')" />
                     </div>
                   </div>
                 </div>

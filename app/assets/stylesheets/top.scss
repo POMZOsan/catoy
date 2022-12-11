@@ -1,5 +1,5 @@
 .top-wrapper {
-  background-image: image-url("cat_top.jpg");
+  background-image: image-url("top/cat_top.jpg");
   background-size: cover;
   min-height: calc(100vh - 130px);
   position: relative;
@@ -25,7 +25,7 @@
 @media screen and (max-width: 640px){
   .top-wrapper {
     background-image: image-url("mobile/mobile_top.jpg");
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     min-height: 200px;
     width: 100%;

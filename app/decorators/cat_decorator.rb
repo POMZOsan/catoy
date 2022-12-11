@@ -22,6 +22,6 @@ class CatDecorator < Draper::Decorator
   end
 
   def avatar
-    object.avatar.attached? ? object.avatar : 'sample.jpg'
+    object.avatar.attached? ? object.avatar : 'defaults/sample.jpg'
   end
 end

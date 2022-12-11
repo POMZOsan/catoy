@@ -28,6 +28,7 @@
 ### バックエンド
 * Ruby 3.1.2
 * Ruby on Rails 6.1.6
+* Node 16.14.0
 ### フロントエンド
 * HTML/SCSS/JavaScript
 * Vue.js 2.6.14

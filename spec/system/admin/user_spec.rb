@@ -47,6 +47,20 @@ RSpec.describe 'Users', type: :system do
         expect(current_path).to eq admin_user_path(new_user.id)
         expect(page).to have_content 'edited_user'
       end
+
+      it 'can delete a user' do
+        new_user
+        click_link 'Users'
+        expect(current_path).to eq admin_users_path
+        find("#user-show-#{new_user.id}").click
+        expect(current_path).to eq admin_user_path(new_user.id)
+        expect(page).to have_content new_user.name
+        find("#user-delete-#{new_user.id}").click
+        page.driver.browser.switch_to.alert.accept
+        expect(current_path).to eq admin_users_path
+        expect(page).to have_content 'ユーザーを削除しました'
+        expect(page).to_not have_content new_user.name
+      end
     end
   end
 

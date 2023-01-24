@@ -21,9 +21,35 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_content users[3].name
       end
     end
+
+    context 'click 詳細' do
+      let(:new_user) { create :user, name: 'new_user' }
+      it 'shows a user' do
+        new_user
+        click_link 'Users'
+        expect(current_path).to eq admin_users_path
+        find("#user-show-#{new_user.id}").click
+        expect(current_path).to eq admin_user_path(new_user.id)
+        expect(page).to have_content new_user.name
+      end
+
+      it 'can edit a user' do
+        new_user
+        click_link 'Users'
+        expect(current_path).to eq admin_users_path
+        find("#user-show-#{new_user.id}").click
+        expect(current_path).to eq admin_user_path(new_user.id)
+        expect(page).to have_content new_user.name
+        find("#user-edit-#{new_user.id}").click
+        expect(current_path).to eq edit_admin_user_path(new_user.id)
+        fill_in '名前', with: 'edited_user'
+        click_button '更新する'
+        expect(current_path).to eq admin_user_path(new_user.id)
+        expect(page).to have_content 'edited_user'
+      end
+    end
   end
 
-  # user詳細
   # user編集
   # user削除
   # user検索/名前・権限

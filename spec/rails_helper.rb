@@ -63,6 +63,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include ApplicationHelper
   config.include LoginMacros
+  config.include AdminLoginMacros
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)

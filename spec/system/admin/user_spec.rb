@@ -62,9 +62,27 @@ RSpec.describe 'Users', type: :system do
         expect(page).to_not have_content new_user.name
       end
     end
-  end
 
-  # user編集
-  # user削除
-  # user検索/名前・権限
+    context 'click 編集' do
+      it 'can edit a user' do
+        user = create(:user, name: 'user')
+        click_link 'Users'
+        expect(current_path).to eq admin_users_path
+        find("#user-edit-#{user.id}").click
+        expect(current_path).to eq edit_admin_user_path(user.id)
+        fill_in '名前', with: 'edited_user'
+        fill_in 'メール', with: 'edited_user@example.com'
+        fill_in '自己紹介', with: 'test'
+        select '管理者', from: '権限'
+        attach_file 'user[avatar]', "#{Rails.root}/spec/fixtures/images/test_avatar.png"
+        expect(page).to have_selector '#preview'
+        click_button '更新する'
+        expect(page).to have_content 'ユーザーを更新しました'
+        expect(current_path).to eq admin_user_path(user.id)
+        expect(page).to have_content 'edited_user'
+        expect(page).to have_content 'test'
+        expect(page).to have_content '権限'
+      end
+    end
+  end
 end

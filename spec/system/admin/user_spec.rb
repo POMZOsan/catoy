@@ -84,5 +84,19 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_content '権限'
       end
     end
+
+    context 'click 削除' do
+      it 'can delete a user' do
+        click_link 'User'
+        expect(current_path).to eq admin_users_path
+        total_users = User.count
+        general_users = User.where(role: 0)
+        general_user_1 = general_users[0]
+        find("#user-delete-#{general_user_1.id}").click
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content 'ユーザーを削除しました'
+        expect(User.count).to_not eq total_users
+      end
+    end
   end
 end

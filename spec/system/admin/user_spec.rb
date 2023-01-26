@@ -98,5 +98,36 @@ RSpec.describe 'Users', type: :system do
         expect(User.count).to_not eq total_users
       end
     end
+
+    context 'search specified users' do
+      it 'can get a specified user by name' do
+        specified_user = User.first
+        click_link 'User'
+        expect(current_path).to eq admin_users_path
+        fill_in '名前', with: specified_user.name
+        find('#search-button').click
+        expect(page).to have_content specified_user.name
+      end
+
+      it 'can get specified users by role' do
+        admin_user_1 = admin
+        admin_user_2 = create(:user, name: 'admin_2', role: 1)
+        click_link 'User'
+        expect(current_path).to eq admin_users_path
+        select '管理者', from: 'q[role]'
+        find('#search-button').click
+        expect(page).to have_content admin_user_1.name
+        expect(page).to have_content admin_user_2.name
+      end
+
+      it 'can get a specified user by name and role' do
+        click_link 'User'
+        expect(current_path).to eq admin_users_path
+        fill_in '名前', with: admin.name
+        select '管理者', from: 'q[role]'
+        find('#search-button').click
+        expect(page).to have_content admin.name
+      end
+    end
   end
 end

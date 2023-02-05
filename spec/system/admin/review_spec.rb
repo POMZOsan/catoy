@@ -23,5 +23,15 @@ RSpec.describe 'Reviews', type: :system do
         expect(page).to have_content reviews_with_rakuten_other.title
       end
     end
+
+    context 'click 詳細' do
+      it 'shows a review' do
+        click_link 'Reviews'
+        expect(current_path).to eq admin_reviews_path
+        find("#review-show-#{reviews_with_cainz_nekojarashi.id}").click
+        expect(current_path).to eq admin_review_path(reviews_with_cainz_nekojarashi.id)
+        expect(page).to have_content reviews_with_cainz_nekojarashi.title
+      end
+    end
   end
 end

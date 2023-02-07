@@ -73,5 +73,18 @@ RSpec.describe 'Reviews', type: :system do
         expect(page).to have_content '猫じゃらし'
       end
     end
+
+    context 'click 削除' do
+      it 'can delete a review' do
+        click_link 'Reviews'
+        expect(current_path).to eq admin_reviews_path
+        reviews_before_delete = Review.count
+        find("#review-delete-#{reviews_with_cainz_nekojarashi.id}").click
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content 'レビューを削除しました'
+        reviews_after_delete = Review.count
+        expect(reviews_after_delete).not_to eq reviews_before_delete
+      end
+    end
   end
 end

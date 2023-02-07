@@ -44,6 +44,16 @@ RSpec.describe 'Reviews', type: :system do
         click_button '更新する'
         expect(page).to have_content 'レビューを更新しました'
       end
+
+      it 'can delete a review' do
+        click_link 'Reviews'
+        expect(current_path).to eq admin_reviews_path
+        find("#review-show-#{reviews_with_cainz_nekojarashi.id}").click
+        expect(current_path).to eq admin_review_path(reviews_with_cainz_nekojarashi.id)
+        find("#review-delete-#{reviews_with_cainz_nekojarashi.id}").click
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content 'レビューを削除しました'
+      end
     end
   end
 end

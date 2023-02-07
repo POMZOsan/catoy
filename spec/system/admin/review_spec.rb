@@ -55,5 +55,23 @@ RSpec.describe 'Reviews', type: :system do
         expect(page).to have_content 'レビューを削除しました'
       end
     end
+
+    context 'click 編集' do
+      it 'can edit a review' do
+        click_link 'Reviews'
+        expect(current_path).to eq admin_reviews_path
+        find("#review-edit-#{reviews_with_cainz_nekojarashi.id}").click
+        expect(current_path).to eq edit_admin_review_path(reviews_with_cainz_nekojarashi.id)
+        fill_in 'タイトル', with: '猫じゃらし'
+        fill_in 'レビュー内容', with: '猫じゃらしのレビュー'
+        find("#review_rate").set(3)
+        attach_file 'review[image]', "#{Rails.root}/spec/fixtures/images/test_review_image.jpeg"
+        expect(page).to have_selector '#preview'
+        click_button '更新する'
+        expect(page).to have_content 'レビューを更新しました'
+        expect(current_path).to eq admin_review_path(reviews_with_cainz_nekojarashi.id)
+        expect(page).to have_content '猫じゃらし'
+      end
+    end
   end
 end

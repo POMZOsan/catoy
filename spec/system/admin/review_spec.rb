@@ -32,6 +32,18 @@ RSpec.describe 'Reviews', type: :system do
         expect(current_path).to eq admin_review_path(reviews_with_cainz_nekojarashi.id)
         expect(page).to have_content reviews_with_cainz_nekojarashi.title
       end
+
+      it 'can edit a review' do
+        click_link 'Reviews'
+        expect(current_path).to eq admin_reviews_path
+        find("#review-show-#{reviews_with_cainz_nekojarashi.id}").click
+        expect(current_path).to eq admin_review_path(reviews_with_cainz_nekojarashi.id)
+        find("#review-edit-#{reviews_with_cainz_nekojarashi.id}").click
+        expect(current_path).to eq edit_admin_review_path(reviews_with_cainz_nekojarashi.id)
+        fill_in 'タイトル', with: '猫じゃらし'
+        click_button '更新する'
+        expect(page).to have_content 'レビューを更新しました'
+      end
     end
   end
 end

@@ -12,7 +12,7 @@
     <%= l review.created_at, format: :long %>
   </td>
   <td class="px-4 py-3 border flex justify-center">
-    <%= link_to '詳細', admin_review_path(review), class: "btn btn-primary" %>
+    <%= link_to '詳細', admin_review_path(review), class: "btn btn-primary", id: "review-show-#{review.id}" %>
     <%= link_to '編集', edit_admin_review_path(review), class: "btn btn-warning mx-3", id: "review-edit-#{review.id}" %>
     <%= link_to '削除', admin_review_path(review), class: "btn btn-error", method: :delete, data: {confirm: t('defaults.message.delete_confirm')}, id: "review-delete-#{review.id}" %>
   </td>

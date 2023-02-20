@@ -94,7 +94,7 @@
             </div>
             <div class="flex justify-center items-center mb-5">
               <button type="submit" class="btn" @click="updatePost()">
-                編集
+                更新
               </button>
             </div>
           </div>

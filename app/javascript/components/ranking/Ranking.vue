@@ -15,7 +15,7 @@
       >
     </div>
     <ActiveCatRanking v-if="showActiveCatRanking" :toys="activeCatToys" />
-    <GentleCatRanking v-if="showGentleCatRanking" :toys="gentleCatToys" />
+    <GentleCatRanking v-if="showGentleCatRanking" :toys="gentleCatToys" @send-review-ids="sendReviewIds" />
   </div>
 </template>
 <script>
@@ -67,7 +67,13 @@ export default {
       this.isActive = false;
       this.showActiveCatRanking = false;
     },
-  },
+    sendReviewIds(review_ids) {
+      this.axios
+        .get(`/api/ranked_reviews/?review_ids=${review_ids}`)
+        .then((res) => console.log(res.status))
+        .catch((err) => console.log(err.status));
+      }
+  }
 };
 </script>
 <style scoped>

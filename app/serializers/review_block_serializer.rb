@@ -1,5 +1,5 @@
 class ReviewBlockSerializer < ActiveModel::Serializer
-  attributes :shop, :name, :image, :url, :rate, :count
+  attributes :shop, :name, :image, :url, :rate, :count, :review_ids
   
   def shop
     case object.product_type
@@ -38,5 +38,9 @@ class ReviewBlockSerializer < ActiveModel::Serializer
 
   def count
     ReviewBlock.where(product_type: object.product_type, product_id: object.product_id).count
+  end
+
+  def review_ids
+    ReviewBlock.where(product_type: object.product_type, product_id: object.product_id).pluck(:review_id)
   end
 end

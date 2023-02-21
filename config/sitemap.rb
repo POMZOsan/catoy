@@ -10,7 +10,7 @@ SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
 )
 SitemapGenerator::Sitemap.create do
   add reviews_path
-  add ranking_path
+  add rankings_path
   Review.find_each do |review|
     add review_path(review), lastmod: review.updated_at
   end

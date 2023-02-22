@@ -1,0 +1,19 @@
+<% content_for(:title, t('.title')) %>
+
+<%= stylesheet_pack_tag 'main' %>
+<%= javascript_pack_tag 'main' %>
+
+<div class="container mx-auto px-5 py-10 relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4">
+    <div class="flex flex-col justify-center">
+      <div class="text-xl font-bold self-center pb-5"><%= @toy.name %></div>
+      <%= @toy.model_name.human %></br>
+      <% @toy.reviews.each do |review| %>
+        <%= review.title %></br>
+      <% end %>
+      <%# <div id="main">
+        <Ranking />
+      </div> %>
+    </div>
+  </div>
+</div>

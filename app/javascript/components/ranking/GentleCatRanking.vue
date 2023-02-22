@@ -7,7 +7,7 @@
             <img :src="toy.image" class="max-w-sm rounded-lg shadow-2xl" />
             <div class="w-full ml-5">
               <h1 class="text-xl font-bold">第{{ rank(index) }}位</h1>
-              <h1 class="text-2xl font-bold mt-8 mb-5" @click="sendReviewIds(toy.review_ids)">{{ toy.name }}</h1>
+              <h1 class="text-2xl font-bold mt-8 mb-5" @click="sendReviewIds(toy.shop, toy.toy_id)">{{ toy.name }}</h1>
               <span class="flex flex-row mb-5">
                 <star-rating
                   :rating="toy.rate"
@@ -57,8 +57,8 @@ export default {
     rank(index) {
       return index + 1;
     },
-    sendReviewIds(review_ids) {
-      this.$emit("send-review-ids", review_ids);
+    sendReviewIds(shop, toy_id) {
+      this.$emit("send-toy-id", shop, toy_id);
     }
   }
 };

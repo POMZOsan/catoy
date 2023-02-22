@@ -12,6 +12,6 @@ class Api::RankingController < ApplicationController
   end
 
   def review
-    render json: @review_ids, status: :ok
+    render json: { location: ranked_reviews_rankings_path }, status: :ok
   end
 end

@@ -35,7 +35,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :introduction, length: { maximum: 200 }
 
-  enum role: { general: 0, admin: 1 }
+  enum role: { general: 0, admin: 1, guest: 2 }
 
   scope :name_contain, ->(word) { where('name LIKE ?', "%#{word}%")}
   scope :role_contain, ->(number) { where(role: number)}

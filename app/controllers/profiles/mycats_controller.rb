@@ -1,5 +1,7 @@
 class Profiles::MycatsController < ApplicationController
   before_action :set_cat, only: %i[ show edit update ]
+  before_action :ensure_nomal_user, only: %i[ new edit create update ]
+
   def new
     @cat = Cat.new
   end
@@ -35,5 +37,11 @@ class Profiles::MycatsController < ApplicationController
 
   def cat_params
     params.require(:cat).permit(:name, :sex, :character, :birth_date, :avatar)
+  end
+
+  def ensure_nomal_user
+    if current_user.guest?
+      redirect_to profile_path, warning: 'ゲストcatは編集・削除ができません！'
+    end
   end
 end

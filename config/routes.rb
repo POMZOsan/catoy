@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'sign_up', to: 'users#new'
 
+  post 'guest', to: 'guest_sessions#guest_login'
+
   resources :reviews, only: %i[ index new show edit destroy ] do
     get 'favourites', on: :collection
     get 'search', on: :collection

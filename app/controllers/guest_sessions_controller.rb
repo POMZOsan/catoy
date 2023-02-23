@@ -11,5 +11,6 @@ class GuestSessionsController < ApplicationController
               end
       auto_login(user)
       redirect_to root_path, info: 'ゲストでログインしました'
+    end
   end
 end

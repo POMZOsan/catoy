@@ -1,5 +1,6 @@
 class PasswordResetsController < ApplicationController
   skip_before_action :require_login
+  before_action :ensure_nomal_user, only: %i[ create ]
 
   def new; end
 
@@ -26,6 +27,14 @@ class PasswordResetsController < ApplicationController
     else
       flash.now[:error] = t('.fail')
       render :edit
+    end
+  end
+
+  private
+
+  def ensure_nomal_user
+    if params[:email] == 'guest@example.com'
+      redirect_to login_path, warning: 'ゲストユーザーのパスワード再設定はできません'
     end
   end
 end

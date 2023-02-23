@@ -70,6 +70,8 @@
           <%= t('users.new.title') %>
           <i class="fas fa-paw ml-2"></i>
         <% end %>
+        <p class="py-2 sm:hidden">or</p>
+        <%= link_to '試しに使ってみる！', guest_path, class: "btn btn-primary btn-sm sm:btn-md btn-primary", method: :post %>
       </div>
     </div>
   </div>

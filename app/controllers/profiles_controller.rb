@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: %i[ edit update destroy ]
+  before_action :ensure_nomal_user, only: %i[ edit update destroy ]
 
   def show; end
 
@@ -27,5 +28,11 @@ class ProfilesController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :introduction, :avatar)
+  end
+
+  def ensure_nomal_user
+    if current_user.guest?
+      redirect_to profile_path, warning: 'ゲストユーザーは編集・削除ができません！'
+    end
   end
 end

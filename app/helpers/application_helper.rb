@@ -15,7 +15,7 @@ module ApplicationHelper
       reverse: true,
       separator: '|',
       description: 'catoyは猫のおもちゃのレビューから猫ちゃんの性格に合うおもちゃを見つけられるサービスです',
-      keywords: '猫、猫のおもちゃ、おもちゃ、レビュー',
+      keywords: '猫,おもちゃ,人気,ランキング,レビュー',
       canonical: request.original_url,
       noindex: ! Rails.env.production?,
       icon: [

@@ -14,8 +14,8 @@
         >おとなしい性格</a
       >
     </div>
-    <ActiveCatRanking v-if="showActiveCatRanking" :toys="activeCatToys" />
-    <GentleCatRanking v-if="showGentleCatRanking" :toys="gentleCatToys" />
+    <ActiveCatRanking v-if="showActiveCatRanking" :toys="activeCatToys" @send-toy-id="sendToyId" />
+    <GentleCatRanking v-if="showGentleCatRanking" :toys="gentleCatToys" @send-toy-id="sendToyId" />
   </div>
 </template>
 <script>
@@ -35,7 +35,7 @@ export default {
       showActiveCatRanking: true,
       showGentleCatRanking: false,
       isActive: true,
-      isGentle: false,
+      isGentle: false
     };
   },
   created() {
@@ -67,7 +67,15 @@ export default {
       this.isActive = false;
       this.showActiveCatRanking = false;
     },
-  },
+    sendToyId(shop, toy_id) {
+      this.axios
+        .get("/api/ranked_reviews")
+        .then((res) => { 
+          window.location = `${res.data.location}/?toy_shop=${shop}&toy_id=${toy_id}`;
+          })
+        .catch((err) => console.log(err.status));
+      }
+  }
 };
 </script>
 <style scoped>

@@ -3,8 +3,8 @@ ja:
     models:
       user: 'ユーザー'
       cat: '猫'
-      cainz: 'カインズ'
-      rakuten: '楽天'
+      cainz: 'カインズホーム'
+      rakuten: '楽天24'
       category: 'カテゴリー'
       review: 'レビュー'
       comment: 'コメント'

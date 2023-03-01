@@ -23,7 +23,9 @@ Rails.application.routes.draw do
     resource :mycat, only: %i[ new create show edit update], module: 'profiles'
   end
 
-  get 'ranking', to: 'rankings#index'
+  resources :rankings, only: %i[ index ] do
+    get 'ranked_reviews', on: :collection
+  end
 
   namespace :api do
     resources :reviews, only: %i[ edit create update ]
@@ -32,6 +34,7 @@ Rails.application.routes.draw do
     get 'rakuten', to: 'rakuten#index'
     get 'active_cat_ranking', to: 'ranking#active'
     get 'gentle_cat_ranking', to: 'ranking#gentle'
+    get 'ranked_reviews', to: 'ranking#review'
   end
 
   namespace :admin do

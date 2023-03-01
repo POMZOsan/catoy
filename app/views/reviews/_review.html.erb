@@ -9,7 +9,7 @@
     <% end %>
     <div>
       <span class="star-rating">
-        <span class="star-rating-front" style="width: <%= review.rating_parcent %>%">★★★★★</span>
+        <span class="star-rating-front" style="width: <%= rating_parcent(review.rate) %>%">★★★★★</span>
         <span class="star-rating-back">★★★★★</span>
       </span>
       <% if logged_in? %>

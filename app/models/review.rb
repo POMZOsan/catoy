@@ -79,16 +79,6 @@ class Review < ApplicationRecord
     end
   end
 
-  def rating_parcent
-    if rate.present?
-      cal = rate.to_f / 5 * 100
-      parcent = cal.round
-      return parcent
-    else
-      return 0
-    end
-  end
-
   def image_url
     image.attached? ? url_for(image) : nil
   end

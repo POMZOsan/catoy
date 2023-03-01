@@ -23,7 +23,7 @@
         <span class="flex flex-col sm:flex-row sm:items-center">
           <span>
             <span class="star-rating">
-              <span class="star-rating-front" style="width: <%= @review.rating_parcent %>%">★★★★★</span>
+              <span class="star-rating-front" style="width: <%= rating_parcent(@review.rate) %>%">★★★★★</span>
               <span class="star-rating-back">★★★★★</span>
             </span>
             <span class="ml-3 mt-3"><%= @review.decorate.star %></span>

@@ -1,8 +1,27 @@
 <% content_for(:title, t('.title')) %>
 <div class="container mx-auto px-5 py-10 relative">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4">
-    <div class="flex flex-col justify-center">
-      <div class="text-xl font-bold self-center pb-5"><%= @toy.name %></div>
+    <div class="hero h-full w-auto sm:w-full pt-8 mb-5 px-10 rounded-lg">
+      <div class="hero-content flex-row w-auto">
+        <%= image_tag @toy.image, class: "w-24 shadow-xl sm:w-48 rounded-lg sm:shadow-2xl" %>
+        <div class="w-full ml-5">
+          <h1 class="font-bold sm:text-2xl sm:mb-3"><%= @toy.name %></h1>
+          <span class="flex flex-row items-center mb-3">
+            <span class="star-rating self-center">
+              <span class="star-rating-front" style="width: 50%">★★★★★</span>
+              <span class="star-rating-back">★★★★★</span>
+            </span>
+            <span class="self-center font-semibold">総レビュー数<%= @reviews.count %>件</span>
+          </span>
+          <span class="items-center font-semibold">
+            <i class="fas fa-store"></i>
+            <%= @toy.model_name.human %>
+          </span>
+          <div class="my-3">
+            <%= link_to t('reviews.show.check_site'), @toy.url, target: :_blank, rel: "noopener noreferrer", class: "btn btn-sm sm:btn-md btn-primary"%>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <% if @reviews.present? %>

@@ -14,7 +14,7 @@
         >おとなしい性格</a
       >
     </div>
-    <ActiveCatRanking v-if="showActiveCatRanking" :toys="activeCatToys" />
+    <ActiveCatRanking v-if="showActiveCatRanking" :toys="activeCatToys" @send-toy-id="sendToyId" />
     <GentleCatRanking v-if="showGentleCatRanking" :toys="gentleCatToys" @send-toy-id="sendToyId" />
   </div>
 </template>

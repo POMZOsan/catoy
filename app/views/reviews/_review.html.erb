@@ -15,10 +15,10 @@
       <% if logged_in? %>
         <% unless current_user.mine?(review) %>
           <span class="ml-10">
-            <%= render 'favourite_button', review: review %>
+            <%= render 'reviews/favourite_button', review: review %>
           </span>
         <% else %>
-          <%= render 'crud_menu', review: review %>
+          <%= render 'reviews/crud_menu', review: review %>
         <% end %>
       <% end %>
     </div>

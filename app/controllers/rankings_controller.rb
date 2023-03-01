@@ -10,5 +10,6 @@ class RankingsController < ApplicationController
     end
     @toy
     @reviews = @toy.reviews.includes(:user, :favourites).order(created_at: :desc).page(params[:page])
+    @avg_rate = @reviews.average(:rate).round(1)
   end
 end

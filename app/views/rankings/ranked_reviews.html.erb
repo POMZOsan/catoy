@@ -6,14 +6,17 @@
         <%= image_tag @toy.image, class: "w-24 shadow-xl sm:w-48 rounded-lg sm:shadow-2xl" %>
         <div class="w-full ml-5">
           <h1 class="font-bold sm:text-2xl sm:mb-3"><%= @toy.name %></h1>
-          <span class="flex flex-row items-center mb-3">
-            <span class="star-rating self-center">
-              <span class="star-rating-front" style="width: 50%">★★★★★</span>
-              <span class="star-rating-back">★★★★★</span>
-            </span>
-            <span class="self-center font-semibold">総レビュー数<%= @reviews.count %>件</span>
+          <span class="flex flex-row mb-3">
+            <div class="items-center">
+              <span class="star-rating mr-3">
+                <span class="star-rating-front" style="width: <%= rating_parcent(@avg_rate) %>%">★★★★★</span>
+                <span class="star-rating-back">★★★★★</span>
+              </span>
+              <span class="font-semibold mr-4">総合評価 星<%= @avg_rate %></span>
+              <span class="font-semibold">総レビュー数<%= @reviews.count %>件</span>
+            </div>
           </span>
-          <span class="items-center font-semibold">
+          <span class="items-center">
             <i class="fas fa-store"></i>
             <%= @toy.model_name.human %>
           </span>

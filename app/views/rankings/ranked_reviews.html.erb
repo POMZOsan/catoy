@@ -1,25 +1,23 @@
 <% content_for(:title, @toy.name) %>
 <div class="container mx-auto px-5 py-10 relative">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4">
-    <div class="hero h-full w-auto sm:w-full pt-8 mb-5 px-10 rounded-lg">
-      <div class="hero-content flex-row w-auto">
-        <%= image_tag @toy.image, class: "w-24 shadow-xl sm:w-48 rounded-lg sm:shadow-2xl" %>
+    <div class="hero h-full w-auto sm:w-full pt-8 mb-3 sm:mb-5 px-3 sm:px-10 rounded-lg">
+      <div class="hero-content flex-col sm:flex-row w-auto">
+        <%= image_tag @toy.image, class: "w-32 shadow-xl sm:w-48 rounded-lg sm:shadow-2xl" %>
         <div class="w-full ml-5">
-          <h1 class="font-bold sm:text-2xl sm:mb-3"><%= @toy.name %></h1>
-          <span class="flex flex-row mb-3">
-            <div class="items-center">
-              <span class="star-rating mr-3">
-                <span class="star-rating-front" style="width: <%= rating_parcent(@avg_rate) %>%">★★★★★</span>
-                <span class="star-rating-back">★★★★★</span>
-              </span>
-              <span class="font-semibold mr-4">総合評価 星<%= @avg_rate %></span>
-              <span class="font-semibold">総レビュー数<%= @reviews.count %>件</span>
-            </div>
-          </span>
-          <span class="items-center">
+          <h1 class="font-bold text-lg sm:text-2xl mb-2 sm:mb-3"><%= truncate(@toy.name, length: 35) %></h1>
+          <div class="flex flex-wrap sm:flex-row">
+            <div class="mr-4">総合評価 星<%= @avg_rate %></div>
+            <div>総レビュー数<%= @reviews.count %>件</div>
+          </div>
+          <div class="star-rating">
+            <span class="star-rating-front" style="width: <%= rating_parcent(@avg_rate) %>%">★★★★★</span>
+            <span class="star-rating-back">★★★★★</span>
+          </div>
+          <div class="items-center mt-2 sm:mt-3">
             <i class="fas fa-store"></i>
             <%= @toy.model_name.human %>
-          </span>
+          </div>
           <div class="my-3">
             <%= link_to t('reviews.show.check_site'), @toy.url, target: :_blank, rel: "noopener noreferrer", class: "btn btn-sm sm:btn-md btn-primary"%>
           </div>

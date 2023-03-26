@@ -61,6 +61,6 @@ def create_toy_data(toys, review_counts, review_rates)
     end
     arr << hash
   end
-  sorted_arr = arr.sort {|a, b| b[:rate] <=> a[:rate] }
+  sorted_arr = arr.sort_by{ |a| [-a[:count], -a[:rate]] }
   return sorted_arr
 end

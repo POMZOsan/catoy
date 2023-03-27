@@ -25,8 +25,8 @@ class ReviewBlock < ApplicationRecord
     review_counts_keys = review_counts.keys
     reviews_avg_rates = avg_reviews_rate(character).values.map {|v| v = v.to_f.round(1) }
 
-    create_toy_data(review_counts_keys, review_counts_values, reviews_avg_rates)
-
+    json_data = create_toy_data(review_counts_keys, review_counts_values, reviews_avg_rates)
+    return json_data
   end
 end
 
@@ -62,5 +62,6 @@ def create_toy_data(toys, review_counts, review_rates)
     arr << hash
   end
   sorted_arr = arr.sort_by{ |a| [-a[:count], -a[:rate]] }
-  return sorted_arr
+  top_10_toys = sorted_arr[0..9]
+  return top_10_toys
 end

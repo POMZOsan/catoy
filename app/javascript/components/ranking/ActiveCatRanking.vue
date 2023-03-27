@@ -11,15 +11,15 @@
               <span class="flex flex-row mb-5">
                 <star-rating
                   :rating="toy.rate"
-                  :increment="1"
-                  :max-rating="5"
+                  :increment="0.01"
+                  :max-rating="5.0"
                   :rounded-corners="true"
                   :star-size="30"
                   :read-only="true"
                   :show-rating="false"
                 ></star-rating>
                 <span class="ml-3">星{{ toy.rate }}つ</span>
-                <span class="ml-10">総レビュー数{{ toy.count }}件</span>
+                <span class="ml-10">レビュー数{{ toy.count }}件</span>
               </span>
               <span class="items-center">
                 <i class="fas fa-store mr-2"></i>{{ toy.shop }}
